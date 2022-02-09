@@ -10,5 +10,6 @@ package ListaVentanillas;
  * @author orman
  */
 public class Ventanilla {
-    
+    int numero;
+    PilaImagenes pilaImangenes;
 }

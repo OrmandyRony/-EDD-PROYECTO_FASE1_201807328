@@ -9,22 +9,22 @@ package ListaVentanillas;
  *
  * @author orman
  */
-public class ListaVentanillas {
+public class ListaImpresoras {
     public Nodo head;
-    public ListaImpresoras listaImpresoras;
     
     public class Nodo {
-        public Ventanilla ventanilla;
+        public Impresora impresora;
         public Nodo next = null;
 
-        public Nodo(Ventanilla ventanilla) {
-            this.ventanilla = ventanilla;
+        public Nodo(Impresora impresora) {
+            this.impresora = impresora;
         }
         
     }
     
-    public void insertar(Ventanilla ventanilla) {
-        Nodo nuevoNodo = new Nodo(ventanilla);
+    public void insertar(Impresora impresora) {
+        Nodo nuevoNodo = new Nodo(impresora);
+        
         nuevoNodo.next = head;
         head = nuevoNodo;
     }
