@@ -5,9 +5,11 @@
  */
 package udrawingpaper;
 
+import ColaRecepcion.*;
+
 /**
  *
- * @author orman
+ * @author ormandyRony
  */
 public class UDrawingPaper {
 
@@ -15,7 +17,9 @@ public class UDrawingPaper {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ColaRecepcion colaRecepcion = new ColaRecepcion();
+        Cliente rony = new Cliente("1", "Rony", 10, 10);
+        colaRecepcion.enqueue(rony);
     }
     
 }
