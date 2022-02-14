@@ -24,7 +24,6 @@ public class ListaImpresoras {
     
     public void insertar(Impresora impresora) {
         Nodo nuevoNodo = new Nodo(impresora);
-        
         nuevoNodo.next = head;
         head = nuevoNodo;
     }

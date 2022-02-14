@@ -14,10 +14,10 @@ public class Impresora {
     public int paso;
     public ColaImpresiones colaImpresiones;
 
-    public Impresora(String tipo, int paso, ColaImpresiones colaImpresiones) {
+    public Impresora(String tipo, int paso) {
         this.tipo = tipo;
         this.paso = paso;
-        this.colaImpresiones = colaImpresiones;
+   
     }
     
     

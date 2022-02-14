@@ -5,6 +5,8 @@
  */
 package ListaVentanillas;
 
+import ColaRecepcion.Cliente;
+
 /**
  *
  * @author orman
@@ -12,6 +14,7 @@ package ListaVentanillas;
 public class ListaVentanillas {
     public Nodo head;
     public ListaImpresoras listaImpresoras;
+    public int size = 0;
     
     public class Nodo {
         public Ventanilla ventanilla;
@@ -23,9 +26,35 @@ public class ListaVentanillas {
         
     }
     
-    public void insertar(Ventanilla ventanilla) {
+    public void crear() {
+        size++;
+        Ventanilla ventanilla = new Ventanilla(size); 
         Nodo nuevoNodo = new Nodo(ventanilla);
-        nuevoNodo.next = head;
-        head = nuevoNodo;
+        
+        if (head == null) {
+            head = nuevoNodo;
+        } else {
+            Nodo aux = head;
+            while (aux.next != null) {
+                aux = aux.next;
+            }
+            aux.next = nuevoNodo;
+        }
+    }
+    
+    public void simularIngreso(Cliente cliente) {
+        Nodo aux = head;
+        while (aux.ventanilla.cliente != null) {
+            aux = aux.next;
+        }
+        aux.ventanilla.insertarCliente(cliente);
+    }
+    
+    public void realizarPasos(){
+        Nodo aux = head;
+        
+        while (aux != null) {
+            aux.ventanilla.cliente.
+        }
     }
 }

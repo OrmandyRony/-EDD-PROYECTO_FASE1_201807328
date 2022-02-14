@@ -22,8 +22,9 @@ public class ColaRecepcion {
         
     }
     
-    public void enqueue(Cliente cliente){
-        Nodo nuevoNodo = new Nodo(cliente);
+    public void enqueue(String id, String nombre, int imagenColor, int imagenBlancoNegro){
+        Cliente nuevoCliente = new Cliente(id, nombre, imagenColor, imagenBlancoNegro);
+        Nodo nuevoNodo = new Nodo(nuevoCliente);
         
         if (front == null) {
             front = nuevoNodo;
@@ -42,6 +43,17 @@ public class ColaRecepcion {
         if (front != null) {
             front = front.next;
         }
+    }
+    
+    public Cliente top() {
+        return front.cliente;
+    }
+    
+    public boolean vacia() {
+        if (front == null) {
+            return false;
+        }
+        return true;
     }
     
 }
