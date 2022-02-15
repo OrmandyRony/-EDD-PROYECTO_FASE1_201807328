@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaVentanillas;
+package udrawingpaper;
 
 /**
  *
@@ -11,9 +11,21 @@ package ListaVentanillas;
  */
 public class Imagen {
     String tipoImpresion; 
+    String propietario;
+    int pasos;
 
-    public Imagen(String tipoImpresion) {
+    public Imagen(String tipoImpresion, int pasos, String propietario) {
         this.tipoImpresion = tipoImpresion;
+        this.pasos = pasos;
+        this.propietario = propietario;
+    }
+    
+    public void velocidad() {
+        this.pasos--;
+    }
+
+    public int getPasos() {
+        return pasos;
     }
     
     

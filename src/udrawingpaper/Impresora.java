@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaVentanillas;
+package udrawingpaper;
 
 /**
  *
  * @author orman
  */
 public class Impresora {
-    public String tipo; //Color o BlancoNegro
     public int paso;
-    public ColaImpresiones colaImpresiones;
+    public ColaImpresiones colaImpresiones = new ColaImpresiones();
 
-    public Impresora(String tipo, int paso) {
-        this.tipo = tipo;
+    public Impresora(int paso) {
         this.paso = paso;
    
     }

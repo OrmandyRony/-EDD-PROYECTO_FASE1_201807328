@@ -3,28 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ColaRecepcion;
+package udrawingpaper;
 
 /**
  *
  * @author orman
  */
-public class ColaRecepcion {
+public class ColaImpresiones {
     public Nodo front;
     
     public class Nodo {
-        public Cliente cliente;
+        public Imagen imagen;
         public Nodo next = null;
 
-        public Nodo(Cliente cliente) {
-            this.cliente = cliente;
+        public Nodo(Imagen imagen) {
+            this.imagen = imagen;
         }
         
     }
     
-    public void enqueue(String id, String nombre, int imagenColor, int imagenBlancoNegro){
-        Cliente nuevoCliente = new Cliente(id, nombre, imagenColor, imagenBlancoNegro);
-        Nodo nuevoNodo = new Nodo(nuevoCliente);
+    public void enqueue(Imagen imagen){
+        Nodo nuevoNodo = new Nodo(imagen);
         
         if (front == null) {
             front = nuevoNodo;
@@ -45,15 +44,25 @@ public class ColaRecepcion {
         }
     }
     
-    public Cliente top() {
-        return front.cliente;
+    public boolean imprimir() {
+        front.imagen.velocidad();
+        return front.imagen.getPasos() == 0;
+    }
+
+    public Imagen getFrontImagen() {
+        return front.imagen;
+    }
+    
+    public void mostrar() {
+        Nodo aux = front;
+        while (aux != null) {
+            System.out.println(aux.imagen);
+            aux = aux.next;
+        }
     }
     
     public boolean vacia() {
-        if (front == null) {
-            return false;
-        }
-        return true;
+        return front != null;
     }
     
 }

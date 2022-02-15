@@ -3,28 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaVentanillas;
+package udrawingpaper;
 
 /**
  *
  * @author orman
  */
-public class ListaImpresoras {
+public class ListaClientesAtendidos {
     public Nodo head;
     
     public class Nodo {
-        public Impresora impresora;
-        public Nodo next = null;
+        Cliente cliente;
+        Nodo next = null;
 
-        public Nodo(Impresora impresora) {
-            this.impresora = impresora;
+        public Nodo(Cliente cliente) {
+            this.cliente = cliente;
         }
-        
     }
     
-    public void insertar(Impresora impresora) {
-        Nodo nuevoNodo = new Nodo(impresora);
+    public void insert(Cliente cliente) {
+        Nodo nuevoNodo = new Nodo(cliente);
+       
         nuevoNodo.next = head;
         head = nuevoNodo;
+       
     }
+    
 }

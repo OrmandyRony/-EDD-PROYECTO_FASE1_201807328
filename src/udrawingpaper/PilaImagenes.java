@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaVentanillas;
+package udrawingpaper;
 
 /**
  *
@@ -33,4 +33,17 @@ public class PilaImagenes {
             top = top.next;
         }
     }
+    
+    public boolean vacia() {
+        if (top == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public Imagen getTop() {
+        return top.imagen;
+    }
+    
+    
 }

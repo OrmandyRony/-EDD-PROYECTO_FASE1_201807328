@@ -5,7 +5,6 @@
  */
 package udrawingpaper;
 
-import ColaRecepcion.*;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.Reader;
@@ -31,7 +30,7 @@ public class UDrawingPaper {
         Scanner input = new Scanner(System.in);
         
         Imprenta imprenta = new Imprenta();
-        ColaRecepcion colaRecepcion = new ColaRecepcion();
+    
         
       
         
@@ -77,7 +76,7 @@ public class UDrawingPaper {
                     int imagenBlancoNegro = Integer.parseInt(((String)tmp.get("img_bw")).trim());
                     //Primero creo un cliente
                     
-                    imprenta.colaRecepcion.enqueue(id, nombre, imagenColor, imagenBlancoNegro);
+                    imprenta.listaVentanillas.colaRecepcion.enqueue(id, nombre, imagenColor, imagenBlancoNegro);
 
                 }
             } else if (opcion == 3) {

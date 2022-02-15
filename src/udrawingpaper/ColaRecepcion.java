@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaVentanillas;
+package udrawingpaper;
 
 /**
  *
  * @author orman
  */
-public class ColaImpresiones {
+public class ColaRecepcion {
     public Nodo front;
     
     public class Nodo {
-        public Imagen imagen;
+        public Cliente cliente;
         public Nodo next = null;
 
-        public Nodo(Imagen imagen) {
-            this.imagen = imagen;
+        public Nodo(Cliente cliente) {
+            this.cliente = cliente;
         }
         
     }
     
-    public void enqueue(Imagen imagen){
-        Nodo nuevoNodo = new Nodo(imagen);
+    public void enqueue(String id, String nombre, int imagenColor, int imagenBlancoNegro){
+        Cliente nuevoCliente = new Cliente(id, nombre, imagenColor, imagenBlancoNegro);
+        Nodo nuevoNodo = new Nodo(nuevoCliente);
         
         if (front == null) {
             front = nuevoNodo;
@@ -43,4 +44,16 @@ public class ColaImpresiones {
             front = front.next;
         }
     }
+    
+    public Cliente top() {
+        return front.cliente;
+    }
+    
+    public boolean vacia() {
+        if (front == null) {
+            return false;
+        }
+        return true;
+    }
+    
 }

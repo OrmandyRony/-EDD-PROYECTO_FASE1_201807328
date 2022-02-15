@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ColaRecepcion;
-
-import ListaVentanillas.ListaImagenes;
+package udrawingpaper;
 
 /**
  *
@@ -29,6 +27,5 @@ public class Cliente {
     public Cliente() {
         
     }
-    
     
 }
