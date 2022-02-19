@@ -17,6 +17,6 @@ public class Imprenta {
     
     
     public void simulacion(){
-        listaVentanillas.simulacionImprenta();
+       
     }
 }

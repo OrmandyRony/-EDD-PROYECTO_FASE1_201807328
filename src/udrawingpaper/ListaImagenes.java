@@ -11,6 +11,7 @@ package udrawingpaper;
  */
 public class ListaImagenes {
     public Nodo head;
+    public int size = 0;
     
     public class Nodo {
         public Imagen imagen;
@@ -23,6 +24,7 @@ public class ListaImagenes {
     }
     
     public void insert(Imagen imagen) {
+        size++;
         Nodo nuevoNodo = new Nodo(imagen);
         
         if (head == null) {

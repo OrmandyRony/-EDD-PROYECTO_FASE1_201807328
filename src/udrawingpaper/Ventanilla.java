@@ -23,10 +23,7 @@ public class Ventanilla {
     }
     
    public boolean ocupada(){
-       if (cliente != null) {
-           return true;
-       }
-       return false;
+       return cliente != null;
    }
    
    public void insertarImagen(String tipo, int pasos, String propietario) {
@@ -38,8 +35,10 @@ public class Ventanilla {
         return cliente;
     }
    
-    public void sacarCliente() {
+    public Cliente sacarCliente() {
+        Cliente clienteAuxiliar = cliente;
         cliente = null;
+        return clienteAuxiliar;
     }
     
 }

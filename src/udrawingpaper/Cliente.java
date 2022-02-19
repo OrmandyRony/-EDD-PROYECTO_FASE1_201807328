@@ -14,6 +14,7 @@ public class Cliente {
     String nombre;
     int imagenColor;
     int imagenBlancoNegro;
+    int totalImagenes;
     ListaImagenes listaImagenes = new ListaImagenes();
     int pasos = 0;
 
@@ -22,10 +23,25 @@ public class Cliente {
         this.nombre = nombre;
         this.imagenColor = imagenColor;
         this.imagenBlancoNegro = imagenBlancoNegro;
+        this.totalImagenes = imagenColor + imagenBlancoNegro;
     }
 
     public Cliente() {
         
     }
+    
+    public void paso() {
+        pasos++;
+    }
+
+    public void setImagenBlancoNegro() {
+        this.imagenBlancoNegro--;
+    }
+
+    public void setImagenColor() {
+        this.imagenColor--;
+    }
+    
+    
     
 }

@@ -50,10 +50,7 @@ public class ColaRecepcion {
     }
     
     public boolean vacia() {
-        if (front == null) {
-            return false;
-        }
-        return true;
+        return front != null;
     }
     
 }

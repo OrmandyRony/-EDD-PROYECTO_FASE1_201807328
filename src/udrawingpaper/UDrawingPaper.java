@@ -5,13 +5,12 @@
  */
 package udrawingpaper;
 
-import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Map;
-import java.util.Scanner;
+
+
+
+
+
 
 /**
  *
@@ -21,12 +20,19 @@ public class UDrawingPaper {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     
     
     public static void main(String[] args) throws IOException {
         
-          
+        Menu menu = new Menu();
+        menu.menuPrincipal();
+        /*
+        ListaVentanillas listaVentanillas = new ListaVentanillas();
+        listaVentanillas.simulacionImprenta2();
+        */
+        /*  
         Scanner input = new Scanner(System.in);
         
         Imprenta imprenta = new Imprenta();
@@ -60,7 +66,7 @@ public class UDrawingPaper {
             } else if (opcion == 2) {
                 
                 System.out.println("\nIngresa la ruta de tu archivo con los clientes.");
-                String ruta = "C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaper\\clientes.json";
+                String ruta = "C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaper\\cliente.json";
                 Reader lector = Files.newBufferedReader(Paths.get(ruta));
                 //instrucciones del oediv
                 Gson gson = new Gson();
@@ -94,7 +100,7 @@ public class UDrawingPaper {
         System.out.println("Ejecutar paso");
         
        
-        
+        */
       
         
         
