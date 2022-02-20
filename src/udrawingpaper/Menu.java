@@ -72,6 +72,42 @@ public class Menu {
                 
                 if (opcionMenuSecundario == 1) {
                     listaVentanillas.ejecutarPaso();
+                    
+                } else if (opcionMenuSecundario == 2) {
+                    int opcionReportes = 0;
+                    
+                    do {
+                        System.out.println("------------------- Reportes -----------");
+                        System.out.println("1. Top 5 de clientes de la lista de clientes atendidos\n "
+                                + "con mayor cantidad de imagenes a color\n"
+                                + "2. Top 5 de clientes con menor cantidad de imagenes en blanco y negro\n"
+                                + "3. Buscar cliente atendido\n"
+                                + "4. Información del cliente que más pasos estuvo en el sistema\n"
+                                + "5. Salir\n"
+                                + "---------------------------------------------\n"
+                                + "Ingrese una opcion");
+                        System.out.print("$");
+
+                        opcionReportes = input.nextInt();
+                        
+                        if (opcionReportes == 1) {
+                            listaVentanillas.listaClientesAtendidos.topCincoColor();
+                        } else if (opcionReportes == 2) {
+                            listaVentanillas.listaClientesAtendidos.topCincoBlancoNegro();
+                        } else if (opcionReportes == 3) {
+                            System.out.println("Ingrese el nombre del cliente:");
+                            System.out.print("&");
+                            String nombre = input.nextLine();
+                            listaVentanillas.imprimirCliente(nombre);
+                        } else {
+                            System.out.println("Opcion invalida");
+                        }
+                        
+                    } while (opcionReportes != 5);
+                    
+                } else if (opcionMenuSecundario == 3) {
+                    System.out.println("1. Graficos de vizualizacion");
+                    System.out.println("2. Datos a generar");
                 }
                 
                

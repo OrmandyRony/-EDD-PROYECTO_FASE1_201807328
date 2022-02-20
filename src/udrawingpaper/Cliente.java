@@ -13,7 +13,9 @@ public class Cliente {
     String id;
     String nombre;
     int imagenColor;
+    int cantidadImagenesColor;
     int imagenBlancoNegro;
+    int cantidadImagenesBlancoNegro;
     int totalImagenes;
     ListaImagenes listaImagenes = new ListaImagenes();
     int pasos = 0;
@@ -22,7 +24,9 @@ public class Cliente {
         this.id = id;
         this.nombre = nombre;
         this.imagenColor = imagenColor;
+        this.cantidadImagenesColor = imagenColor;
         this.imagenBlancoNegro = imagenBlancoNegro;
+        this.cantidadImagenesBlancoNegro = imagenBlancoNegro;
         this.totalImagenes = imagenColor + imagenBlancoNegro;
     }
 

@@ -5,6 +5,10 @@
  */
 package udrawingpaper;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  *
  * @author orman
@@ -91,15 +95,17 @@ public class ListaClientesEspera {
                 if (size == 1) {
                     size--;
                     head = null;
+                    last = null;
                     return tmp;
                 }
                 //System.out.println("Se cambio de cabeza");
                 head.next.next = head.next;
                 head.next.prev = head.next;
                 head = head.next;
+                size--;
                 return tmp;
 
-            } else {
+            } else if(!(head.next == head)) {
                 Nodo nodoTemporal = head.next;
 
                 while (nodoTemporal != last.next || nodoTemporal != null) {
@@ -127,5 +133,78 @@ public class ListaClientesEspera {
         }
 
         return null;
+    }
+    
+    
+    public void graficarDot() {
+        
+        String conexiones = "";
+        String nodos = "";
+      ;
+        
+        String cadena = "digraph G{\nlabel = \"Lista de clientes en espera \";\nnode [shape=box];\n";
+        
+        
+        if (head == null) {
+            System.out.println("Lista de espera esta vacia");
+        } else {
+            Nodo aux = head;
+
+            do {
+                nodos += "N" +aux.hashCode() + "[label=\"" +aux.cliente.nombre +"\"];\n";
+                if (aux.next != null) {
+                conexiones+="N"+aux.hashCode()+ " -> "+"N"+aux.next.hashCode()+";\n";
+                }
+                aux = aux.next;
+            } while (aux != last.next);
+        }
+        
+        cadena += nodos + "{rank = same " + conexiones + "\n}\n}";
+        
+        //System.out.println(cadena);
+        
+        try {
+            String ruta = "grafica/graphviz.txt";
+            String contenido = cadena;
+            File file = new File(ruta);
+            // Si el archivo no existe es creado
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        try {
+      
+        String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+
+        String fileInputPath = "grafica/ListaEspera.txt";
+        String fileOutputPath = "ListaEspera.jpg";
+
+        String tParam = "-Tjpg";
+        String tOParam = "-o";
+
+        String[] cmd = new String[5];
+        cmd[0] = dotPath;
+        cmd[1] = tParam;
+        cmd[2] = fileInputPath;
+        cmd[3] = tOParam;
+        cmd[4] = fileOutputPath;
+
+        Runtime rt = Runtime.getRuntime();
+
+        rt.exec( cmd );
+        System.out.println("Grafica generada");
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      } finally {
+      }
+        
+        
     }
 }

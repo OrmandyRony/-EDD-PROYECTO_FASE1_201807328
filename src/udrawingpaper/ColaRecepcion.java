@@ -5,6 +5,10 @@
  */
 package udrawingpaper;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  *
  * @author orman
@@ -51,6 +55,71 @@ public class ColaRecepcion {
     
     public boolean vacia() {
         return front != null;
+    }
+    
+    public void graficarDot() {
+        
+        String conexiones = "";
+        String nodos = "";
+        String nombreEstructura = "Cola Recepcion";
+        String cadena = "digraph G{\nlabel = \"" + nombreEstructura + "\";\nnode [shape=box];\n";
+        Nodo aux = front;
+        
+        while (aux != null) {
+            nodos += "N" +aux.hashCode() + "[label=\"" +aux.cliente.nombre +"\"];\n";
+            if (aux.next != null) {
+                conexiones+="N"+ aux.next.hashCode() + " -> "+"N"+ aux.hashCode() +";\n";
+            }
+            aux = aux.next;
+        }
+        
+        cadena += nodos + "{rank = same " + conexiones + "\n}\n}";
+        
+        //System.out.println(cadena);
+        
+        try {
+            String ruta = "grafica/graphviz.txt";
+            String contenido = cadena;
+            File file = new File(ruta);
+            // Si el archivo no existe es creado
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        try {
+      
+        String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+
+        String fileInputPath = "grafica/ColaRecepcion.txt";
+        String fileOutputPath = "ColaRecepcion.jpg";
+
+        String tParam = "-Tjpg";
+        String tOParam = "-o";
+
+        String[] cmd = new String[5];
+        cmd[0] = dotPath;
+        cmd[1] = tParam;
+        cmd[2] = fileInputPath;
+        cmd[3] = tOParam;
+        cmd[4] = fileOutputPath;
+
+        Runtime rt = Runtime.getRuntime();
+
+        rt.exec( cmd );
+        System.out.println("Grafica generada");
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      } finally {
+      }
+        
+        
     }
     
 }
