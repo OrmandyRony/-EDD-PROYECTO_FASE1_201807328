@@ -289,14 +289,23 @@ public class ListaVentanillas {
     public void imprimirCliente(String nombre) {
         Cliente cliente = listaClientesAtendidos.buscarCliente(nombre);
         
-        System.out.println("--------------------- Informacion del cliente ------------");
-        System.out.println("Nombre: " + cliente.nombre);
-        System.out.println("Cantidad de imagenes a color impresas: " + 
-                cliente.cantidadImagenesColor);
-        System.out.println("Cantidad de imagenes a blanco y negro: " +
-                cliente.cantidadImagenesBlancoNegro);
-        System.out.println("Cantidad total de imagenes impresas: " +
-                cliente.totalImagenes);
-        
+        if (cliente != null) {
+            System.out.println("--------------------- Informacion del cliente ------------");
+            System.out.println("Nombre: " + cliente.nombre);
+            System.out.println("Cantidad de imagenes a color impresas: "
+                    + cliente.cantidadImagenesColor);
+            System.out.println("Cantidad de imagenes a blanco y negro: "
+                    + cliente.cantidadImagenesBlancoNegro);
+            System.out.println("Cantidad total de imagenes impresas: "
+                    + cliente.totalImagenes);
+        } else {
+            System.out.println("El cliente no existe");
+        }   
+    }
+    
+    public void generarImgEstructuras() {
+        colaRecepcion.graficarDot();
+        impresoraColor.colaImpresiones.graficarDot("Impresora Color");
+        impresoraBlancoNegro.colaImpresiones.graficarDot("Impresora Blanco y negro");
     }
 }

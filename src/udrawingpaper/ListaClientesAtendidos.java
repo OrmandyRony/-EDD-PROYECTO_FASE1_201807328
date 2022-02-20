@@ -16,6 +16,7 @@ import java.io.FileWriter;
 public class ListaClientesAtendidos {
     public Nodo head;
     public ListaClientesAtendidos listaOrdenar;
+    public ListaClientesAtendidos listaOrdenarAscendente;
     
     public class Nodo {
         Cliente cliente;
@@ -43,7 +44,7 @@ public class ListaClientesAtendidos {
         return null;
     }
     
-    public void topCinco () {
+    public void topCincoColor () {
         ListaClientesAtendidos lista = copiarLista();
         
         while (!lista.isEmpty()) {
@@ -53,6 +54,35 @@ public class ListaClientesAtendidos {
                 lista.insert(listaOrdenar.pop().cliente);
             }
             listaOrdenar.insert(nodoTmp.cliente);
+        }
+        
+        int count = 0;
+        
+        Nodo aux = listaOrdenar.head;
+        
+        while (aux != null) {
+            System.out.println("Nombre: " + aux.cliente.nombre );
+            
+            count++;
+            aux = aux.next;
+            if (count == 5) {
+                break;
+            }
+            
+        }
+        
+    }
+    
+    public void topCincoBlancoNegro () {
+        ListaClientesAtendidos lista = copiarLista();
+        
+        while (!lista.isEmpty()) {
+            Nodo nodoTmp = lista.pop();
+            
+            while (!listaOrdenar.isEmpty() && lista.peek().cliente.cantidadImagenesColor < nodoTmp.cliente.cantidadImagenesColor) {
+                lista.insert(listaOrdenarAscendente.pop().cliente);
+            }
+            listaOrdenarAscendente.insert(nodoTmp.cliente);
         }
         
         int count = 0;
@@ -92,6 +122,42 @@ public class ListaClientesAtendidos {
         
         return listaTmp;
     }
+    
+    public Cliente buscarCliente(String nombre) {
+        Nodo aux = this.head;
+        
+        while (aux != null) {
+            if (aux.cliente.nombre.equals(nombre)) {
+                return aux.cliente;
+            }
+            aux = aux.next;
+        }
+        
+        return null;
+    }
+    
+    public void clienteMasPasos() {
+        Cliente cliente = this.head.cliente;
+        Nodo aux = this.head.next;
+        
+        while (aux != null) {
+            if (cliente.pasos < aux.cliente.pasos) {
+                cliente = aux.cliente;
+            }
+            aux = aux.next;
+        }
+        
+        System.out.println("----------------- Informacion Cliente ---------------");
+        System.out.println("Nombre: " + cliente.nombre);
+        System.out.println("Cantidad de imagenes a color impresas: "
+                + cliente.cantidadImagenesColor);
+        System.out.println("Cantidad de imagenes a blanco y negro: "
+                + cliente.cantidadImagenesBlancoNegro);
+        System.out.println("Cantidad total de imagenes impresas: "
+                + cliente.totalImagenes);
+        System.out.println("Cantidad de pasos: " + cliente.pasos);
+    }
+    
     
     public void graficarDot() {
 

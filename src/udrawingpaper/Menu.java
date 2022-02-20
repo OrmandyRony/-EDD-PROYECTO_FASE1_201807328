@@ -99,6 +99,8 @@ public class Menu {
                             System.out.print("&");
                             String nombre = input.nextLine();
                             listaVentanillas.imprimirCliente(nombre);
+                        } else if (opcionReportes == 4) {
+                            listaVentanillas.listaClientesAtendidos.clienteMasPasos();
                         } else {
                             System.out.println("Opcion invalida");
                         }
@@ -106,8 +108,7 @@ public class Menu {
                     } while (opcionReportes != 5);
                     
                 } else if (opcionMenuSecundario == 3) {
-                    System.out.println("1. Graficos de vizualizacion");
-                    System.out.println("2. Datos a generar");
+                    
                 }
                 
                
