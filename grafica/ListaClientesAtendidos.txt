@@ -1,11 +1,6 @@
 digraph G{
 label = "Cola Clientes Atendidos";
 node [shape=box];
-N1685538367[label="Polly Rodriguez"];
-N1030870354[label="Douglas Dominguez"];
-N485815673[label="Shannon Johnston"];
-{ rank = same N1030870354 -> N1685538367;
-N485815673 -> N1030870354;
-
+{ rank = same 
 }
 }

@@ -1,21 +1,6 @@
 digraph G{
 label = "ImpresoraColor";
 node [shape=box];
-N1160264930[label="Yang Wiggins"];
-N544724190[label="Stefanie Wise"];
-N1972439101[label="Faith Hopkins"];
-N2007328737[label="Sandy Mason"];
-N1936628443[label="Tommie Mcpherson"];
-N1830908236[label="Tabatha Pickett"];
-N277630005[label="Tabatha Pickett"];
-N1288354730[label="Tabatha Pickett"];
-{rank = same N544724190 -> N1160264930;
-N1972439101 -> N544724190;
-N2007328737 -> N1972439101;
-N1936628443 -> N2007328737;
-N1830908236 -> N1936628443;
-N277630005 -> N1830908236;
-N1288354730 -> N277630005;
-
+{rank = same 
 }
 }

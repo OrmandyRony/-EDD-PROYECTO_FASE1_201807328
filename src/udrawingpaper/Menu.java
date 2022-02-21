@@ -32,7 +32,7 @@ public class Menu {
         
         
         do {
-            System.out.println("------------Menu :D--------\n"
+            System.out.println("------------Menu :D --------\n"
                 + "1. Cantidad de ventanillas\n"
                 + "2. Carga masiva de clientes\n"
                 + "3. Acerca de\n"
