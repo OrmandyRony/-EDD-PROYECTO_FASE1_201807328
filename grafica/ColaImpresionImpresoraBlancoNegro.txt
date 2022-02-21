@@ -1,0 +1,29 @@
+digraph G{
+label = "ImpresoraBlancoNegro";
+node [shape=box];
+N1274370218[label="Yang Wiggins"];
+N758705033[label="Yang Wiggins"];
+N1604839423[label="Faith Hopkins"];
+N1177096266[label="Faith Hopkins"];
+N670576685[label="Faith Hopkins"];
+N1299641336[label="Sandy Mason"];
+N764308918[label="Sandy Mason"];
+N598446861[label="Sandy Mason"];
+N1161082381[label="Sandy Mason"];
+N1067938912[label="Tommie Mcpherson"];
+N1637506559[label="Tabatha Pickett"];
+N517380410[label="Tabatha Pickett"];
+{rank = same N758705033 -> N1274370218;
+N1604839423 -> N758705033;
+N1177096266 -> N1604839423;
+N670576685 -> N1177096266;
+N1299641336 -> N670576685;
+N764308918 -> N1299641336;
+N598446861 -> N764308918;
+N1161082381 -> N598446861;
+N1067938912 -> N1161082381;
+N1637506559 -> N1067938912;
+N517380410 -> N1637506559;
+
+}
+}

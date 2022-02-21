@@ -89,7 +89,7 @@ public class ColaImpresiones {
 
         //System.out.println(cadena);
         try {
-            String ruta = "grafica/graphviz.txt";
+            String ruta = "grafica/ColaImpresion"+ tipoImpresora+ ".txt";
             String contenido = cadena;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -108,8 +108,8 @@ public class ColaImpresiones {
 
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
-            String fileInputPath = "grafica/ColaImpresion.txt";
-            String fileOutputPath = "ColaImpresion.jpg";
+            String fileInputPath = "grafica/ColaImpresion"+ tipoImpresora+ ".txt";
+            String fileOutputPath = "ColaImpresion"+ tipoImpresora+ ".jpg";
 
             String tParam = "-Tjpg";
             String tOParam = "-o";

@@ -32,7 +32,7 @@ public class Menu {
         
         
         do {
-            System.out.println("------------Menu--------\n"
+            System.out.println("------------Menu :D--------\n"
                 + "1. Cantidad de ventanillas\n"
                 + "2. Carga masiva de clientes\n"
                 + "3. Acerca de\n"
@@ -67,8 +67,7 @@ public class Menu {
                 System.out.println("1. Ejecutar paso\n"
                                     + "2. Reportes\n"
                                     + "3. Estado en memoria de las estrucuturas\n"
-                                    + "4. Salir del submenu\n"
-                                    + "Ingrese una opcion: ");
+                                    + "4. Salir del submenu\n");
                 
                 if (opcionMenuSecundario == 1) {
                     listaVentanillas.ejecutarPaso();
@@ -96,8 +95,10 @@ public class Menu {
                             listaVentanillas.listaClientesAtendidos.topCincoBlancoNegro();
                         } else if (opcionReportes == 3) {
                             System.out.println("Ingrese el nombre del cliente:");
-                            System.out.print("&");
+                            System.out.print("$");
+                            input.skip("\n");
                             String nombre = input.nextLine();
+                            
                             listaVentanillas.imprimirCliente(nombre);
                         } else if (opcionReportes == 4) {
                             listaVentanillas.listaClientesAtendidos.clienteMasPasos();
@@ -108,10 +109,11 @@ public class Menu {
                     } while (opcionReportes != 5);
                     
                 } else if (opcionMenuSecundario == 3) {
-                    
+                    listaVentanillas.generarImgEstructuras();
                 }
                 
-               
+                System.out.println("Ingrese una opcion: ");
+                System.out.print("$");
                 opcionMenuSecundario = input.nextInt();
             }
                 

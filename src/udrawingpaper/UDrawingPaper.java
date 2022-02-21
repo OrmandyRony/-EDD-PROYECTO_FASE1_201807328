@@ -66,7 +66,10 @@ public class UDrawingPaper {
             } else if (opcion == 2) {
                 
                 System.out.println("\nIngresa la ruta de tu archivo con los clientes.");
-                String ruta = "C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaper\\cliente.json";
+                String ruta = "C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaperCopia\\clientesDoc.json";
+                C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaperCopia\\test.json
+                C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaperCopia\\cliente.json
+        C:\\Users\\orman\\Documents\\NetBeansProjects\\UDrawingPaperCopia\\clientes.json
                 Reader lector = Files.newBufferedReader(Paths.get(ruta));
                 //instrucciones del oediv
                 Gson gson = new Gson();

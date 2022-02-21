@@ -1,0 +1,19 @@
+digraph G{
+label = "Lista de clientes en espera ";
+node [shape=box];
+N2117255219[label="Yang Wiggins"];
+N2058534881[label="Stefanie Wise"];
+N1232367853[label="Faith Hopkins"];
+N1673605040[label="Sandy Mason"];
+N186276003[label="Tommie Mcpherson"];
+N1681433494[label="Tabatha Pickett"];
+N237061348[label="Elinor Ford"];
+{rank = same N2117255219 -> N2058534881;
+N2058534881 -> N1232367853;
+N1232367853 -> N1673605040;
+N1673605040 -> N186276003;
+N186276003 -> N1681433494;
+N1681433494 -> N237061348;
+
+}
+}

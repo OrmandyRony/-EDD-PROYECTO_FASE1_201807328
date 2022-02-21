@@ -78,7 +78,7 @@ public class ColaRecepcion {
         //System.out.println(cadena);
         
         try {
-            String ruta = "grafica/graphviz.txt";
+            String ruta = "grafica/ColaRecepcion.txt";
             String contenido = cadena;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -113,7 +113,7 @@ public class ColaRecepcion {
         Runtime rt = Runtime.getRuntime();
 
         rt.exec( cmd );
-        System.out.println("Grafica generada");
+        System.out.println("Grafica de la cola generada");
       } catch (Exception ex) {
         ex.printStackTrace();
       } finally {

@@ -57,7 +57,7 @@ public class ListaClientesEspera {
             while (aux != last.next || aux != null) {
 
                 if (aux.cliente.nombre.equals(propietario)) {
-                    System.out.println("Cliente encontrado\n---------------");
+                    //System.out.println("Cliente encontrado\n---------------");
                     return aux.cliente;
                 }
                 aux = aux.next;
@@ -99,16 +99,27 @@ public class ListaClientesEspera {
                     return tmp;
                 }
                 //System.out.println("Se cambio de cabeza");
-                head.next.next = head.next;
-                head.next.prev = head.next;
+                //head.next.next = head.next;
+                head.next.prev = last;
+                last.next = head.next;
+                
                 head = head.next;
                 size--;
                 return tmp;
 
+            } else if (last.cliente.listaImagenes.size == last.cliente.totalImagenes) {
+                Cliente tmp;
+                tmp = last.cliente;
+                last.prev.next = head;
+                head.prev = last.prev;
+                last = last.prev;
+                
+                size--;
+                return tmp;
             } else if(!(head.next == head)) {
                 Nodo nodoTemporal = head.next;
 
-                while (nodoTemporal != last.next || nodoTemporal != null) {
+                while (nodoTemporal != last.next && nodoTemporal != null) {
                     if (nodoTemporal.cliente.totalImagenes == nodoTemporal.cliente.listaImagenes.size) {
                         Cliente tmp;
                         nodoTemporal.cliente.paso();
@@ -121,9 +132,9 @@ public class ListaClientesEspera {
                             last = last.prev;
                             nodoTemporal = null;
                         }
-
+                        size--;
                         return tmp;
-
+                        
                     }
 
                     nodoTemporal = nodoTemporal.next;
@@ -137,34 +148,31 @@ public class ListaClientesEspera {
     
     
     public void graficarDot() {
-        
+
         String conexiones = "";
         String nodos = "";
-      ;
-        
+
         String cadena = "digraph G{\nlabel = \"Lista de clientes en espera \";\nnode [shape=box];\n";
-        
-        
+
         if (head == null) {
             System.out.println("Lista de espera esta vacia");
         } else {
             Nodo aux = head;
 
             do {
-                nodos += "N" +aux.hashCode() + "[label=\"" +aux.cliente.nombre +"\"];\n";
+                nodos += "N" + aux.hashCode() + "[label=\"" + aux.cliente.nombre + "\"];\n";
                 if (aux.next != null) {
-                conexiones+="N"+aux.hashCode()+ " -> "+"N"+aux.next.hashCode()+";\n";
+                    conexiones += "N" + aux.hashCode() + " -> " + "N" + aux.next.hashCode() + ";\n";
                 }
                 aux = aux.next;
             } while (aux != last.next);
         }
-        
+
         cadena += nodos + "{rank = same " + conexiones + "\n}\n}";
-        
+
         //System.out.println(cadena);
-        
         try {
-            String ruta = "grafica/graphviz.txt";
+            String ruta = "grafica/ListaClientesEspera.txt";
             String contenido = cadena;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -178,33 +186,38 @@ public class ListaClientesEspera {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         try {
-      
-        String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
-        String fileInputPath = "grafica/ListaEspera.txt";
-        String fileOutputPath = "ListaEspera.jpg";
+            String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
-        String tParam = "-Tjpg";
-        String tOParam = "-o";
+            String fileInputPath = "grafica/ListaClientesEspera.txt";
+            String fileOutputPath = "ListaClientesEspera.jpg";
 
-        String[] cmd = new String[5];
-        cmd[0] = dotPath;
-        cmd[1] = tParam;
-        cmd[2] = fileInputPath;
-        cmd[3] = tOParam;
-        cmd[4] = fileOutputPath;
+            String tParam = "-Tjpg";
+            String tOParam = "-o";
 
-        Runtime rt = Runtime.getRuntime();
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
 
-        rt.exec( cmd );
-        System.out.println("Grafica generada");
-      } catch (Exception ex) {
-        ex.printStackTrace();
-      } finally {
-      }
-        
-        
+            Runtime rt = Runtime.getRuntime();
+
+            rt.exec(cmd);
+            System.out.println("Grafica generada de la lista de espera");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+        }
+
     }
+    
+    
+
+    
+    
+    
 }

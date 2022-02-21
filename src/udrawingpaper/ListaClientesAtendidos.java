@@ -45,20 +45,31 @@ public class ListaClientesAtendidos {
     }
     
     public void topCincoColor () {
-        ListaClientesAtendidos lista = copiarLista();
+        ListaClientesAtendidos lista = new ListaClientesAtendidos();
         
-        while (!lista.isEmpty()) {
-            Nodo nodoTmp = lista.pop();
+        lista = copiarLista();
+        Nodo tmp = lista.head;
+        Nodo tmp2 = tmp.next;
+        Nodo tmp3;
+        
+        while (tmp != null) {
             
-            while (!listaOrdenar.isEmpty() && lista.peek().cliente.cantidadImagenesColor > nodoTmp.cliente.cantidadImagenesColor) {
-                lista.insert(listaOrdenar.pop().cliente);
+            while (tmp2 != null) {
+                if (tmp.cliente.cantidadImagenesColor > tmp2.cliente.cantidadImagenesColor) {
+                    tmp3 = tmp;
+                    tmp = tmp2;
+                    tmp2 = tmp3;
+                    System.out.println("Entro");
+                }
+                tmp2 = tmp2.next;
             }
-            listaOrdenar.insert(nodoTmp.cliente);
+            tmp = tmp.next;
         }
+        
         
         int count = 0;
         
-        Nodo aux = listaOrdenar.head;
+        Nodo aux = lista.head;
         
         while (aux != null) {
             System.out.println("Nombre: " + aux.cliente.nombre );
@@ -76,18 +87,28 @@ public class ListaClientesAtendidos {
     public void topCincoBlancoNegro () {
         ListaClientesAtendidos lista = copiarLista();
         
-        while (!lista.isEmpty()) {
-            Nodo nodoTmp = lista.pop();
-            
-            while (!listaOrdenar.isEmpty() && lista.peek().cliente.cantidadImagenesColor < nodoTmp.cliente.cantidadImagenesColor) {
-                lista.insert(listaOrdenarAscendente.pop().cliente);
+        Nodo tmp = lista.head;
+        Nodo tmp2 = tmp.next;
+        Nodo tmp3;
+        
+        while (tmp != null) {
+            System.out.println("Entro");
+            while (tmp2 != null) {
+                if (tmp.cliente.cantidadImagenesBlancoNegro < tmp2.cliente.imagenBlancoNegro) {
+                    tmp3 = tmp;
+                    tmp = tmp2;
+                    tmp2 = tmp3;
+                    System.out.println("Cambio");
+                }
+                tmp2 = tmp2.next;
             }
-            listaOrdenarAscendente.insert(nodoTmp.cliente);
+            tmp = tmp.next;
         }
+        
         
         int count = 0;
         
-        Nodo aux = listaOrdenar.head;
+        Nodo aux = lista.head;
         
         while (aux != null) {
             System.out.println("Nombre: " + aux.cliente.nombre );
@@ -176,11 +197,11 @@ public class ListaClientesAtendidos {
             aux = aux.next;
         }
 
-        cadena += nodos + "{ rank = same" + conexiones + "\n}\n}";
+        cadena += nodos + "{ rank = same " + conexiones + "\n}\n}";
 
         //System.out.println(cadena);
         try {
-            String ruta = "grafica/graphviz.txt";
+            String ruta = "grafica/ListaClientesAtendidos.txt";
             String contenido = cadena;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -199,8 +220,8 @@ public class ListaClientesAtendidos {
 
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
-            String fileInputPath = "grafica/ColaImpresion.txt";
-            String fileOutputPath = "ColaImpresion.jpg";
+            String fileInputPath = "grafica/ListaClientesAtendidos.txt";
+            String fileOutputPath = "ListaClientesAtendidos.jpg";
 
             String tParam = "-Tjpg";
             String tOParam = "-o";
@@ -215,11 +236,11 @@ public class ListaClientesAtendidos {
             Runtime rt = Runtime.getRuntime();
 
             rt.exec(cmd);
-            System.out.println("Grafica generada de la cola de impresiones");
+            System.out.println("Grafica generada de la lista de atendidos");
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            System.out.println("Error en cola de recepción");
+     
         }
 
     }
