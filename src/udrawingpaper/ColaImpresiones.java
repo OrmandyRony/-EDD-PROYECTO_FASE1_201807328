@@ -85,7 +85,7 @@ public class ColaImpresiones {
             aux = aux.next;
         }
 
-        cadena += nodos + "{rank = same " + conexiones + "\n}\n}";
+        cadena += nodos + "{" + conexiones + "\n}\n}";
 
         //System.out.println(cadena);
         try {
