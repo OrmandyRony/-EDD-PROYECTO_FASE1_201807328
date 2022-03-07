@@ -45,49 +45,31 @@ public class ListaClientesAtendidos {
     }
     
     public void topCincoColor () {
-        ListaClientesAtendidos lista;
-        lista = copiarLista();
-        Nodo aux = lista.head;
+     
+        Nodo comprobar = head;
+        Nodo aux = head;
+        Cliente cliente;
         
-        int count = 0;
-        while (aux != null) {
-            System.out.println("Nombre: " + aux.cliente.nombre );
-            
-            count++;
-            aux = aux.next;
-            if (count == 5) {
-                break;
-            }
-            
-        }
-        
-        
-        Nodo tmp = lista.head;
-        Nodo tmp2 = lista.head.next;
-        Nodo tmp3;
-        
-        while (tmp != null) {
-            
-            while (tmp2 != null) {
-                if (tmp.cliente.cantidadImagenesColor < tmp2.cliente.cantidadImagenesColor) {
-                    tmp3 = tmp;
-                    tmp.cliente = tmp2.cliente;
-                    
-                    
-                    tmp2.cliente = tmp3.cliente;
-             
-                    System.out.println("Entro");
+       if (comprobar.next != null && aux != null) {
+            Nodo i = this.head;
+            while (i != null) {
+                Nodo j = i.next;
+                while (j != null) {
+                    if (i.cliente.cantidadImagenesColor < j.cliente.cantidadImagenesColor) {
+                        cliente = i.cliente;
+                        i.cliente = j.cliente;
+                        j.cliente = cliente;
+                        
+                    }
+                    j = j.next;
                 }
-                tmp2 = tmp2.next;
-                tmp = tmp.next;
+                i = i.next;
             }
-            
         }
-        //1, 3 , 2 {1 , 0, 3} 1 > 0, false 0 < 3
         
-       count = 0;
+       int count = 0;
         
-       aux = lista.head;
+       aux = head;
         
         while (aux != null) {
             System.out.println("Nombre: " + aux.cliente.nombre );
@@ -103,34 +85,30 @@ public class ListaClientesAtendidos {
     }
     
     public void topCincoBlancoNegro () {
-        ListaClientesAtendidos lista = copiarLista();
+        Nodo comprobar = head;
+        Nodo aux = head;
+        Cliente cliente;
         
-        Nodo tmp = lista.head;
-        Nodo tmp2 = lista.head;
-        Nodo tmp3;
-        
-        while (tmp != null) {
-            System.out.println("Entro");
-            while (tmp2.next != null) {
-                if (tmp2.cliente.cantidadImagenesBlancoNegro > tmp2.next.cliente.cantidadImagenesBlancoNegro) {
-                    tmp3 = tmp2.next;
-                    tmp2.next.cliente.nombre = tmp2.cliente.nombre;
-                    tmp2.cliente.nombre = tmp3.cliente.nombre;
-          
-                    
-      
-                    System.out.println("Entro");
+       if (comprobar.next != null && aux != null) {
+            Nodo i = this.head;
+            while (i != null) {
+                Nodo j = i.next;
+                while (j != null) {
+                    if (i.cliente.cantidadImagenesBlancoNegro > j.cliente.cantidadImagenesBlancoNegro) {
+                        cliente = i.cliente;
+                        i.cliente = j.cliente;
+                        j.cliente = cliente;
+                        
+                    }
+                    j = j.next;
                 }
-                tmp2 = tmp2.next;
-               
+                i = i.next;
             }
-             tmp = tmp.next;
         }
         
+       int count = 0;
         
-        int count = 0;
-        
-        Nodo aux = lista.head;
+       aux = head;
         
         while (aux != null) {
             System.out.println("Nombre: " + aux.cliente.nombre );
