@@ -5,7 +5,7 @@
  */
 package udrawingpaperf2;
 
-import udrawingpaperf2.MatrizDispersaImagenes.NodoInterno;
+import udrawingpaperf2.MatrizDispersaPixeles.NodoInterno;
 
 /**
  *

@@ -1,0 +1,47 @@
+digraph {
+
+rankdir = TB;
+node [shape=rectangle, height=0.5, width=0.5];
+graph[ nodesep = 0.5];
+pivote[ label = "pivote", width = 1.5, style = filled];
+//cabeceras columnas
+
+F31[label="F31" color="white" style="filled" ]
+F37[label="F37" color="white" style="filled" ]
+//cabeceras filas
+
+C25[label="C25" color="white" style="filled" ]
+C38[label="C38" color="white" style="filled" ]
+//contenido matriz
+
+N31_25[label="N31--25" color="#FFCC33" style="filled" ];
+N37_25[label="N37--25" color="#FFCC27" style="filled" ];
+N31_38[label="N31--38" color="#FFCC40" style="filled" ];
+//Conexiones entre filas
+
+F31->F37[dir=both];
+//Conexiones entre columnas
+
+C25->C38[dir=both];
+//Concexiones fila-nodoInterno
+
+F31->N31_25[dir=both];
+N31_25->N31_38[dir=both];
+F37->N37_25[dir=both];
+//Concexiones columna-NodoInterno
+
+C25->N31_25[constraint=false,dir=both];
+N31_25->N37_25[constraint=false,dir=both];
+C38->N31_38[constraint=false,dir=both];
+pivote->
+C25[dir=both];
+pivote->
+F31[dir=both];
+//Los ranks
+{ rank = same;pivote;
+F31;
+F37;}
+{ rank = same;C25;N31_25;N37_25;}
+
+{ rank = same;C38;N31_38;}
+}
