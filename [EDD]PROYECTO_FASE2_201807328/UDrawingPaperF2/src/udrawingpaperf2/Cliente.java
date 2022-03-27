@@ -11,12 +11,10 @@ package udrawingpaperf2;
  */
 public class Cliente {
     private String nombre;
-    private String dpi;
     private String password;
 
-    public Cliente(String nombre, String dpi, String password) {
+    public Cliente(String nombre, String password) {
         this.nombre = nombre;
-        this.dpi = dpi;
         this.password = password;
     }
 
@@ -24,16 +22,10 @@ public class Cliente {
         return nombre;
     }
 
-    public String getDpi() {
-        return dpi;
-    }
+
 
     public String getPassword() {
         return password;
-    }
-
-    public void setDpi(String dpi) {
-        this.dpi = dpi;
     }
 
     public void setNombre(String nombre) {
