@@ -1,0 +1,30 @@
+digraph ABB {
+	label= "graficoABB";
+	nodo0[label="0"]
+	nodo4[label="4"]
+	nodo2[label="2"]
+	nodo16[label="16"]
+	nodo8[label="8"]
+	nodo14[label="14"]
+	nodo12[label="12"]
+	nodo10[label="10"]
+	nodo9[label="9"]
+	nodo13[label="13"]
+	nodo20[label="20"]
+	nodo19[label="19"]
+	nodo17[label="17"]
+
+	nodo10->nodo9
+	nodo12->nodo10
+	nodo12->nodo13
+	nodo14->nodo12
+	nodo8->nodo14
+	nodo19->nodo17
+	nodo20->nodo19
+	nodo16->nodo8
+	nodo16->nodo20
+	nodo4->nodo2
+	nodo4->nodo16
+	nodo0->nodo4
+
+ }

@@ -26,15 +26,13 @@ public class ABBcapas {
     
     /**
      * 
-     * @param numeroCapa
-     * @param matriz 
-     * Este metodo inserta un nodo en el Arbol binario de busqueda de manera  
-     * recursiva.
+     * @param numeroCapa es el id en el arbol
+     * @param matriz
+     * 
      * 
      */
     
     public void add(int numeroCapa, MatrizDispersaPixeles matriz) {
-        
         if (raiz != null) {
             add(numeroCapa, matriz, raiz);
         } else {
@@ -49,7 +47,7 @@ public class ABBcapas {
             } else {
                 tmp.izquierdo = new Nodo(matriz, numeroCapa);
             }
-        } else {
+        } else  if (numeroCapa > tmp.numeroCapa) {
             if (tmp.derecho != null) {
                 add(numeroCapa, matriz, tmp.derecho);
             } else {
@@ -65,18 +63,23 @@ public class ABBcapas {
      *  visita la raíz
      *  Atraviese el sub-árbol
      * 
+     * @return 
      */
     
-    public void inOrden(){
-        inOrden(raiz);
+    public String inOrden(){
+        return inOrden(raiz);
     }
     
-    public void inOrden(Nodo tmp){
+    public String inOrden(Nodo tmp){
+        String capa = "";
+        
         if (tmp != null) {
-            inOrden(tmp.izquierdo);
-            System.out.println(tmp.numeroCapa);
-            inOrden(tmp.derecho);
+            capa += inOrden(tmp.izquierdo) + ",";
+            capa += tmp.numeroCapa + ",";
+            capa += inOrden(tmp.derecho) + ",";
+            
         }
+        return capa;
     }
     
     /**
@@ -88,17 +91,38 @@ public class ABBcapas {
      * 
      */
     
-    public void preOrden() {
-        preOrden(raiz);
+    public String preOrden() {
+        
+        return preOrden(raiz);
     }
     
-    public void preOrden(Nodo tmp) {
+    public String preOrden(Nodo tmp) {
+        String capa = "";
         if (tmp != null) {
-            System.out.println(tmp.numeroCapa);
-            preOrden(tmp.izquierdo);
-            preOrden(tmp.derecho);
+            capa += "," + tmp.numeroCapa;
+            capa += "," + preOrden(tmp.izquierdo);
+            capa += "," + preOrden(tmp.derecho);
         }
+        return capa;
     }
+    
+    
+    public String postOrden() {
+        
+        return postOrden(raiz);
+    }
+    
+    public String postOrden(Nodo tmp) {
+        String capa = "";
+        if (tmp != null) {
+            capa += "," + postOrden(tmp.izquierdo);
+            capa += "," + postOrden(tmp.derecho);
+            capa += "," + tmp.numeroCapa;
+        }
+        return capa;
+    }
+    
+    
     
     public MatrizDispersaPixeles searchPreOrden(int capa) {
         return  searchPreOrden(capa, raiz);
@@ -109,33 +133,232 @@ public class ABBcapas {
         if (tmp != null) {
             if (tmp.numeroCapa == capa) {
                 return tmp.capa;
+            } else if (tmp.numeroCapa > capa) {
+                return searchPreOrden(capa, tmp.izquierdo);
+            } else if (tmp.numeroCapa < capa) {
+                return searchPreOrden(capa, tmp.derecho);
             }
-            searchPreOrden(capa, tmp.izquierdo);
-            searchPreOrden(capa, tmp.derecho);
+            
         }
         return null;
     }
     
-    /**
-     * Recorrido Preorden
-     * Se realizan las siguientes operaciones recursivas:
-     *  visita la raíz
-     *  Atravesar el sub-árbol izquierdo
-     *  Atraviese el sub-árbol
-     * 
-     */
     
-    public void postOrden() {
-        inOrden(raiz);
+    public void graficarCapas(String capas, String nombreImagen) {
+        MatrizDispersaPixeles matrizTmp2 = new MatrizDispersaPixeles();
+        MatrizDispersaPixeles matrizTmp;
+        // Genera los nodos de las capas seleccionadas
+        String capa = "";
+        for (int j = 0; j < capas.length(); j++) {
+                //System.out.println(imgs);
+                
+                if ('0' == capas.charAt(j)) {
+                    capa += "0";
+                } else if ('1' == capas.charAt(j)) {
+                    capa += "1";
+                } else if ('2' == capas.charAt(j)) {
+                    capa += "2";
+                } else if ('3' == capas.charAt(j)) {
+                    capa += "3";
+                } else if ('4' == capas.charAt(j)) {
+                    capa += "4";
+                } else if ('5' == capas.charAt(j)) {
+                    capa += "5";
+                } else if ('6' == capas.charAt(j)) {
+                    capa += "6";
+                } else if ('7' == capas.charAt(j)) {
+                    capa += "7";
+                } else if ('8' == capas.charAt(j)) {
+                    capa += "8";
+                } else if ('9' == capas.charAt(j)) {
+                    capa += "9";
+                }
+                
+                if (capas.charAt(j) == ',') {
+                    //System.out.println("Se inserto busca la capa: " + capa);
+                    int cap = Integer.parseInt(capa);
+                    matrizTmp = this.searchPreOrden(cap);
+
+                    if (matrizTmp != null) {
+                        //System.out.println("Se encontro la capa");
+                        NodoEncabezado tmp = matrizTmp.filas.primero;
+                        //Obteniendo valores de la matriz seleccionada
+                        
+
+                        while (tmp != null) {
+                            MatrizDispersaPixeles.NodoInterno piv = tmp.acceso;
+                            while (piv != null) {
+                                //System.out.println("x: " + piv.coordenadaX + " Y: " + piv.coordenadaY + " Hexa: " + piv.hexagecimal);
+                                matrizTmp2.insert(piv.coordenadaX, piv.coordenadaY, piv.hexagecimal);
+                                piv = piv.derecha;
+                            }
+                            tmp = tmp.siguiente;
+                        }
+                        
+                }
+
+                capa = "";
+                matrizTmp = null;
+            }
+                
+                if (capas.charAt(j) == ']') {
+                    //System.out.println("Se inserto: " + capa);
+                    if (!capa.equals("")) {
+                        System.out.println("Se inserto busca la capa: " + capa);
+                        int cap = Integer.parseInt(capa);
+                        matrizTmp = this.searchPreOrden(cap);
+
+                        if (matrizTmp != null) {
+                            NodoEncabezado tmp = matrizTmp.filas.primero;
+                            //Obteniendo valores de la matriz seleccionada
+                            
+
+                            while (tmp != null) {
+                                MatrizDispersaPixeles.NodoInterno piv = tmp.acceso;
+                                while (piv != null) {
+                                     //System.out.println("x: " + piv.coordenadaX + " Y: " + piv.coordenadaY + " Hexa: " + piv.hexagecimal);
+                                    matrizTmp2.insert(piv.coordenadaX, piv.coordenadaY, piv.hexagecimal);
+                                    piv = piv.derecha;
+                                }
+                                tmp = tmp.siguiente;
+                            }
+
+                        }
+                }
+                    
+                    capa = "";
+                    matrizTmp = null;
+                    break;
+                }   
+            }
+            
+        matrizTmp2.crearGrafo2(nombreImagen);
     }
     
-    public void postOrden(Nodo tmp) {
-        if (tmp != null) {
-            inOrden(tmp.izquierdo);
-            inOrden(tmp.derecho);
-            System.out.println(tmp.numeroCapa);
+    public String graficarNodos(MatrizDispersaPixeles matrizTmp) {
+        String contenido = "";
+        NodoEncabezado tmp = matrizTmp.filas.primero;
+
+        //primero las cabeceras de filas.
+        contenido += "\n//cabeceras columnas\n";
+        while (tmp != null) {
+            contenido += "\nF" + tmp.posicion + "[label=\"F" + tmp.posicion+ "" + "\" color=\"white\" style=\"filled\" ]";
+            tmp = tmp.siguiente;
         }
+        tmp = matrizTmp.columnas.primero;
+
+        //primero las cabeceras de columnas.
+        contenido += "\n//cabeceras filas\n";
+        while (tmp != null) {
+            contenido += "\nC" + tmp.posicion + "[label=\"C" + tmp.posicion + "" + "\" color=\"white\" style=\"filled\" ]";
+            tmp = tmp.siguiente;
+        }
+        //ahora declaramos los valores dentro de la matriz;
+        contenido += "\n//contenido matriz\n";
+        tmp = matrizTmp.columnas.primero;
+        
+        while (tmp != null) {
+            MatrizDispersaPixeles.NodoInterno piv = tmp.acceso;
+            while (piv != null) {
+                contenido += "\nN" + piv.coordenadaX + "_" + piv.coordenadaY + "[label=\"N" + piv.coordenadaX + "--" + piv.coordenadaY + "\" color=\"" + piv.hexagecimal + "\" style=\"filled\" ];";
+                piv = piv.abajo;
+            }
+            tmp = tmp.siguiente;
+        }
+        contenido += "\n//Conexiones entre filas\n";
+        
+        tmp = matrizTmp.filas.primero;
+        while (tmp != null) {
+            if (tmp.siguiente != null) {
+                contenido += "\nF" + tmp.posicion + "->F" + tmp.siguiente.posicion + "[dir=both];";
+            }
+            tmp = tmp.siguiente;
+        }
+        
+        contenido += "\n//Conexiones entre columnas\n";
+        tmp = matrizTmp.columnas.primero;
+        while (tmp != null) {
+            if (tmp.siguiente != null) {
+                contenido += "\nC" + tmp.posicion + "->C" + tmp.siguiente.posicion + "[dir=both];";
+            }
+            tmp = tmp.siguiente;
+        }
+        
+        //ahora a conectar las columnas con el contenido de la matriz.
+        contenido += "\n//Concexiones fila-nodoInterno\n";
+        tmp = matrizTmp.filas.primero;
+        while (tmp != null) {
+            MatrizDispersaPixeles.NodoInterno piv = tmp.acceso;
+            contenido += "\nF" + tmp.posicion + "->N" + piv.coordenadaX + "_" + piv.coordenadaY + "[dir=both];";
+            while (piv != null) {
+                if (piv.derecha != null) {
+                    contenido += "\nN" + piv.coordenadaX + "_" + piv.coordenadaY + "->N" + piv.derecha.coordenadaX + "_" + piv.derecha.coordenadaY + "[dir=both];";
+                    
+                }
+                piv = piv.derecha;
+            }
+            tmp = tmp.siguiente;
+        }
+        
+        //ahora a conectar las filas con el contenido de la matriz.
+        
+        contenido += "\n//Concexiones columna-NodoInterno\n";
+        tmp = matrizTmp.columnas.primero;
+        while (tmp != null) {
+            MatrizDispersaPixeles.NodoInterno piv = tmp.acceso;
+            contenido += "\nC" + tmp.posicion + "->N" + piv.coordenadaX + "_" + piv.coordenadaY + "[constraint=false,dir=both];";
+            while (piv != null) {
+                if (piv.abajo != null) {
+                    contenido += "\nN" + piv.coordenadaX + "_" + piv.coordenadaY + "->N" + piv.abajo.coordenadaX + "_" + piv.abajo.coordenadaY + "[constraint=false,dir=both];";
+                    
+                }
+                piv = piv.abajo;
+            }
+            tmp = tmp.siguiente;
+        }
+        //conectar a pivote con las raices.
+        if (matrizTmp.columnas.primero != null) {
+            contenido += "\npivote->" + "\nC" + matrizTmp.columnas.primero.posicion + "[dir=both];";
+        }
+        if (matrizTmp.filas.primero != null) {
+            contenido += "\npivote->" + "\nF" + matrizTmp.filas.primero.posicion + "[dir=both];";
+        }
+
+        //los rank
+        contenido += "\n//Los ranks";
+        //primero pivote luego los de columnas
+        contenido += "\n{ rank = same;pivote;";
+        tmp = matrizTmp.filas.primero;
+        while (tmp != null) {
+            contenido += "\nF" +tmp.posicion + ";";
+            tmp = tmp.siguiente;
+        }
+        contenido += "}";
+
+        //ahora las filas
+        tmp = matrizTmp.columnas.primero;
+        while (tmp != null) {
+            contenido += "\n{ rank = same;" + "C" +tmp.posicion + ";";
+            MatrizDispersaPixeles.NodoInterno piv = tmp.acceso;
+            
+            while (piv != null) {
+                contenido += "N" + piv.coordenadaX + "_" + piv.coordenadaY + ";";
+                piv = piv.abajo;
+            }
+            contenido += "}\n";
+            tmp = tmp.siguiente;
+        }
+        
+        return contenido;
     }
+    
+    
+    
+    
+    
+    
+
+    
     
     public void graficoABB(String nombreImagen) {
         String graAbb = "digraph ABB {\n\tlabel= \"" + nombreImagen + "\";\n";
@@ -164,7 +387,7 @@ public class ABBcapas {
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
             String fileInputPath = "grafica/" + nombreImagen + ".dot";
-            String fileOutputPath = nombreImagen + ".png";
+            String fileOutputPath = "grafica/" + nombreImagen + ".png";
 
             String tParam = "-Tpng";
             String tOParam = "-o";

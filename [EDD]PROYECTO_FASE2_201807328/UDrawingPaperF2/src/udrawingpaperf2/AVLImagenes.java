@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package udrawingpaperf2;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
 /**
  *
@@ -42,7 +41,6 @@ public class AVLImagenes {
                 if (altura(raizActual.derecha) - altura(raizActual.izquierda) == -2) {
              
                     if (nuevaImagen.id < raizActual.izquierda.id) {
-                        
                         raizActual = rotacionIzquierda(raizActual);
                     } else {
                         
@@ -118,5 +116,137 @@ public class AVLImagenes {
         } else {
             return h1;
         }
+    }
+    
+    /**
+     * Busqueda en preorden retorna el ABB para insercción de datos
+     * @param id
+     * @return 
+     */
+    
+    public ABBcapas searchPreOrden(int id) {
+        if (raiz != null) {
+           return searchPreOrden(id, this.raiz);
+        } 
+        return null;
+    }
+    
+    public ABBcapas searchPreOrden(int id, NodoImagen tmp) {
+        if (tmp != null) {
+            if (id == tmp.id) {
+                return tmp.capas;
+            } else if (tmp.id > id) {
+                //System.out.println("Izquierda " + tmp.izquierda);
+                return searchPreOrden(id, tmp.izquierda);
+                
+
+            } else if (tmp.id < id) {
+                //System.out.println("Derecha " + tmp.derecha);
+                return searchPreOrden(id, tmp.derecha);
+            } 
+        }
+        
+        return null;
+    }
+    /*
+    public ABBcapas searchPreOrden(int id) {
+        return  searchPreOrden(id, raiz);
+       
+    }
+    
+    public ABBcapas searchPreOrden(int id, NodoImagen tmp) {
+        if (tmp != null) {
+            if (tmp.id == id) {
+                return tmp.capas;
+            }
+            searchPreOrden(id, tmp.izquierda);
+            searchPreOrden(id, tmp.derecha);
+        }
+        return null;
+    }
+*/
+    
+     public void graficoAvl() {
+         String nombreImagen = "graficoAvl";
+        String graAbb = "digraph Avl {\n\tlabel= \"" + nombreImagen + "\";\n";
+        graAbb += generarNodos(raiz) + "\n";
+        graAbb += enlazar(raiz) + "\n }";
+        
+        try {
+            String ruta = "grafica/" + nombreImagen + ".dot";
+            String candena = graAbb;
+            File file = new File(ruta);
+            // Si el archivo no existe es creado
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(candena);
+            bw.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        try {
+
+            String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+
+            String fileInputPath = "grafica/" + nombreImagen + ".dot";
+            String fileOutputPath = "grafica/" + nombreImagen + ".png";
+
+            String tParam = "-Tpng";
+            String tOParam = "-o";
+
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
+
+            Process proceso = Runtime.getRuntime().exec(cmd);
+
+            proceso.waitFor();
+            System.out.println("Grafica generada");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+
+        }
+    }
+     
+    public String generarNodos(NodoImagen tmp) {
+        String nodos = "";
+        
+        if (tmp != null) {
+            nodos = "\tnodo" + tmp.id + "[label=\"" + tmp.id + "\"]\n";
+            nodos += generarNodos(tmp.izquierda);
+            nodos += generarNodos(tmp.derecha);
+        }
+
+        return nodos;
+    }
+    
+    public String enlazar(NodoImagen tmp) {
+        String enlaces = "";
+        
+        if (tmp !=  null) {
+            enlaces += enlazar(tmp.izquierda);
+            enlaces += enlazar(tmp.derecha);
+            
+            if (tmp.izquierda != null) { //Se valida si nodo no es hoja
+                enlaces += "\tnodo" + tmp.id + "->nodo" 
+                        + tmp.izquierda.id +"\n";
+                
+            }
+            
+            if (tmp.derecha != null) {
+               enlaces += "\tnodo"+ tmp.id + "->nodo"+ tmp.derecha.id +"\n";
+            }
+        }
+        
+        return enlaces;
     }
 }

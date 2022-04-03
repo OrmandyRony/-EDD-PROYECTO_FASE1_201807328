@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package udrawingpaperf2;
 
 
@@ -51,7 +47,7 @@ public class Menu {
                 int capa = input.nextInt();
                 MatrizDispersaPixeles matrizTmp = abb.searchPreOrden(capa);
                 if (matrizTmp != null) {
-                    matrizTmp.crearGrafo2();
+                    matrizTmp.crearGrafo2("sonic");
                 } else {
                     System.out.println("La matriz es nula");
                 }

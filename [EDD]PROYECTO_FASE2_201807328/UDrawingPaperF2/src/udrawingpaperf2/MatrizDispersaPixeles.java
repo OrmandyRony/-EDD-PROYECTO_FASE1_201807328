@@ -39,6 +39,7 @@ public class MatrizDispersaPixeles {
         
     }
     
+    
     public void insert(int posX, int posY, String hexagecimal) {
         NodoInterno nuevo = new NodoInterno(posX, posY, hexagecimal);
         
@@ -97,6 +98,7 @@ public class MatrizDispersaPixeles {
         } else {
             NodoInterno tmp2 = nodoY.acceso;
             while (tmp2 != null) {
+                //System.out.println(tmp2);
                 if (nuevo.coordenadaX < tmp2.coordenadaX) {
                     nuevo.abajo = tmp2;
                     nuevo.arriba = tmp2.arriba;
@@ -499,13 +501,13 @@ public class MatrizDispersaPixeles {
 
     
         
-    public void crearGrafo2() {
-
+    public void crearGrafo2(String nombre) {
+        //System.out.println("Grafica 2");
         //primero darle los valores a los nodos internos
         
         String conca = "";
-        //Luego necesito recorrer los nodos
-        String contenido = "digraph {\n"
+        
+        String contenido = "digraph MD {\n"
                 + "\n"
                 + "rankdir = TB;\n"
                 + "node [shape=rectangle, height=0.5, width=0.5];\n"
@@ -630,8 +632,10 @@ public class MatrizDispersaPixeles {
         }
 
         contenido += "}";
+        //System.out.println("Matriz graph");
+        //System.out.println(contenido);
         try {
-            String ruta = "grafica/MatrizDisperza.dot";
+            String ruta = "grafica/"+ nombre +".dot";
             String candena = contenido;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -650,8 +654,8 @@ public class MatrizDispersaPixeles {
 
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
-            String fileInputPath = "grafica/MatrizDisperza.dot";
-            String fileOutputPath = "MatrizDisperza.png";
+            String fileInputPath = "grafica/"+ nombre + ".dot";
+            String fileOutputPath = "grafica/"+ nombre + ".png";
 
             String tParam = "-Tpng";
             String tOParam = "-o";
@@ -666,7 +670,7 @@ public class MatrizDispersaPixeles {
             Process proceso = Runtime.getRuntime().exec(cmd);
 
             proceso.waitFor();
-            System.out.println("Grafica generada");
+            //System.out.println("Grafica generada");
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {

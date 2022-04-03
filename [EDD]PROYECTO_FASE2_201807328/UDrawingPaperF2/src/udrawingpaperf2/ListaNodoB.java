@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package udrawingpaperf2;
 
 /**
@@ -13,84 +8,75 @@ public class ListaNodoB {
     NodoB primero;
     NodoB ultimo;
     int size;
-
-    public ListaNodoB() {
+    
+    ListaNodoB(){
         this.primero = null;
         this.ultimo = null;
         this.size = 0;
     }
-    
 
-    public NodoB getPrimero() {
+    NodoB getPrimero(){
         return this.primero;
     }
-
-    public int getSize() {
+    int getSize(){
         return this.size;
     }
-
-    public NodoB getUltimo() {
+    
+    NodoB getUltimo(){
         return this.ultimo;
     }
-
-    public void setPrimero(NodoB primero) {
-        this.primero = primero;
+    
+    void setPrimero(NodoB prim){
+        this.primero= prim;
     }
     
-    public boolean insertar(NodoB nuevo) {
-        if (this.primero == null) {
+    boolean insertar(NodoB nuevo){
+        if(this.primero == null){
             this.primero = nuevo;
             this.ultimo = nuevo;
-            size++;
+            size ++;
             return true;
-        } else {
-            if (this.primero == this.ultimo) { 
-                // Solo hay un nodo 
-                if (nuevo.dpi < this.primero.dpi) {
+        }else{
+            if(this.primero == this.ultimo){ 
+                if(nuevo.dpi < this.primero.dpi){
                     nuevo.siguiente = this.primero;
                     this.primero.anterior = nuevo;
-                    // Cambia los punteros a las paginas
                     this.primero.izquierda = nuevo.derecha; 
                     this.primero = nuevo;
-                    size++;
+                    size++; 
                     return true;
-                } else if (nuevo.dpi > this.ultimo.dpi) {
+                }else if(nuevo.dpi > this.ultimo.dpi){
                     this.ultimo.siguiente = nuevo;
                     nuevo.anterior = this.ultimo;
-                    // Cambia los punteros a las paginas 
                     this.ultimo.derecha = nuevo.izquierda; 
                     this.ultimo = nuevo;
-                    size++;
+                    size++; 
                     return true;
-                } else {
-                    System.out.println("Ya hay un nodo registrado");
+                }else{
                     return false;
                 }
-            } else { 
-                // hay mas de un nodo
-                if (nuevo.dpi < this.primero.dpi) {
+            }else{ 
+                if(nuevo.dpi < this.primero.dpi){
                     nuevo.siguiente = this.primero;
                     this.primero.anterior = nuevo;
-                    // Cambia los punteros a las paginas
                     this.primero.izquierda = nuevo.derecha; 
                     this.primero = nuevo;
-                    size++;
+                    size++; 
                     return true;
-                } else if (nuevo.dpi > this.ultimo.dpi) {
+                }else if(nuevo.dpi > this.ultimo.dpi){
                     this.ultimo.siguiente = nuevo;
                     nuevo.anterior = this.ultimo;
-                    // Cambia los punteros a las paginas 
                     this.ultimo.derecha = nuevo.izquierda; 
                     this.ultimo = nuevo;
-                    size++;
+                    size++; 
                     return true;
-                } else {
+                }else{
                     NodoB pivote = this.primero;
-                    while (pivote != null) {
-                        if (nuevo.dpi < pivote.dpi) {
+                    while(pivote != null){
+                        if(nuevo.dpi < pivote.dpi){
                             nuevo.siguiente = pivote;
                             nuevo.anterior = pivote.anterior;
-                            // Cambia los punteros a las paginas
+                            
                             pivote.izquierda = nuevo.derecha;
                             pivote.anterior.derecha = nuevo.izquierda;
                             
@@ -98,10 +84,10 @@ public class ListaNodoB {
                             pivote.anterior = nuevo;
                             size++;
                             return true;
-                        } else if (nuevo.dpi == pivote.dpi) {
-                            System.out.println("El valor ya existe");
+                        }else if(nuevo.dpi == pivote.dpi){
+                            //System.out.println ("Ya existe este dpi");
                             return false;
-                        } else {
+                        }else{
                             pivote = pivote.siguiente;
                         }
                     }
@@ -110,4 +96,7 @@ public class ListaNodoB {
         }
         return false;
     }
+    
+    
+    
 }

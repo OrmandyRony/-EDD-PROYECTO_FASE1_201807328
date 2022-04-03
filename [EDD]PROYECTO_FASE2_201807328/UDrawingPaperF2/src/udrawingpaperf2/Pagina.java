@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package udrawingpaperf2;
 
 /**
@@ -12,95 +7,77 @@ package udrawingpaperf2;
 class Pagina {
     ListaNodoB claves;
     boolean raiz;
-    int clavesMax;
-    int clavesMin;
-    int size;
+    int claves_max;
+    int claves_min;
+    int tam;
     
-
-    public Pagina() {
-        claves = new ListaNodoB();
-        raiz = false;
-        clavesMax = 4;
-        clavesMin = 2;
-        size = 0;
-    }
+   Pagina(){
+       claves = new ListaNodoB();
+       raiz = false;
+       claves_max = 4; // valores establecidos por el orden del arbol
+       claves_min = 2;
+       tam =0;
+   }
     
     
-    public Object insertarPagina(NodoB nuevoNodo) {
-        
-        if (this.claves.insertar(nuevoNodo)) {
-            this.size = claves.getSize();
-            if (this.size < 5) {
+   Object insertarPagina(NodoB nuevo){
+       if(this.claves.insertar(nuevo)){
+           this.tam = this.claves.getSize();
+           
+            if(this.tam < 5){
                 return this;
-            } else if (this.size == 5) {
-                return dividirPagina(this);
-            }
-        }
-        
-        return null;
-    }
-    
-    public NodoB dividirPagina(Pagina pagina){
-        NodoB tmp = pagina.claves.getPrimero();
-        
-        for (int i = 0; i < clavesMin; i++) { // esto sive para llegar a la mitad
-            tmp = tmp.siguiente;
-        }
-        // pasar valores de la pagina a nodos independientes
-        NodoB primero = pagina.claves.getPrimero();
-        NodoB segundo = pagina.claves.getPrimero().siguiente; 
-        NodoB tercero = tmp.siguiente;
-        NodoB cuarto = pagina.claves.ultimo;
-        
-        primero.siguiente = null;
-        primero.anterior = null;
-        
-        segundo.siguiente = null;
-        segundo.anterior = null;
-        
-        tercero.siguiente = null;
-        tercero.anterior = null;
+            }else if(this.tam == 5){
+                return dividirPag(this);
+            } 
+       }
+       
+       return null;
+   }
+   
+   NodoB dividirPag(Pagina pag){
+       //System.out.print("Entro");
+       NodoB temp = pag.claves.getPrimero();
+       for(int i =0; i<2; i++){
+           temp = temp.siguiente;
+       }
+       NodoB primero = pag.claves.getPrimero();
+       NodoB segundo = pag.claves.getPrimero().siguiente;
+       NodoB tercero = temp.siguiente;
+       NodoB cuarto = pag.claves.ultimo;
+       
+       primero.siguiente=null;
+       primero.anterior = null;
+       
+       segundo.siguiente = null;
+       segundo.anterior = null;
+       
+       tercero.siguiente = null;
+       tercero.anterior = null;
+       
+       cuarto.siguiente = null;
+       cuarto.anterior = null;
 
-        cuarto.siguiente = null;
-        cuarto.anterior = null;
-        
-        tmp.siguiente = null;
-        tmp.anterior = null;
-        
-        // Cración de neuvas paginas
-        Pagina paginaIzquierda = new Pagina();
-        paginaIzquierda.insertarPagina(primero);
-        paginaIzquierda.insertarPagina(segundo);
-        
-        Pagina paginaDerecha = new Pagina();
-        paginaIzquierda.insertarPagina(tercero);
-        paginaIzquierda.insertarPagina(cuarto);
-        
-        tmp.izquierda = paginaIzquierda;
-        tmp.derecha = paginaDerecha;
-                
-        return tmp;
-    }
-    
-    public boolean esHoja(Pagina pagina) {
-        System.out.println(pagina);
-        if (pagina == null) {
-            return false;
-        }
-        
-        System.out.println(pagina.claves);
-        if (pagina.claves == null) {
-            return false;
-        }
-        
-        System.out.println("Get primero " + pagina.claves.getPrimero());
-        if (pagina.claves.getPrimero() == null) {
-            return true;
-        }
-        
-        if (pagina.claves.getPrimero().izquierda == null) {
-            return true;
-        }
-        return false;
-    }
+       temp.anterior = null;
+       temp.siguiente = null;
+       
+       Pagina izquierda = new Pagina();
+       izquierda.insertarPagina(primero);
+       izquierda.insertarPagina(segundo);
+       
+       Pagina derecha = new Pagina();
+       derecha.insertarPagina(tercero);
+       derecha.insertarPagina(cuarto);
+       
+       temp.izquierda = izquierda;
+       temp.derecha = derecha;
+       
+       return temp;
+   }
+   
+   boolean esHoja(Pagina pag){
+       if(pag.claves.getPrimero().izquierda == null){
+           return true;
+       }
+      return false;
+   }
 }

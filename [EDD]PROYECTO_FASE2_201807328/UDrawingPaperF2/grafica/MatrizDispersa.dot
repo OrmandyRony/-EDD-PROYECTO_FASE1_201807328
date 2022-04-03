@@ -1,0 +1,583 @@
+digraph MD {
+
+rankdir = TB;
+node [shape=rectangle, height=0.5, width=0.5];
+graph[ nodesep = 0.5];
+pivote[ label = "pivote", width = 1.5, style = filled];
+//cabeceras columnas
+
+F0[label="F0" color="white" style="filled" ]
+F1[label="F1" color="white" style="filled" ]
+F2[label="F2" color="white" style="filled" ]
+F3[label="F3" color="white" style="filled" ]
+F4[label="F4" color="white" style="filled" ]
+F5[label="F5" color="white" style="filled" ]
+F6[label="F6" color="white" style="filled" ]
+F7[label="F7" color="white" style="filled" ]
+F8[label="F8" color="white" style="filled" ]
+F9[label="F9" color="white" style="filled" ]
+F10[label="F10" color="white" style="filled" ]
+F11[label="F11" color="white" style="filled" ]
+F12[label="F12" color="white" style="filled" ]
+F13[label="F13" color="white" style="filled" ]
+F14[label="F14" color="white" style="filled" ]
+F15[label="F15" color="white" style="filled" ]
+F16[label="F16" color="white" style="filled" ]
+F17[label="F17" color="white" style="filled" ]
+F18[label="F18" color="white" style="filled" ]
+F19[label="F19" color="white" style="filled" ]
+//cabeceras filas
+
+C0[label="C0" color="white" style="filled" ]
+C1[label="C1" color="white" style="filled" ]
+C2[label="C2" color="white" style="filled" ]
+C3[label="C3" color="white" style="filled" ]
+C4[label="C4" color="white" style="filled" ]
+C5[label="C5" color="white" style="filled" ]
+C6[label="C6" color="white" style="filled" ]
+C7[label="C7" color="white" style="filled" ]
+C8[label="C8" color="white" style="filled" ]
+C9[label="C9" color="white" style="filled" ]
+C10[label="C10" color="white" style="filled" ]
+C11[label="C11" color="white" style="filled" ]
+C12[label="C12" color="white" style="filled" ]
+C13[label="C13" color="white" style="filled" ]
+C14[label="C14" color="white" style="filled" ]
+C15[label="C15" color="white" style="filled" ]
+C16[label="C16" color="white" style="filled" ]
+C17[label="C17" color="white" style="filled" ]
+C18[label="C18" color="white" style="filled" ]
+C19[label="C19" color="white" style="filled" ]
+C20[label="C20" color="white" style="filled" ]
+C21[label="C21" color="white" style="filled" ]
+C22[label="C22" color="white" style="filled" ]
+C23[label="C23" color="white" style="filled" ]
+C24[label="C24" color="white" style="filled" ]
+C25[label="C25" color="white" style="filled" ]
+C26[label="C26" color="white" style="filled" ]
+//contenido matriz
+
+N3_0[label="N3--0" color="#000000" style="filled" ];
+N4_0[label="N4--0" color="#000000" style="filled" ];
+N7_0[label="N7--0" color="#000000" style="filled" ];
+N8_0[label="N8--0" color="#000000" style="filled" ];
+N9_0[label="N9--0" color="#000000" style="filled" ];
+N10_0[label="N10--0" color="#000000" style="filled" ];
+N11_0[label="N11--0" color="#000000" style="filled" ];
+N12_0[label="N12--0" color="#000000" style="filled" ];
+N13_0[label="N13--0" color="#000000" style="filled" ];
+N14_0[label="N14--0" color="#000000" style="filled" ];
+N15_0[label="N15--0" color="#000000" style="filled" ];
+N16_0[label="N16--0" color="#000000" style="filled" ];
+N17_0[label="N17--0" color="#000000" style="filled" ];
+N3_1[label="N3--1" color="#000000" style="filled" ];
+N5_1[label="N5--1" color="#000000" style="filled" ];
+N6_1[label="N6--1" color="#000000" style="filled" ];
+N18_1[label="N18--1" color="#000000" style="filled" ];
+N3_2[label="N3--2" color="#000000" style="filled" ];
+N12_2[label="N12--2" color="#000000" style="filled" ];
+N17_2[label="N17--2" color="#000000" style="filled" ];
+N3_3[label="N3--3" color="#000000" style="filled" ];
+N12_3[label="N12--3" color="#000000" style="filled" ];
+N16_3[label="N16--3" color="#000000" style="filled" ];
+N2_4[label="N2--4" color="#000000" style="filled" ];
+N12_4[label="N12--4" color="#000000" style="filled" ];
+N15_4[label="N15--4" color="#000000" style="filled" ];
+N14_5[label="N14--5" color="#000000" style="filled" ];
+N15_6[label="N15--6" color="#000000" style="filled" ];
+N2_7[label="N2--7" color="#000000" style="filled" ];
+N5_7[label="N5--7" color="#000000" style="filled" ];
+N16_7[label="N16--7" color="#000000" style="filled" ];
+N2_8[label="N2--8" color="#000000" style="filled" ];
+N5_8[label="N5--8" color="#000000" style="filled" ];
+N14_8[label="N14--8" color="#000000" style="filled" ];
+N15_8[label="N15--8" color="#000000" style="filled" ];
+N16_8[label="N16--8" color="#000000" style="filled" ];
+N17_8[label="N17--8" color="#000000" style="filled" ];
+N18_8[label="N18--8" color="#000000" style="filled" ];
+N1_9[label="N1--9" color="#000000" style="filled" ];
+N2_9[label="N2--9" color="#000000" style="filled" ];
+N3_9[label="N3--9" color="#000000" style="filled" ];
+N5_9[label="N5--9" color="#000000" style="filled" ];
+N15_9[label="N15--9" color="#000000" style="filled" ];
+N16_9[label="N16--9" color="#000000" style="filled" ];
+N2_10[label="N2--10" color="#000000" style="filled" ];
+N16_10[label="N16--10" color="#000000" style="filled" ];
+N3_11[label="N3--11" color="#000000" style="filled" ];
+N17_11[label="N17--11" color="#000000" style="filled" ];
+N4_12[label="N4--12" color="#000000" style="filled" ];
+N9_12[label="N9--12" color="#000000" style="filled" ];
+N10_12[label="N10--12" color="#000000" style="filled" ];
+N11_12[label="N11--12" color="#000000" style="filled" ];
+N13_12[label="N13--12" color="#000000" style="filled" ];
+N14_12[label="N14--12" color="#000000" style="filled" ];
+N15_12[label="N15--12" color="#000000" style="filled" ];
+N16_12[label="N16--12" color="#000000" style="filled" ];
+N17_12[label="N17--12" color="#000000" style="filled" ];
+N18_12[label="N18--12" color="#000000" style="filled" ];
+N19_12[label="N19--12" color="#000000" style="filled" ];
+N5_13[label="N5--13" color="#000000" style="filled" ];
+N6_13[label="N6--13" color="#000000" style="filled" ];
+N7_13[label="N7--13" color="#000000" style="filled" ];
+N8_13[label="N8--13" color="#000000" style="filled" ];
+N10_13[label="N10--13" color="#000000" style="filled" ];
+N3_14[label="N3--14" color="#000000" style="filled" ];
+N4_14[label="N4--14" color="#000000" style="filled" ];
+N8_14[label="N8--14" color="#000000" style="filled" ];
+N9_14[label="N9--14" color="#000000" style="filled" ];
+N11_14[label="N11--14" color="#000000" style="filled" ];
+N2_15[label="N2--15" color="#000000" style="filled" ];
+N4_15[label="N4--15" color="#000000" style="filled" ];
+N7_15[label="N7--15" color="#000000" style="filled" ];
+N10_15[label="N10--15" color="#000000" style="filled" ];
+N12_15[label="N12--15" color="#000000" style="filled" ];
+N2_16[label="N2--16" color="#000000" style="filled" ];
+N4_16[label="N4--16" color="#000000" style="filled" ];
+N6_16[label="N6--16" color="#000000" style="filled" ];
+N11_16[label="N11--16" color="#000000" style="filled" ];
+N12_16[label="N12--16" color="#000000" style="filled" ];
+N3_17[label="N3--17" color="#000000" style="filled" ];
+N5_17[label="N5--17" color="#000000" style="filled" ];
+N6_17[label="N6--17" color="#000000" style="filled" ];
+N11_17[label="N11--17" color="#000000" style="filled" ];
+N4_18[label="N4--18" color="#000000" style="filled" ];
+N5_18[label="N5--18" color="#000000" style="filled" ];
+N6_18[label="N6--18" color="#000000" style="filled" ];
+N7_18[label="N7--18" color="#000000" style="filled" ];
+N10_18[label="N10--18" color="#000000" style="filled" ];
+N6_19[label="N6--19" color="#000000" style="filled" ];
+N7_19[label="N7--19" color="#000000" style="filled" ];
+N8_19[label="N8--19" color="#000000" style="filled" ];
+N9_19[label="N9--19" color="#000000" style="filled" ];
+N6_20[label="N6--20" color="#000000" style="filled" ];
+N7_20[label="N7--20" color="#000000" style="filled" ];
+N9_20[label="N9--20" color="#000000" style="filled" ];
+N5_21[label="N5--21" color="#000000" style="filled" ];
+N6_21[label="N6--21" color="#000000" style="filled" ];
+N7_21[label="N7--21" color="#000000" style="filled" ];
+N9_21[label="N9--21" color="#000000" style="filled" ];
+N10_21[label="N10--21" color="#000000" style="filled" ];
+N4_22[label="N4--22" color="#000000" style="filled" ];
+N7_22[label="N7--22" color="#000000" style="filled" ];
+N11_22[label="N11--22" color="#000000" style="filled" ];
+N2_23[label="N2--23" color="#000000" style="filled" ];
+N3_23[label="N3--23" color="#000000" style="filled" ];
+N7_23[label="N7--23" color="#000000" style="filled" ];
+N11_23[label="N11--23" color="#000000" style="filled" ];
+N12_23[label="N12--23" color="#000000" style="filled" ];
+N1_24[label="N1--24" color="#000000" style="filled" ];
+N6_24[label="N6--24" color="#000000" style="filled" ];
+N7_24[label="N7--24" color="#000000" style="filled" ];
+N12_24[label="N12--24" color="#000000" style="filled" ];
+N0_25[label="N0--25" color="#000000" style="filled" ];
+N8_25[label="N8--25" color="#000000" style="filled" ];
+N12_25[label="N12--25" color="#000000" style="filled" ];
+N13_25[label="N13--25" color="#000000" style="filled" ];
+N0_26[label="N0--26" color="#000000" style="filled" ];
+N1_26[label="N1--26" color="#000000" style="filled" ];
+N2_26[label="N2--26" color="#000000" style="filled" ];
+N3_26[label="N3--26" color="#000000" style="filled" ];
+N4_26[label="N4--26" color="#000000" style="filled" ];
+N5_26[label="N5--26" color="#000000" style="filled" ];
+N6_26[label="N6--26" color="#000000" style="filled" ];
+N7_26[label="N7--26" color="#000000" style="filled" ];
+N8_26[label="N8--26" color="#000000" style="filled" ];
+N9_26[label="N9--26" color="#000000" style="filled" ];
+N10_26[label="N10--26" color="#000000" style="filled" ];
+N11_26[label="N11--26" color="#000000" style="filled" ];
+N12_26[label="N12--26" color="#000000" style="filled" ];
+N13_26[label="N13--26" color="#000000" style="filled" ];
+//Conexiones entre filas
+
+F0->F1[dir=both];
+F1->F2[dir=both];
+F2->F3[dir=both];
+F3->F4[dir=both];
+F4->F5[dir=both];
+F5->F6[dir=both];
+F6->F7[dir=both];
+F7->F8[dir=both];
+F8->F9[dir=both];
+F9->F10[dir=both];
+F10->F11[dir=both];
+F11->F12[dir=both];
+F12->F13[dir=both];
+F13->F14[dir=both];
+F14->F15[dir=both];
+F15->F16[dir=both];
+F16->F17[dir=both];
+F17->F18[dir=both];
+F18->F19[dir=both];
+//Conexiones entre columnas
+
+C0->C1[dir=both];
+C1->C2[dir=both];
+C2->C3[dir=both];
+C3->C4[dir=both];
+C4->C5[dir=both];
+C5->C6[dir=both];
+C6->C7[dir=both];
+C7->C8[dir=both];
+C8->C9[dir=both];
+C9->C10[dir=both];
+C10->C11[dir=both];
+C11->C12[dir=both];
+C12->C13[dir=both];
+C13->C14[dir=both];
+C14->C15[dir=both];
+C15->C16[dir=both];
+C16->C17[dir=both];
+C17->C18[dir=both];
+C18->C19[dir=both];
+C19->C20[dir=both];
+C20->C21[dir=both];
+C21->C22[dir=both];
+C22->C23[dir=both];
+C23->C24[dir=both];
+C24->C25[dir=both];
+C25->C26[dir=both];
+//Concexiones fila-nodoInterno
+
+F0->N0_25[dir=both];
+N0_25->N0_26[dir=both];
+F1->N1_9[dir=both];
+N1_9->N1_24[dir=both];
+N1_24->N1_26[dir=both];
+F2->N2_4[dir=both];
+N2_4->N2_7[dir=both];
+N2_7->N2_8[dir=both];
+N2_8->N2_9[dir=both];
+N2_9->N2_10[dir=both];
+N2_10->N2_15[dir=both];
+N2_15->N2_16[dir=both];
+N2_16->N2_23[dir=both];
+N2_23->N2_26[dir=both];
+F3->N3_0[dir=both];
+N3_0->N3_1[dir=both];
+N3_1->N3_2[dir=both];
+N3_2->N3_3[dir=both];
+N3_3->N3_9[dir=both];
+N3_9->N3_11[dir=both];
+N3_11->N3_14[dir=both];
+N3_14->N3_17[dir=both];
+N3_17->N3_23[dir=both];
+N3_23->N3_26[dir=both];
+F4->N4_0[dir=both];
+N4_0->N4_12[dir=both];
+N4_12->N4_14[dir=both];
+N4_14->N4_15[dir=both];
+N4_15->N4_16[dir=both];
+N4_16->N4_18[dir=both];
+N4_18->N4_22[dir=both];
+N4_22->N4_26[dir=both];
+F5->N5_1[dir=both];
+N5_1->N5_7[dir=both];
+N5_7->N5_8[dir=both];
+N5_8->N5_9[dir=both];
+N5_9->N5_13[dir=both];
+N5_13->N5_17[dir=both];
+N5_17->N5_18[dir=both];
+N5_18->N5_21[dir=both];
+N5_21->N5_26[dir=both];
+F6->N6_1[dir=both];
+N6_1->N6_13[dir=both];
+N6_13->N6_16[dir=both];
+N6_16->N6_17[dir=both];
+N6_17->N6_18[dir=both];
+N6_18->N6_19[dir=both];
+N6_19->N6_20[dir=both];
+N6_20->N6_21[dir=both];
+N6_21->N6_24[dir=both];
+N6_24->N6_26[dir=both];
+F7->N7_0[dir=both];
+N7_0->N7_13[dir=both];
+N7_13->N7_15[dir=both];
+N7_15->N7_18[dir=both];
+N7_18->N7_19[dir=both];
+N7_19->N7_20[dir=both];
+N7_20->N7_21[dir=both];
+N7_21->N7_22[dir=both];
+N7_22->N7_23[dir=both];
+N7_23->N7_24[dir=both];
+N7_24->N7_26[dir=both];
+F8->N8_0[dir=both];
+N8_0->N8_13[dir=both];
+N8_13->N8_14[dir=both];
+N8_14->N8_19[dir=both];
+N8_19->N8_25[dir=both];
+N8_25->N8_26[dir=both];
+F9->N9_0[dir=both];
+N9_0->N9_12[dir=both];
+N9_12->N9_14[dir=both];
+N9_14->N9_19[dir=both];
+N9_19->N9_20[dir=both];
+N9_20->N9_21[dir=both];
+N9_21->N9_26[dir=both];
+F10->N10_0[dir=both];
+N10_0->N10_12[dir=both];
+N10_12->N10_13[dir=both];
+N10_13->N10_15[dir=both];
+N10_15->N10_18[dir=both];
+N10_18->N10_21[dir=both];
+N10_21->N10_26[dir=both];
+F11->N11_0[dir=both];
+N11_0->N11_12[dir=both];
+N11_12->N11_14[dir=both];
+N11_14->N11_16[dir=both];
+N11_16->N11_17[dir=both];
+N11_17->N11_22[dir=both];
+N11_22->N11_23[dir=both];
+N11_23->N11_26[dir=both];
+F12->N12_0[dir=both];
+N12_0->N12_2[dir=both];
+N12_2->N12_3[dir=both];
+N12_3->N12_4[dir=both];
+N12_4->N12_12[dir=both];
+N12_12->N12_15[dir=both];
+N12_15->N12_16[dir=both];
+N12_16->N12_23[dir=both];
+N12_23->N12_24[dir=both];
+N12_24->N12_25[dir=both];
+N12_25->N12_26[dir=both];
+F13->N13_0[dir=both];
+N13_0->N13_12[dir=both];
+N13_12->N13_25[dir=both];
+N13_25->N13_26[dir=both];
+F14->N14_0[dir=both];
+N14_0->N14_5[dir=both];
+N14_5->N14_8[dir=both];
+N14_8->N14_12[dir=both];
+F15->N15_0[dir=both];
+N15_0->N15_4[dir=both];
+N15_4->N15_6[dir=both];
+N15_6->N15_8[dir=both];
+N15_8->N15_9[dir=both];
+N15_9->N15_12[dir=both];
+F16->N16_0[dir=both];
+N16_0->N16_3[dir=both];
+N16_3->N16_7[dir=both];
+N16_7->N16_8[dir=both];
+N16_8->N16_9[dir=both];
+N16_9->N16_10[dir=both];
+N16_10->N16_12[dir=both];
+F17->N17_0[dir=both];
+N17_0->N17_2[dir=both];
+N17_2->N17_8[dir=both];
+N17_8->N17_11[dir=both];
+N17_11->N17_12[dir=both];
+F18->N18_1[dir=both];
+N18_1->N18_8[dir=both];
+N18_8->N18_12[dir=both];
+F19->N19_12[dir=both];
+//Concexiones columna-NodoInterno
+
+C0->N3_0[constraint=false,dir=both];
+N3_0->N4_0[constraint=false,dir=both];
+N4_0->N7_0[constraint=false,dir=both];
+N7_0->N8_0[constraint=false,dir=both];
+N8_0->N9_0[constraint=false,dir=both];
+N9_0->N10_0[constraint=false,dir=both];
+N10_0->N11_0[constraint=false,dir=both];
+N11_0->N12_0[constraint=false,dir=both];
+N12_0->N13_0[constraint=false,dir=both];
+N13_0->N14_0[constraint=false,dir=both];
+N14_0->N15_0[constraint=false,dir=both];
+N15_0->N16_0[constraint=false,dir=both];
+N16_0->N17_0[constraint=false,dir=both];
+C1->N3_1[constraint=false,dir=both];
+N3_1->N5_1[constraint=false,dir=both];
+N5_1->N6_1[constraint=false,dir=both];
+N6_1->N18_1[constraint=false,dir=both];
+C2->N3_2[constraint=false,dir=both];
+N3_2->N12_2[constraint=false,dir=both];
+N12_2->N17_2[constraint=false,dir=both];
+C3->N3_3[constraint=false,dir=both];
+N3_3->N12_3[constraint=false,dir=both];
+N12_3->N16_3[constraint=false,dir=both];
+C4->N2_4[constraint=false,dir=both];
+N2_4->N12_4[constraint=false,dir=both];
+N12_4->N15_4[constraint=false,dir=both];
+C5->N14_5[constraint=false,dir=both];
+C6->N15_6[constraint=false,dir=both];
+C7->N2_7[constraint=false,dir=both];
+N2_7->N5_7[constraint=false,dir=both];
+N5_7->N16_7[constraint=false,dir=both];
+C8->N2_8[constraint=false,dir=both];
+N2_8->N5_8[constraint=false,dir=both];
+N5_8->N14_8[constraint=false,dir=both];
+N14_8->N15_8[constraint=false,dir=both];
+N15_8->N16_8[constraint=false,dir=both];
+N16_8->N17_8[constraint=false,dir=both];
+N17_8->N18_8[constraint=false,dir=both];
+C9->N1_9[constraint=false,dir=both];
+N1_9->N2_9[constraint=false,dir=both];
+N2_9->N3_9[constraint=false,dir=both];
+N3_9->N5_9[constraint=false,dir=both];
+N5_9->N15_9[constraint=false,dir=both];
+N15_9->N16_9[constraint=false,dir=both];
+C10->N2_10[constraint=false,dir=both];
+N2_10->N16_10[constraint=false,dir=both];
+C11->N3_11[constraint=false,dir=both];
+N3_11->N17_11[constraint=false,dir=both];
+C12->N4_12[constraint=false,dir=both];
+N4_12->N9_12[constraint=false,dir=both];
+N9_12->N10_12[constraint=false,dir=both];
+N10_12->N11_12[constraint=false,dir=both];
+N11_12->N13_12[constraint=false,dir=both];
+N13_12->N14_12[constraint=false,dir=both];
+N14_12->N15_12[constraint=false,dir=both];
+N15_12->N16_12[constraint=false,dir=both];
+N16_12->N17_12[constraint=false,dir=both];
+N17_12->N18_12[constraint=false,dir=both];
+N18_12->N19_12[constraint=false,dir=both];
+C13->N5_13[constraint=false,dir=both];
+N5_13->N6_13[constraint=false,dir=both];
+N6_13->N7_13[constraint=false,dir=both];
+N7_13->N8_13[constraint=false,dir=both];
+N8_13->N10_13[constraint=false,dir=both];
+C14->N3_14[constraint=false,dir=both];
+N3_14->N4_14[constraint=false,dir=both];
+N4_14->N8_14[constraint=false,dir=both];
+N8_14->N9_14[constraint=false,dir=both];
+N9_14->N11_14[constraint=false,dir=both];
+C15->N2_15[constraint=false,dir=both];
+N2_15->N4_15[constraint=false,dir=both];
+N4_15->N7_15[constraint=false,dir=both];
+N7_15->N10_15[constraint=false,dir=both];
+N10_15->N12_15[constraint=false,dir=both];
+C16->N2_16[constraint=false,dir=both];
+N2_16->N4_16[constraint=false,dir=both];
+N4_16->N6_16[constraint=false,dir=both];
+N6_16->N11_16[constraint=false,dir=both];
+N11_16->N12_16[constraint=false,dir=both];
+C17->N3_17[constraint=false,dir=both];
+N3_17->N5_17[constraint=false,dir=both];
+N5_17->N6_17[constraint=false,dir=both];
+N6_17->N11_17[constraint=false,dir=both];
+C18->N4_18[constraint=false,dir=both];
+N4_18->N5_18[constraint=false,dir=both];
+N5_18->N6_18[constraint=false,dir=both];
+N6_18->N7_18[constraint=false,dir=both];
+N7_18->N10_18[constraint=false,dir=both];
+C19->N6_19[constraint=false,dir=both];
+N6_19->N7_19[constraint=false,dir=both];
+N7_19->N8_19[constraint=false,dir=both];
+N8_19->N9_19[constraint=false,dir=both];
+C20->N6_20[constraint=false,dir=both];
+N6_20->N7_20[constraint=false,dir=both];
+N7_20->N9_20[constraint=false,dir=both];
+C21->N5_21[constraint=false,dir=both];
+N5_21->N6_21[constraint=false,dir=both];
+N6_21->N7_21[constraint=false,dir=both];
+N7_21->N9_21[constraint=false,dir=both];
+N9_21->N10_21[constraint=false,dir=both];
+C22->N4_22[constraint=false,dir=both];
+N4_22->N7_22[constraint=false,dir=both];
+N7_22->N11_22[constraint=false,dir=both];
+C23->N2_23[constraint=false,dir=both];
+N2_23->N3_23[constraint=false,dir=both];
+N3_23->N7_23[constraint=false,dir=both];
+N7_23->N11_23[constraint=false,dir=both];
+N11_23->N12_23[constraint=false,dir=both];
+C24->N1_24[constraint=false,dir=both];
+N1_24->N6_24[constraint=false,dir=both];
+N6_24->N7_24[constraint=false,dir=both];
+N7_24->N12_24[constraint=false,dir=both];
+C25->N0_25[constraint=false,dir=both];
+N0_25->N8_25[constraint=false,dir=both];
+N8_25->N12_25[constraint=false,dir=both];
+N12_25->N13_25[constraint=false,dir=both];
+C26->N0_26[constraint=false,dir=both];
+N0_26->N1_26[constraint=false,dir=both];
+N1_26->N2_26[constraint=false,dir=both];
+N2_26->N3_26[constraint=false,dir=both];
+N3_26->N4_26[constraint=false,dir=both];
+N4_26->N5_26[constraint=false,dir=both];
+N5_26->N6_26[constraint=false,dir=both];
+N6_26->N7_26[constraint=false,dir=both];
+N7_26->N8_26[constraint=false,dir=both];
+N8_26->N9_26[constraint=false,dir=both];
+N9_26->N10_26[constraint=false,dir=both];
+N10_26->N11_26[constraint=false,dir=both];
+N11_26->N12_26[constraint=false,dir=both];
+N12_26->N13_26[constraint=false,dir=both];
+pivote->
+C0[dir=both];
+pivote->
+F0[dir=both];
+//Los ranks
+{ rank = same;pivote;
+F0;
+F1;
+F2;
+F3;
+F4;
+F5;
+F6;
+F7;
+F8;
+F9;
+F10;
+F11;
+F12;
+F13;
+F14;
+F15;
+F16;
+F17;
+F18;
+F19;}
+{ rank = same;C0;N3_0;N4_0;N7_0;N8_0;N9_0;N10_0;N11_0;N12_0;N13_0;N14_0;N15_0;N16_0;N17_0;}
+
+{ rank = same;C1;N3_1;N5_1;N6_1;N18_1;}
+
+{ rank = same;C2;N3_2;N12_2;N17_2;}
+
+{ rank = same;C3;N3_3;N12_3;N16_3;}
+
+{ rank = same;C4;N2_4;N12_4;N15_4;}
+
+{ rank = same;C5;N14_5;}
+
+{ rank = same;C6;N15_6;}
+
+{ rank = same;C7;N2_7;N5_7;N16_7;}
+
+{ rank = same;C8;N2_8;N5_8;N14_8;N15_8;N16_8;N17_8;N18_8;}
+
+{ rank = same;C9;N1_9;N2_9;N3_9;N5_9;N15_9;N16_9;}
+
+{ rank = same;C10;N2_10;N16_10;}
+
+{ rank = same;C11;N3_11;N17_11;}
+
+{ rank = same;C12;N4_12;N9_12;N10_12;N11_12;N13_12;N14_12;N15_12;N16_12;N17_12;N18_12;N19_12;}
+
+{ rank = same;C13;N5_13;N6_13;N7_13;N8_13;N10_13;}
+
+{ rank = same;C14;N3_14;N4_14;N8_14;N9_14;N11_14;}
+
+{ rank = same;C15;N2_15;N4_15;N7_15;N10_15;N12_15;}
+
+{ rank = same;C16;N2_16;N4_16;N6_16;N11_16;N12_16;}
+
+{ rank = same;C17;N3_17;N5_17;N6_17;N11_17;}
+
+{ rank = same;C18;N4_18;N5_18;N6_18;N7_18;N10_18;}
+
+{ rank = same;C19;N6_19;N7_19;N8_19;N9_19;}
+
+{ rank = same;C20;N6_20;N7_20;N9_20;}
+
+{ rank = same;C21;N5_21;N6_21;N7_21;N9_21;N10_21;}
+
+{ rank = same;C22;N4_22;N7_22;N11_22;}
+
+{ rank = same;C23;N2_23;N3_23;N7_23;N11_23;N12_23;}
+
+{ rank = same;C24;N1_24;N6_24;N7_24;N12_24;}
+
+{ rank = same;C25;N0_25;N8_25;N12_25;N13_25;}
+
+{ rank = same;C26;N0_26;N1_26;N2_26;N3_26;N4_26;N5_26;N6_26;N7_26;N8_26;N9_26;N10_26;N11_26;N12_26;N13_26;}
+}

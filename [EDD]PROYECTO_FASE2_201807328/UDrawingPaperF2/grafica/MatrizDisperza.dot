@@ -1,4 +1,4 @@
-digraph {
+digraph MD {
 
 rankdir = TB;
 node [shape=rectangle, height=0.5, width=0.5];
@@ -6,42 +6,164 @@ graph[ nodesep = 0.5];
 pivote[ label = "pivote", width = 1.5, style = filled];
 //cabeceras columnas
 
-F31[label="F31" color="white" style="filled" ]
-F37[label="F37" color="white" style="filled" ]
+F3[label="F3" color="white" style="filled" ]
+F4[label="F4" color="white" style="filled" ]
+F5[label="F5" color="white" style="filled" ]
+F6[label="F6" color="white" style="filled" ]
+F7[label="F7" color="white" style="filled" ]
+F8[label="F8" color="white" style="filled" ]
+F9[label="F9" color="white" style="filled" ]
+F10[label="F10" color="white" style="filled" ]
+F11[label="F11" color="white" style="filled" ]
 //cabeceras filas
 
-C25[label="C25" color="white" style="filled" ]
-C38[label="C38" color="white" style="filled" ]
+C2[label="C2" color="white" style="filled" ]
+C3[label="C3" color="white" style="filled" ]
+C4[label="C4" color="white" style="filled" ]
+C10[label="C10" color="white" style="filled" ]
+C11[label="C11" color="white" style="filled" ]
+C12[label="C12" color="white" style="filled" ]
+C13[label="C13" color="white" style="filled" ]
+C14[label="C14" color="white" style="filled" ]
+C15[label="C15" color="white" style="filled" ]
+C16[label="C16" color="white" style="filled" ]
 //contenido matriz
 
-N31_25[label="N31--25" color="#FFCC33" style="filled" ];
-N37_25[label="N37--25" color="#FFCC27" style="filled" ];
-N31_38[label="N31--38" color="#FFCC40" style="filled" ];
+N11_2[label="N11--2" color="#FFFF9F" style="filled" ];
+N10_3[label="N10--3" color="#FFFF9F" style="filled" ];
+N11_3[label="N11--3" color="#FFFF9F" style="filled" ];
+N11_4[label="N11--4" color="#FFFF9F" style="filled" ];
+N3_10[label="N3--10" color="#FFFF9F" style="filled" ];
+N4_10[label="N4--10" color="#FFFF9F" style="filled" ];
+N8_10[label="N8--10" color="#FFFF9F" style="filled" ];
+N9_10[label="N9--10" color="#FFFF9F" style="filled" ];
+N4_11[label="N4--11" color="#FFFF9F" style="filled" ];
+N5_11[label="N5--11" color="#FFFF9F" style="filled" ];
+N6_11[label="N6--11" color="#FFFF9F" style="filled" ];
+N7_11[label="N7--11" color="#FFFF9F" style="filled" ];
+N8_11[label="N8--11" color="#FFFF9F" style="filled" ];
+N9_11[label="N9--11" color="#FFFF9F" style="filled" ];
+N5_12[label="N5--12" color="#FFFF9F" style="filled" ];
+N6_12[label="N6--12" color="#FFFF9F" style="filled" ];
+N7_12[label="N7--12" color="#FFFF9F" style="filled" ];
+N8_12[label="N8--12" color="#FFFF9F" style="filled" ];
+N9_13[label="N9--13" color="#FFFF9F" style="filled" ];
+N5_14[label="N5--14" color="#FFFF9F" style="filled" ];
+N6_14[label="N6--14" color="#FFFF9F" style="filled" ];
+N10_14[label="N10--14" color="#FFFF9F" style="filled" ];
+N5_15[label="N5--15" color="#FFFF9F" style="filled" ];
+N6_15[label="N6--15" color="#FFFF9F" style="filled" ];
+N11_15[label="N11--15" color="#FFFF9F" style="filled" ];
+N5_16[label="N5--16" color="#FFFF9F" style="filled" ];
 //Conexiones entre filas
 
-F31->F37[dir=both];
+F3->F4[dir=both];
+F4->F5[dir=both];
+F5->F6[dir=both];
+F6->F7[dir=both];
+F7->F8[dir=both];
+F8->F9[dir=both];
+F9->F10[dir=both];
+F10->F11[dir=both];
 //Conexiones entre columnas
 
-C25->C38[dir=both];
+C2->C3[dir=both];
+C3->C4[dir=both];
+C4->C10[dir=both];
+C10->C11[dir=both];
+C11->C12[dir=both];
+C12->C13[dir=both];
+C13->C14[dir=both];
+C14->C15[dir=both];
+C15->C16[dir=both];
 //Concexiones fila-nodoInterno
 
-F31->N31_25[dir=both];
-N31_25->N31_38[dir=both];
-F37->N37_25[dir=both];
+F3->N3_10[dir=both];
+F4->N4_10[dir=both];
+N4_10->N4_11[dir=both];
+F5->N5_11[dir=both];
+N5_11->N5_12[dir=both];
+N5_12->N5_14[dir=both];
+N5_14->N5_15[dir=both];
+N5_15->N5_16[dir=both];
+F6->N6_11[dir=both];
+N6_11->N6_12[dir=both];
+N6_12->N6_14[dir=both];
+N6_14->N6_15[dir=both];
+F7->N7_11[dir=both];
+N7_11->N7_12[dir=both];
+F8->N8_10[dir=both];
+N8_10->N8_11[dir=both];
+N8_11->N8_12[dir=both];
+F9->N9_10[dir=both];
+N9_10->N9_11[dir=both];
+N9_11->N9_13[dir=both];
+F10->N10_3[dir=both];
+N10_3->N10_14[dir=both];
+F11->N11_2[dir=both];
+N11_2->N11_3[dir=both];
+N11_3->N11_4[dir=both];
+N11_4->N11_15[dir=both];
 //Concexiones columna-NodoInterno
 
-C25->N31_25[constraint=false,dir=both];
-N31_25->N37_25[constraint=false,dir=both];
-C38->N31_38[constraint=false,dir=both];
+C2->N11_2[constraint=false,dir=both];
+C3->N10_3[constraint=false,dir=both];
+N10_3->N11_3[constraint=false,dir=both];
+C4->N11_4[constraint=false,dir=both];
+C10->N3_10[constraint=false,dir=both];
+N3_10->N4_10[constraint=false,dir=both];
+N4_10->N8_10[constraint=false,dir=both];
+N8_10->N9_10[constraint=false,dir=both];
+C11->N4_11[constraint=false,dir=both];
+N4_11->N5_11[constraint=false,dir=both];
+N5_11->N6_11[constraint=false,dir=both];
+N6_11->N7_11[constraint=false,dir=both];
+N7_11->N8_11[constraint=false,dir=both];
+N8_11->N9_11[constraint=false,dir=both];
+C12->N5_12[constraint=false,dir=both];
+N5_12->N6_12[constraint=false,dir=both];
+N6_12->N7_12[constraint=false,dir=both];
+N7_12->N8_12[constraint=false,dir=both];
+C13->N9_13[constraint=false,dir=both];
+C14->N5_14[constraint=false,dir=both];
+N5_14->N6_14[constraint=false,dir=both];
+N6_14->N10_14[constraint=false,dir=both];
+C15->N5_15[constraint=false,dir=both];
+N5_15->N6_15[constraint=false,dir=both];
+N6_15->N11_15[constraint=false,dir=both];
+C16->N5_16[constraint=false,dir=both];
 pivote->
-C25[dir=both];
+C2[dir=both];
 pivote->
-F31[dir=both];
+F3[dir=both];
 //Los ranks
 { rank = same;pivote;
-F31;
-F37;}
-{ rank = same;C25;N31_25;N37_25;}
+F3;
+F4;
+F5;
+F6;
+F7;
+F8;
+F9;
+F10;
+F11;}
+{ rank = same;C2;N11_2;}
 
-{ rank = same;C38;N31_38;}
+{ rank = same;C3;N10_3;N11_3;}
+
+{ rank = same;C4;N11_4;}
+
+{ rank = same;C10;N3_10;N4_10;N8_10;N9_10;}
+
+{ rank = same;C11;N4_11;N5_11;N6_11;N7_11;N8_11;N9_11;}
+
+{ rank = same;C12;N5_12;N6_12;N7_12;N8_12;}
+
+{ rank = same;C13;N9_13;}
+
+{ rank = same;C14;N5_14;N6_14;N10_14;}
+
+{ rank = same;C15;N5_15;N6_15;N11_15;}
+
+{ rank = same;C16;N5_16;}
 }

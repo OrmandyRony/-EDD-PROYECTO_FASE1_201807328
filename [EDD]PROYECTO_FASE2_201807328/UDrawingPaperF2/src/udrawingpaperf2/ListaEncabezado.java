@@ -19,6 +19,7 @@ public class ListaEncabezado {
     }
     
     public void insert(NodoEncabezado nuevoEncabezado) {
+     
         // Insercción en orden
         if (this.primero == null) {
             this.primero = nuevoEncabezado;
