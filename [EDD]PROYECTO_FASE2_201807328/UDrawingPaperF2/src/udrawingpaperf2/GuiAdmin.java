@@ -402,8 +402,10 @@ public class GuiAdmin extends javax.swing.JDialog {
         // TODO add your handling code here:
         NodoB nodoCliente = admin.arbolBClientes.buscar(admin.arbolBClientes.raiz, Long.parseLong(buscarDpiDatos.getText()));
         if (nodoCliente != null) {
-            JOptionPane.showInputDialog("El nombre es: " + nodoCliente.cliente.nombre 
-                    + "\nEl password es: " + nodoCliente.cliente.password );
+            JOptionPane.showMessageDialog(null, "El nombre es: " + nodoCliente.cliente.nombre 
+                    + "\nEl password es: " + nodoCliente.cliente.password  + 
+                    "La cantida de albumes es:" + nodoCliente.cliente.listaAlbumes.size
+                    + "La catidad de imagenes es: " + nodoCliente.cliente.avlImagenes.size);
            
         } else {
             JOptionPane.showMessageDialog(null, "El cliente no puedo ser encontrado");

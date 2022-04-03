@@ -1,6 +1,6 @@
 digraph arbolB {
 rankr = TB; 
 node[shape = box,fillcolor="azure2" color="black" style="filled"];
-node[shape=record label= "<p0>|{88}|<p1> |{2299062130101}|<p2> |{4999062130101}|<p3> "]88;
-88;
+node[shape=record label= "<p0>|{8}|<p1> "]8;
+8;
 }

@@ -10,6 +10,7 @@ import java.io.FileWriter;
  */
 public class AVLImagenes {
     NodoImagen raiz = null;
+    int size = 0;
     
     public class NodoImagen {
         int id;
@@ -25,6 +26,7 @@ public class AVLImagenes {
     }
     
     public void insert(int id) {
+        size++;
         NodoImagen nuevaImagen = new NodoImagen(id);
         if (raiz != null) {
                 raiz = insert(raiz, nuevaImagen);
