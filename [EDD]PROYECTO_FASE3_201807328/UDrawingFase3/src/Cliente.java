@@ -12,23 +12,23 @@ public class Cliente {
     String nombre;
     String usuario;
     String correo;
-    String DPI;
-    String telefonos;
+    String telefono;
     String contrasena;
     String direccion;
     String idMunicipio;
 
-    public Cliente(String nombre, String usuario, String correo, String DPI, String telefonos, String contrasena, String direccion, String idMunicipio) {
+    public Cliente(String nombre, String usuario, String correo, String telefono, 
+            String contrasena, String direccion, String idMunicipio) {
         this.nombre = nombre;
         this.usuario = usuario;
         this.correo = correo;
-        this.DPI = DPI;
-        this.telefonos = telefonos;
+        this.telefono = telefono;
         this.contrasena = contrasena;
         this.direccion = direccion;
         this.idMunicipio = idMunicipio;
     }
+
     
+
     
-     
 }
