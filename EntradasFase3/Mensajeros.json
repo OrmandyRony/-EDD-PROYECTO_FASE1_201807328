@@ -1,0 +1,80 @@
+[
+	{
+		"dpi": "2999062130101",
+		"nombre": "AUX EDD",
+        "apellidos": "Ortiz",
+        "tipo_licencia": "A",
+        "genero": "Female",
+		"direccion": "edd1s2022"
+	},
+	{
+		"dpi": "3999062130101",
+		"nombre": "AUX EDD2",
+		"direccion": "2edd1s2022"
+	},
+	{
+		"dpi": "4999062130101",
+		"nombre": "AUX EDD3",
+		"direccion": "3edd1s2022"
+	},
+	{
+		"dpi": "6999062130101",
+		"nombre": "AUX EDD5",
+		"direccion": "5edd1s2022"
+	},
+	{
+		"dpi": "7999062130101",
+		"nombre": "AUX EDD6",
+		"direccion": "6edd1s2022"
+	},
+	{
+		"dpi": "8999062130101",
+		"nombre": "AUX EDD7",
+		"direccion": "7edd1s2022"
+	},
+	{
+		"dpi": "9999062130101",
+		"nombre": "AUX EDD8",
+		"direccion": "8edd1s2022"
+	},
+	{
+		"dpi": "2299062130101",
+		"nombre": "AUX EDD10",
+		"direccion": "10edd1s2022"
+	}
+	,{
+		"dpi": "39990130101",
+		"nombre": "AUX EDD2",
+		"direccion": "2edd1s2022"
+	},
+	{
+		"dpi": "49990620101",
+		"nombre": "AUX EDD3",
+		"direccion": "3edd1s2022"
+	},
+	{
+		"dpi": "69990620101",
+		"nombre": "AUX EDD5",
+		"direccion": "5edd1s2022"
+	},
+	{
+		"dpi": "79990630101",
+		"nombre": "AUX EDD6",
+		"direccion": "6edd1s2022"
+	},
+	{
+		"dpi": "89990130101",
+		"nombre": "AUX EDD7",
+		"direccion": "7edd1s2022"
+	},
+	{
+		"dpi": "99992130101",
+		"nombre": "AUX EDD8",
+		"direccion": "8edd1s2022"
+	},
+	{
+		"dpi": "22990630101",
+		"nombre": "AUX EDD10",
+		"direccion": "10edd1s2022"
+	}
+]

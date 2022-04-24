@@ -112,7 +112,7 @@ public class Login extends javax.swing.JFrame {
             guiAdmin.setVisible(true);
         } else {
             NodoB nodoCliente = admin.arbolBClientes.buscar(admin.arbolBClientes.raiz, Long.parseLong(textUser.getText()));
-            if (nodoCliente != null && nodoCliente.cliente.password.equals(textPassword.getText())) {
+            if (nodoCliente != null && nodoCliente.cliente.contrasena.equals(textPassword.getText())) {
                Usuario guiUsuario = new Usuario(this, true, nodoCliente.cliente, this.admin);
                dispose();
                guiUsuario.setVisible(true);

@@ -66,14 +66,7 @@ public class GuiAdmin extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         btnGraficar = new javax.swing.JButton();
         imagen = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        nombreInsertar = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        dpiInsertar = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        passwwordInsertar = new javax.swing.JTextField();
-        Insertar = new javax.swing.JButton();
+        cargaMasivaMensajeros = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         dpiBuscar = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -87,10 +80,11 @@ public class GuiAdmin extends javax.swing.JDialog {
         buscarDpiDatos = new javax.swing.JTextField();
         btnBuscarDatos = new javax.swing.JButton();
         cerrasSesion = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Carga Masiva");
+        jLabel1.setText("Carga Masiva Clientes");
 
         btnBuscar.setText("Carga Masiva");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,24 +105,10 @@ public class GuiAdmin extends javax.swing.JDialog {
         imagen.setText("                                                                                                                                 No disponible");
         imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setText("Insertar");
-
-        nombreInsertar.addActionListener(new java.awt.event.ActionListener() {
+        cargaMasivaMensajeros.setText("Carga Masiva");
+        cargaMasivaMensajeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreInsertarActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Nombre:");
-
-        jLabel5.setText("DPI:");
-
-        jLabel6.setText("Contraseña:");
-
-        Insertar.setText("Insertar");
-        Insertar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertarActionPerformed(evt);
+                cargaMasivaMensajerosActionPerformed(evt);
             }
         });
 
@@ -172,6 +152,13 @@ public class GuiAdmin extends javax.swing.JDialog {
             }
         });
 
+        jTextField1.setText("Carga Masiva Mensajeros");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,8 +167,11 @@ public class GuiAdmin extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(cargaMasivaMensajeros)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -194,12 +184,11 @@ public class GuiAdmin extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(btnGraficar))))
-                            .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
+                            .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(243, 243, 243)
+                                .addGap(333, 333, 333)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addGroup(layout.createSequentialGroup()
@@ -207,21 +196,7 @@ public class GuiAdmin extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(dpiBuscar))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6))
-                                        .addGap(27, 27, 27)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(dpiInsertar)
-                                            .addComponent(nombreInsertar)
-                                            .addComponent(passwwordInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(104, 104, 104)
-                                        .addComponent(Insertar)))
-                                .addGap(98, 98, 98)
+                                .addGap(337, 337, 337)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel10)
@@ -254,7 +229,6 @@ public class GuiAdmin extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,39 +236,37 @@ public class GuiAdmin extends javax.swing.JDialog {
                         .addComponent(btnBuscar)
                         .addComponent(btnGraficar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nombreInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)
                         .addComponent(dpiBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
                         .addComponent(btnBuscarDPI)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)))
+                .addGap(18, 18, 18)
+                .addComponent(cargaMasivaMensajeros)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(dpiInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(passwwordInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(eliminarDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Insertar)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(buscarDpiDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnBuscarDatos)))))
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(buscarDpiDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarDatos)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -339,18 +311,32 @@ public class GuiAdmin extends javax.swing.JDialog {
         JSONArray json = (JSONArray) obj1;
         long numeroDpi;
         String dpi;
-        String nombreCliente;
-        String password;
+        String nombre;
+        String usuario;
+        String correo;
+        String contrasena;
+        String telefono;
+        String direccion;
+        String idMunicipio;
         
         for (int i = 0; i < json.size(); i++) {
             JSONObject object = (JSONObject) json.get(i);
             dpi = object.get("dpi").toString();
             numeroDpi = Long.parseLong(dpi);
-            nombreCliente = object.get("nombre_cliente").toString();
-            password = object.get("password").toString();
+            
+            nombre = object.get("nombre_completo").toString();
+            usuario = object.get("nombre_usuario").toString();
+            correo = object.get("correo").toString();
+            contrasena = object.get("contrasenia").toString();
+            telefono = object.get("telefono").toString();
+            direccion = object.get("direccion").toString();
+            idMunicipio = object.get("id_municipio").toString();
             //System.out.println("Numero: " + numeroDpi + "NombreCliente: " + nombreCliente + "Password: " + password);
-            admin.arbolBClientes.insertarNodo(numeroDpi, nombreCliente, password);
+            admin.arbolBClientes.insertarNodo(numeroDpi, nombre, usuario, correo, 
+                    telefono, contrasena,direccion, idMunicipio);
         }
+        
+        JOptionPane.showMessageDialog(null, "La carga de clientes se realizado con exito");
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -362,18 +348,71 @@ public class GuiAdmin extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnGraficarActionPerformed
 
-    private void nombreInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreInsertarActionPerformed
+    private void cargaMasivaMensajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMasivaMensajerosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreInsertarActionPerformed
+        String ruta = "";
+        JFileChooser fc = new JFileChooser();
+        int op = fc.showOpenDialog(this);
+        if (op == JFileChooser.APPROVE_OPTION) {
+            ruta = fc.getSelectedFile().toString();
+            //System.out.println("La ruta es: " + ruta);
+        }
 
-    private void InsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Insertar");
-        admin.arbolBClientes.insertarNodo(Long.parseLong(dpiInsertar.getText()), nombreInsertar.getText(), passwwordInsertar.getText());
-        dpiInsertar.setText("");
-        nombreInsertar.setText("");
-        passwwordInsertar.setText("");
-    }//GEN-LAST:event_InsertarActionPerformed
+        File doc = new File(ruta);
+        BufferedReader obj = null;
+        try {
+            obj = new BufferedReader(new FileReader(doc));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String strng;
+        ruta = "";
+
+        try {
+            while ((strng = obj.readLine()) != null) {
+                ruta += strng;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JSONParser parser = new JSONParser();
+        Object obj1 = null;
+        try {
+            obj1 = parser.parse(ruta);
+        } catch (ParseException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JSONArray json = (JSONArray) obj1;
+        long numeroDpi;
+        String dpi;
+        String nombre;
+        String apellido;
+        String tipoLicencia;
+        String genero;
+        String telefono;
+        String direccion;
+
+        
+        for (int i = 0; i < json.size(); i++) {
+            JSONObject object = (JSONObject) json.get(i);
+            dpi = object.get("dpi").toString();
+            numeroDpi = Long.parseLong(dpi);
+            
+            nombre = object.get("nombres").toString();
+            apellido = object.get("apellidos").toString();
+            tipoLicencia = object.get("tipo_licencia").toString();
+            genero = object.get("genero").toString();
+            telefono = object.get("telefono").toString();
+            direccion = object.get("direccion").toString();
+            
+            admin.tablaHashMensajeros.insert(numeroDpi, nombre, apellido, tipoLicencia, 
+                    genero, telefono, direccion);
+        }
+        
+        JOptionPane.showMessageDialog(null, "La carga de mensajeros se realizado con exito");
+    }//GEN-LAST:event_cargaMasivaMensajerosActionPerformed
 
     private void btnBuscarDPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDPIActionPerformed
         // TODO add your handling code here:
@@ -381,8 +420,8 @@ public class GuiAdmin extends javax.swing.JDialog {
         if (nodoCliente != null) {
             String nuevoNombre = JOptionPane.showInputDialog("El nombre es: " + nodoCliente.cliente.nombre);
             nodoCliente.cliente.nombre = nuevoNombre;
-            String nuevoPassword = JOptionPane.showInputDialog("El password es: " + nodoCliente.cliente.password);
-            nodoCliente.cliente.password = nuevoPassword;
+            String nuevoPassword = JOptionPane.showInputDialog("El password es: " + nodoCliente.cliente.contrasena);
+            nodoCliente.cliente.contrasena= nuevoPassword;
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no puedo ser encontrado");
         }
@@ -403,9 +442,7 @@ public class GuiAdmin extends javax.swing.JDialog {
         NodoB nodoCliente = admin.arbolBClientes.buscar(admin.arbolBClientes.raiz, Long.parseLong(buscarDpiDatos.getText()));
         if (nodoCliente != null) {
             JOptionPane.showMessageDialog(null, "El nombre es: " + nodoCliente.cliente.nombre 
-                    + "\nEl password es: " + nodoCliente.cliente.password  + 
-                    "La cantida de albumes es:" + nodoCliente.cliente.listaAlbumes.size
-                    + "La catidad de imagenes es: " + nodoCliente.cliente.avlImagenes.size);
+                    + "\nEl password es: " + nodoCliente.cliente.contrasena);
            
         } else {
             JOptionPane.showMessageDialog(null, "El cliente no puedo ser encontrado");
@@ -418,6 +455,10 @@ public class GuiAdmin extends javax.swing.JDialog {
         this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_cerrasSesionActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,16 +516,15 @@ public class GuiAdmin extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Insertar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarDPI;
     private javax.swing.JButton btnBuscarDatos;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGraficar;
     private javax.swing.JTextField buscarDpiDatos;
+    private javax.swing.JButton cargaMasivaMensajeros;
     private javax.swing.JButton cerrasSesion;
     private javax.swing.JTextField dpiBuscar;
-    private javax.swing.JTextField dpiInsertar;
     private javax.swing.JTextField eliminarDPI;
     private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel1;
@@ -492,14 +532,9 @@ public class GuiAdmin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField nombreInsertar;
-    private javax.swing.JTextField passwwordInsertar;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

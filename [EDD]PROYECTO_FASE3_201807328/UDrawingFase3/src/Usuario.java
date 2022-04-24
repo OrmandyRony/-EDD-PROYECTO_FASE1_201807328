@@ -345,428 +345,52 @@ public class Usuario extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String ruta = "";
-        JFileChooser fc = new JFileChooser();
-        int op = fc.showOpenDialog(this);
-        if (op == JFileChooser.APPROVE_OPTION) {
-            ruta = fc.getSelectedFile().toString();
-            //System.out.println("La ruta es: " + ruta);
-        }
+       
 
-        File doc = new File(ruta);
-        BufferedReader obj = null;
-        try {
-            obj = new BufferedReader(new FileReader(doc));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        String strng;
-        ruta = "";
-
-        try {
-            while ((strng = obj.readLine()) != null) {
-                ruta += strng;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        JSONParser parser = new JSONParser();
-        Object obj1 = null;
-        try {
-            obj1 = parser.parse(ruta);
-        } catch (ParseException ex) {
-            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JSONArray json = (JSONArray) obj1;
-        String nombreAlbum;
-        String imgs;
-        
-        
-        for (int i = 0; i < json.size(); i++) {
-            String capa = "";
-            JSONObject object = (JSONObject) json.get(i);
-            nombreAlbum = object.get("nombre_album").toString();
-            imgs = object.get("imgs").toString();
-            
-            ListaImagenes listaTmp = new ListaImagenes();
-            
-            for (int j = 0; j < imgs.length(); j++) {
-                //System.out.println(imgs);
-                
-                if ('0' == imgs.charAt(j)) {
-                    capa += "0";
-                } else if ('1' == imgs.charAt(j)) {
-                    capa += "1";
-                } else if ('2' == imgs.charAt(j)) {
-                    capa += "2";
-                } else if ('3' == imgs.charAt(j)) {
-                    capa += "3";
-                } else if ('4' == imgs.charAt(j)) {
-                    capa += "4";
-                } else if ('5' == imgs.charAt(j)) {
-                    capa += "5";
-                } else if ('6' == imgs.charAt(j)) {
-                    capa += "6";
-                } else if ('7' == imgs.charAt(j)) {
-                    capa += "7";
-                } else if ('8' == imgs.charAt(j)) {
-                    capa += "8";
-                } else if ('9' == imgs.charAt(j)) {
-                    capa += "9";
-                }
-                
-                if (imgs.charAt(j) == ',') {
-                    //System.out.println("Se inserto: " + capa);
-                    listaTmp.insert(Integer.parseInt(capa));
-                    capa = "";
-                }
-                
-                if (imgs.charAt(j) == ']') {
-                    //System.out.println("Se inserto: " + capa);
-                    if (!capa.equals("")) {
-                        listaTmp.insert(Integer.parseInt(capa));
-                    }
-                    
-                    capa = "";
-                    break;
-                }   
-            }
-            
-            //System.out.println("Nombres Album: " + nombreAlbum + " Imgs: " + imgs);
-            cliente.listaAlbumes.insert(listaTmp, nombreAlbum);
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cargaImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaImagenesActionPerformed
         // TODO add your handling code here:
-        String ruta = "";
-        JFileChooser fc = new JFileChooser();
-        int op = fc.showOpenDialog(this);
-        if (op == JFileChooser.APPROVE_OPTION) {
-            ruta = fc.getSelectedFile().toString();
-            //System.out.println("La ruta es: " + ruta);
-        }
-
-        File doc = new File(ruta);
-        BufferedReader obj = null;
-        try {
-            obj = new BufferedReader(new FileReader(doc));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        String strng;
-        ruta = "";
-
-        try {
-            while ((strng = obj.readLine()) != null) {
-                ruta += strng;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        JSONParser parser = new JSONParser();
-        Object obj1 = null;
-        try {
-            obj1 = parser.parse(ruta);
-        } catch (ParseException ex) {
-            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JSONArray json = (JSONArray) obj1;
-        String id;
-        String capas;
         
-        
-        for (int i = 0; i < json.size(); i++) {
-            String capa = "";
-            JSONObject object = (JSONObject) json.get(i);
-            id = object.get("id").toString();
-            capas = object.get("capas").toString();
-            
-            int idInt = Integer.parseInt(id);
-            //System.out.println("Id: " + idInt);
-            cliente.avlImagenes.insert(idInt);
-            /**
-            ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(idInt);
-            System.out.println(abbTmp);
-            
-            for (int j = 0; j < capas.length(); j++) {
-                //System.out.println(imgs);
-                
-                if ('0' == capas.charAt(j)) {
-                    capa += "0";
-                } else if ('1' == capas.charAt(j)) {
-                    capa += "1";
-                } else if ('2' == capas.charAt(j)) {
-                    capa += "2";
-                } else if ('3' == capas.charAt(j)) {
-                    capa += "3";
-                } else if ('4' == capas.charAt(j)) {
-                    capa += "4";
-                } else if ('5' == capas.charAt(j)) {
-                    capa += "5";
-                } else if ('6' == capas.charAt(j)) {
-                    capa += "6";
-                } else if ('7' == capas.charAt(j)) {
-                    capa += "7";
-                } else if ('8' == capas.charAt(j)) {
-                    capa += "8";
-                } else if ('9' == capas.charAt(j)) {
-                    capa += "9";
-                }
-                
-                if (capas.charAt(j) == ',') {
-                    //System.out.println("Se inserto: " + capa);
-                    abbTmp.add(Integer.parseInt(capa));
-                    
-                    capa = "";
-                }
-                
-                if (capas.charAt(j) == ']') {
-                    //System.out.println("Se inserto: " + capa);
-                    if (!capa.equals("")) {
-                        abbTmp.add(Integer.parseInt(capa));
-                    }
-                    
-                    capa = "";
-                    break;
-                }   
-            }
-            **/
-        }
     }//GEN-LAST:event_cargaImagenesActionPerformed
 
     private void graphAvlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graphAvlActionPerformed
         // TODO add your handling code here:
-        cliente.avlImagenes.graficoAvl();
-        this.pintarImagen(imagen, "grafica\\graficoAvl.png");
-        imagen.setText("");
+       
     }//GEN-LAST:event_graphAvlActionPerformed
 
     private void graficarABBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarABBActionPerformed
         // TODO add your handling code here:
-        String id = JOptionPane.showInputDialog("Ingrese el numero de imagen ");
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(Integer.parseInt(id));
-        if (abbTmp != null) {
-            abbTmp.graficoABB("graficoABB");
-            this.pintarImagen(imagen, "grafica\\graficoABB.png");
-            imagen.setText("");
-        }
+      
     }//GEN-LAST:event_graficarABBActionPerformed
 
     private void cargaCapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaCapasActionPerformed
-        // TODO add your handling code here:
-        String ruta = "";
-        JFileChooser fc = new JFileChooser();
-        int op = fc.showOpenDialog(this);
-        if (op == JFileChooser.APPROVE_OPTION) {
-            ruta = fc.getSelectedFile().toString();
-            //System.out.println("La ruta es: " + ruta);
-        }
-
-        File doc = new File(ruta);
-
-        BufferedReader obj = null;
-        try {
-            obj = new BufferedReader(new FileReader(doc));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        String strng;
-        ruta = "";
-
-        try {
-            while ((strng = obj.readLine()) != null) {
-                ruta += strng;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        JSONParser parser = new JSONParser();
-        Object obj1 = null;
-        try {
-            obj1 = parser.parse(ruta);
-        } catch (ParseException ex) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JSONArray json = (JSONArray) obj1;
-        int numeroCapa;
-        int id = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Id de la imagen en el avl"));
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(id);
         
-        for (int i = 0; i < json.size(); i++) {
-
-            JSONObject object = (JSONObject) json.get(i);
-            String capa = object.get("id_capa").toString();
-            numeroCapa = Integer.parseInt(capa);
-            JSONArray tmp = (JSONArray) object.get("pixeles");
-            //System.out.println(tmp);
-            MatrizDispersaPixeles matriz = new MatrizDispersaPixeles();
-            for (int j = 0; j < tmp.size(); j++) {
-
-                JSONObject object2 = (JSONObject) tmp.get(j);
-                int fila = Integer.parseInt((object2.get("fila").toString()));
-                int columna = Integer.parseInt((object2.get("columna").toString()));
-                String hexagecimal = object2.get("color").toString();
-                //System.out.println("Flia: " + fila + "Columna: " + columna);
-                matriz.insert(columna, fila, hexagecimal);
-
-            }
-            
-            abbTmp.add(numeroCapa, matriz);
-            matriz = null;
-        }
-        JOptionPane.showMessageDialog(null, "Se a cargado las capas");
     }//GEN-LAST:event_cargaCapasActionPerformed
 
     private void graficarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarMatrizActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Id del avl la imagen"));
-        int numeroCapa = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de capa"));
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(id);
-        
-        if (abbTmp != null) {
-            System.out.println("entro por aca");
-            MatrizDispersaPixeles matriz = abbTmp.searchPreOrden(numeroCapa);
-            if (matriz != null) {
-                System.out.println("Graficando");
-                matriz.crearGrafo2("MatrizDisperza");
-                this.pintarImagen(imagen, "grafica\\MatrizDisperza.png");
-                imagen.setText("");
-                JOptionPane.showMessageDialog(null, "Matriz generada");
-            }
-            
-        }
+    
     }//GEN-LAST:event_graficarMatrizActionPerformed
 
     private void graficarPorCapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarPorCapaActionPerformed
-        // TODO add your handling code here:
-        String idStr = JOptionPane.showInputDialog("Ingrese el Id del avl la imagen");
-        int id = Integer.parseInt(idStr);
-        String capas = JOptionPane.showInputDialog("Ingrese las capas que desea"
-                + "graficar con el siguiente formato: 0, 1, 2");
-        capas += "]"; //centinela
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(id);
         
-        if (abbTmp != null) {
-            System.out.println("Encontrado");
-            abbTmp.graficarCapas(capas, "MatrizDispersaPorCapas");
-            this.pintarImagen(imagen, "grafica\\MatrizDispersaPorCapas.png");
-            imagen.setText("");
-            JOptionPane.showMessageDialog(null, "Matriz generada");
-        }
         
     }//GEN-LAST:event_graficarPorCapaActionPerformed
 
     private void PreordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreordenActionPerformed
         // TODO add your handling code here:
-        String idStr = JOptionPane.showInputDialog("Ingrese el Id del avl la imagen");
-        int id = Integer.parseInt(idStr);
-        String capas = JOptionPane.showInputDialog("Ingrese las capas que desea"
-                + "graficar con el siguiente formato: 0,1,2");
         
-        String[] capasU = capas.split(",");  
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(id);
-        if (abbTmp != null) {
-        String[] capasOrden = abbTmp.preOrden().split(",+");
-        String capa3 = "";
-        
-        for (int i = 0; i < capasOrden.length; i++) {
-            for (int j = 0; j < capasU.length; j++) {
-                if (capasU[j].equals(capasOrden[i])) {
-                    capa3 += capasU[j] + ",";
-                    
-                }
-            }
-        }
-        
-        JOptionPane.showMessageDialog(null, "En Preorden: " + capa3);
-        
-        capa3 += "]";
-        //Capas a grafica
-        
-            System.out.println("Encontrado");
-            abbTmp.graficarCapas(capa3, "MatrizDispersaPreorden");
-            this.pintarImagen(imagen, "grafica\\MatrizDispersaPreorden.png");
-            imagen.setText("");
-            JOptionPane.showMessageDialog(null, "Matriz generada Preorden");
-        }
     }//GEN-LAST:event_PreordenActionPerformed
 
     private void graficarInordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarInordenActionPerformed
         // TODO add your handling code here:
-        String idStr = JOptionPane.showInputDialog("Ingrese el Id del avl la imagen");
-        int id = Integer.parseInt(idStr);
-        String capas = JOptionPane.showInputDialog("Ingrese las capas que desea"
-                + "graficar con el siguiente formato: 0,1,2");
-        
-        String[] capasU = capas.split(",");  
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(id);
-        if (abbTmp != null) {
-        String[] capasOrden = abbTmp.inOrden().split(",+");
-        String capa3 = "";
-        
-        for (int i = 0; i < capasOrden.length; i++) {
-            for (int j = 0; j < capasU.length; j++) {
-                if (capasU[j].equals(capasOrden[i])) {
-                    capa3 += capasU[j] + ",";
-                    
-                }
-            }
-        }
-        
-        JOptionPane.showMessageDialog(null, "En innorden: " + capa3);
-        
-        capa3 += "]";
-        //Capas a grafica
-        
-            System.out.println("Encontrado");
-            abbTmp.graficarCapas(capa3, "MatrizDispersaInorden");
-            this.pintarImagen(imagen, "grafica\\MatrizDispersaInorden.png");
-            imagen.setText("");
-            JOptionPane.showMessageDialog(null, "Matriz generada Inorden");
-        }
+       
         
     }//GEN-LAST:event_graficarInordenActionPerformed
 
     private void postOrdenGrapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postOrdenGrapActionPerformed
-        // TODO add your handling code here:
-        String idStr = JOptionPane.showInputDialog("Ingrese el Id del avl la imagen");
-        int id = Integer.parseInt(idStr);
-        String capas = JOptionPane.showInputDialog("Ingrese las capas que desea"
-                + "graficar con el siguiente formato: 0,1,2");
-        
-        String[] capasU = capas.split(",");  
-        ABBcapas abbTmp = cliente.avlImagenes.searchPreOrden(id);
-        if (abbTmp != null) {
-        String[] capasOrden = abbTmp.postOrden().split(",+");
-        String capa3 = "";
-        
-        for (int i = 0; i < capasOrden.length; i++) {
-            for (int j = 0; j < capasU.length; j++) {
-                if (capasU[j].equals(capasOrden[i])) {
-                    capa3 += capasU[j] + ",";
-                    
-                }
-            }
-        }
-        
-        JOptionPane.showMessageDialog(null, "En Postorden: " + capa3);
-        
-        capa3 += "]";
-        //Capas a grafica
-        
-            System.out.println("Encontrado");
-            abbTmp.graficarCapas(capa3, "MatrizDispersaPostorden");
-            this.pintarImagen(imagen, "grafica\\MatrizDispersaPostorden.png");
-            imagen.setText("");
-            JOptionPane.showMessageDialog(null, "Matriz generada Postorden");
-        }
+       
     }//GEN-LAST:event_postOrdenGrapActionPerformed
 
     private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
@@ -777,11 +401,7 @@ public class Usuario extends javax.swing.JDialog {
     }//GEN-LAST:event_cerrarSesionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         
-        cliente.avlImagenes.insert(Integer.parseInt(idAvl.getText()));
-        idAvl.setText("");
-        capasAvl.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

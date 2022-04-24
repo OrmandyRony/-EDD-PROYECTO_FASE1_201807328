@@ -1,0 +1,52 @@
+[
+  {
+    "dpi": "9789611590172",
+    "nombre_completo": "William Hodge",
+    "nombre_usuario": "Briana",
+    "correo": "brianahodge@waterbaby.com",
+    "contrasenia": "veniam",
+    "telefono": "+502 (853) 524-3082",
+    "direccion": "792 Lefferts Avenue, Bloomington, New Mexico, 7151",
+    "id_municipio": 12
+  },
+  {
+    "dpi": "7196958094069",
+    "nombre_completo": "Genevieve Wallace",
+    "nombre_usuario": "Wyatt",
+    "correo": "wyattwallace@waterbaby.com",
+    "contrasenia": "idsdf",
+    "telefono": "+502 (895) 576-2116",
+    "direccion": "585 Bethel Loop, Walton, Utah, 7539",
+    "id_municipio": 1
+  },
+  {
+    "dpi": "7920879245361",
+    "nombre_completo": "Francesca Hyde",
+    "nombre_usuario": "Olive",
+    "correo": "olivehyde@waterbaby.com",
+    "contrasenia": "amet",
+    "telefono": "+502 (889) 600-2717",
+    "direccion": "186 Duffield Street, Moquino, Palau, 7127",
+    "id_municipio": 15
+  },
+  {
+    "dpi": "4635574897635",
+    "nombre_completo": "Nieves Cabrera",
+    "nombre_usuario": "Winnie",
+    "correo": "winniecabrera@waterbaby.com",
+    "contrasenia": "Lorem",
+    "telefono": "+502 (935) 423-2465",
+    "direccion": "623 Harbor Lane, Gilgo, Colorado, 510",
+    "id_municipio": 17
+  },
+  {
+    "dpi": "9092207681372",
+    "nombre_completo": "Amparo Christian",
+    "nombre_usuario": "Concetta",
+    "correo": "concettachristian@waterbaby.com",
+    "contrasenia": "est",
+    "telefono": "+502 (845) 479-3025",
+    "direccion": "799 Grattan Street, Manchester, Kentucky, 2699",
+    "id_municipio": 10
+  }
+]
