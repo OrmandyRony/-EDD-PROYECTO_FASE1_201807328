@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        System.out.println(textPassword.getText());
+        // System.out.println(textPassword.getText());
         if ((textPassword.getText() == null ? admin.password == null : textPassword.getText().equals(admin.password)) && (textUser.getText() == null ? admin.nombre == null : textUser.getText().equals(admin.nombre))) {
             GuiAdmin guiAdmin = new GuiAdmin(this, false, admin);
             dispose();

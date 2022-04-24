@@ -9,6 +9,7 @@
  * @author orman
  */
 public class Mensajero {
+    long documentoPersonalIdentificacion;
     String nombre;
     String apellido;
     String tipoLicencia;
@@ -16,7 +17,10 @@ public class Mensajero {
     String telefono;
     String dirección;
 
-    public Mensajero(String nombre, String apellido, String tipoLicencia, String genero, String telefono, String dirección) {
+    public Mensajero(long documentoPersonalIdentificacion, String nombre, 
+            String apellido, String tipoLicencia, String genero, String telefono, 
+            String dirección) {
+        this.documentoPersonalIdentificacion = documentoPersonalIdentificacion;
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipoLicencia = tipoLicencia;
@@ -24,6 +28,8 @@ public class Mensajero {
         this.telefono = telefono;
         this.dirección = dirección;
     }
+
+    
     
     
 }
