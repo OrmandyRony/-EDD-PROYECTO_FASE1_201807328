@@ -1,0 +1,38 @@
+[
+	{
+		"dpi": "2999062130101",
+		"nombres": "AUX EDD",
+        "apellidos": "Ortiz",
+        "tipo_licencia": "A",
+        "genero": "Female",
+		"direccion": "edd1s2022", 
+        "telefono": "59265554"
+	},
+    {
+		"dpi": "0717882466706",
+		"nombres": "Devonna",
+        "apellidos": "Dovey",
+        "tipo_licencia": "A",
+        "genero": "Female",
+		"direccion": "7239 Maple Alley",
+        "telefono": "59265555"
+	},
+    {
+		"dpi": "82081751448573",
+		"nombres": "Ulberto",
+        "apellidos": "Goodsell",
+        "tipo_licencia": "B",
+        "genero": "Male",
+		"direccion": "5 Northfield Hill",
+        "telefono": "59265556"
+	},
+    {
+		"dpi": "3198208768738",
+		"nombres": "Devonna",
+        "apellidos": "Dovey",
+        "tipo_licencia": "A",
+        "genero": "Female",
+		"direccion": "7239 Maple Alley",
+        "telefono": "59265557"
+	}
+]

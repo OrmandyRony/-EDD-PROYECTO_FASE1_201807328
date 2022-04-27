@@ -1,7 +1,7 @@
 [
 	{
 		"dpi": "2999062130101",
-		"nombre": "AUX EDD",
+		"nombres": "AUX EDD",
         "apellidos": "Ortiz",
         "tipo_licencia": "A",
         "genero": "Female",
@@ -9,72 +9,114 @@
 	},
 	{
 		"dpi": "3999062130101",
-		"nombre": "AUX EDD2",
+		"nombres": "AUX EDD2",
+		"apellidos": "Alvarez",
+        "tipo_licencia": "B",
+        "genero": "Male",
 		"direccion": "2edd1s2022"
 	},
 	{
 		"dpi": "4999062130101",
-		"nombre": "AUX EDD3",
+		"nombres": "AUX EDD3",
+		"apellidos": "Lopez",
+        "tipo_licencia": "A",
+        "genero": "Female",
 		"direccion": "3edd1s2022"
 	},
 	{
 		"dpi": "6999062130101",
-		"nombre": "AUX EDD5",
+		"nombres": "AUX EDD5",
+		"apellidos": "Calderon",
+        "tipo_licencia": "A",
+        "genero": "Male",
 		"direccion": "5edd1s2022"
 	},
 	{
 		"dpi": "7999062130101",
-		"nombre": "AUX EDD6",
+		"nombres": "AUX EDD6",
+		"apellidos": "Chicas",
+        "tipo_licencia": "C",
+        "genero": "Female",
 		"direccion": "6edd1s2022"
 	},
 	{
 		"dpi": "8999062130101",
-		"nombre": "AUX EDD7",
+		"nombres": "AUX EDD7",
+		"apellidos": "Barillas",
+        "tipo_licencia": "B",
+        "genero": "Female",
 		"direccion": "7edd1s2022"
 	},
 	{
 		"dpi": "9999062130101",
-		"nombre": "AUX EDD8",
+		"nombres": "AUX EDD8",
+		"apellidos": "Parada",
+        "tipo_licencia": "B",
+        "genero": "Female",
 		"direccion": "8edd1s2022"
 	},
 	{
 		"dpi": "2299062130101",
-		"nombre": "AUX EDD10",
+		"nombres": "AUX EDD10",
+		"apellidos": "Monroy",
+        "tipo_licencia": "B",
+        "genero": "Male",
 		"direccion": "10edd1s2022"
 	}
 	,{
 		"dpi": "39990130101",
-		"nombre": "AUX EDD2",
+		"nombres": "AUX EDD2",
+		"apellidos": "Herrea",
+        "tipo_licencia": "A",
+        "genero": "Female",
 		"direccion": "2edd1s2022"
 	},
 	{
 		"dpi": "49990620101",
-		"nombre": "AUX EDD3",
+		"nombres": "AUX EDD3",
+		"apellidos": "Herrera Barrera",
+        "tipo_licencia": "B",
+        "genero": "Female",
 		"direccion": "3edd1s2022"
 	},
 	{
 		"dpi": "69990620101",
-		"nombre": "AUX EDD5",
+		"nombres": "AUX EDD5",
+		"apellidos": "Garcia",
+        "tipo_licencia": "B",
+        "genero": "Female",
 		"direccion": "5edd1s2022"
 	},
 	{
 		"dpi": "79990630101",
-		"nombre": "AUX EDD6",
+		"nombres": "AUX EDD6",
+		"apellidos": "Seo",
+        "tipo_licencia": "C",
+        "genero": "Female",
 		"direccion": "6edd1s2022"
 	},
 	{
 		"dpi": "89990130101",
-		"nombre": "AUX EDD7",
+		"nombres": "AUX EDD7",
+		"apellidos": "Luffy",
+        "tipo_licencia": "A",
+        "genero": "Male",
 		"direccion": "7edd1s2022"
 	},
 	{
 		"dpi": "99992130101",
-		"nombre": "AUX EDD8",
+		"nombres": "AUX EDD8",
+		"apellidos": "Lima",
+        "tipo_licencia": "A",
+        "genero": "Male",
 		"direccion": "8edd1s2022"
 	},
 	{
 		"dpi": "22990630101",
-		"nombre": "AUX EDD10",
+		"nombres": "AUX EDD10",
+		"apellidos": "Cabrera",
+        "tipo_licencia": "A",
+        "genero": "Female",
 		"direccion": "10edd1s2022"
 	}
 ]

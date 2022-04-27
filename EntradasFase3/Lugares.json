@@ -1,0 +1,107 @@
+[   
+    {
+        "id": 1,
+        "departamento": "Guatemala",
+        "nombre": "San Juan Sacatepequez",
+        "sn_sucursal": "no"
+    },
+    {
+        "id": 2,
+        "departamento": "Guatemala",
+        "nombre": "San Raymundo",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 3,
+        "departamento": "Guatemala",
+        "nombre": "Chuarancho",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 4,
+        "departamento": "Guatemala",
+        "nombre": "San Jose del Golfo",
+        "sn_sucursal": "no"
+    },
+    {
+        "id": 5,
+        "departamento": "Guatemala",
+        "nombre": "San Pedro Ayampuc",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 6,
+        "departamento": "Guatemala",
+        "nombre": "Chinautla",
+        "sn_sucursal": "no"
+    },
+    {
+        "id": 7,
+        "departamento": "Guatemala",
+        "nombre": "San Pedro Sacatepequez",
+        "sn_sucursal": "no"
+    },
+    {
+        "id": 8,
+        "departamento": "Guatemala",
+        "nombre": "Mixco",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 9,
+        "departamento": "Guatemala",
+        "nombre": "Guatemala",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 10,
+        "departamento": "Guatemala",
+        "nombre": "Palencia",
+        "sn_sucursal": "no"
+    },
+    {
+        "id": 11,
+        "departamento": "Guatemala",
+        "nombre": "San Jose Pinula",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 12,
+        "departamento": "Guatemala",
+        "nombre": "Santa Catarina Pinula",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 13,
+        "departamento": "Guatemala",
+        "nombre": "Villa Nueva",
+        "sn_sucursal": "no"
+    },
+    {
+        "id": 14,
+        "departamento": "Guatemala",
+        "nombre": "Petapa",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 15,
+        "departamento": "Guatemala",
+        "nombre": "Fraijanes",
+        "sn_sucursal": "si"
+    },
+    {
+        "id": 16,
+        "departamento": "Guatemala",
+        "nombre": "Villa Canales",
+        "sn_sucursal": "no"
+    },
+    {
+    "id": 17,
+    "departamento": "Guatemala",
+    "nombre": "Amatitlán",
+    "sn_sucursal": "si"
+    }
+    
+]
+
+    

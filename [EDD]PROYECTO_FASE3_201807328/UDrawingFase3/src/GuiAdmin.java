@@ -80,7 +80,17 @@ public class GuiAdmin extends javax.swing.JDialog {
         buscarDpiDatos = new javax.swing.JTextField();
         btnBuscarDatos = new javax.swing.JButton();
         cerrasSesion = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        graficarTablaHash = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        cargaMasivaLugares = new javax.swing.JToggleButton();
+        jLabel6 = new javax.swing.JLabel();
+        cargaRutas = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        graficarListaAdyacencia = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        graficarRutas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -152,10 +162,50 @@ public class GuiAdmin extends javax.swing.JDialog {
             }
         });
 
-        jTextField1.setText("Carga Masiva Mensajeros");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("Carga Masiva Mensajeros");
+
+        jLabel4.setText("Graficar TablaHash");
+
+        graficarTablaHash.setText("Graficar");
+        graficarTablaHash.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                graficarTablaHashActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Carga Masiva Lugares");
+
+        cargaMasivaLugares.setText("Carga Masiva");
+        cargaMasivaLugares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargaMasivaLugaresActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Carga Masiva Rutas");
+
+        cargaRutas.setText("Carga Masiva");
+        cargaRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargaRutasActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Graficar Lista Adyacencia");
+
+        graficarListaAdyacencia.setText("Graficar");
+        graficarListaAdyacencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graficarListaAdyacenciaActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Graficar Rutas");
+
+        graficarRutas.setText("Graficar");
+        graficarRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graficarRutasActionPerformed(evt);
             }
         });
 
@@ -167,50 +217,72 @@ public class GuiAdmin extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cargaMasivaMensajeros)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 1041, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(27, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(cargaMasivaLugares)
+                            .addComponent(jLabel6)
+                            .addComponent(cargaRutas)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(btnBuscar))
-                                .addGap(59, 59, 59)
+                                    .addComponent(btnBuscar)
+                                    .addComponent(jLabel3)
+                                    .addComponent(cargaMasivaMensajeros))
+                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(graficarRutas)
+                                    .addComponent(jLabel14)
                                     .addComponent(jLabel2)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(btnGraficar))))
-                            .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnGraficar)))))
+                        .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(333, 333, 333)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dpiBuscar))))
+                                .addGap(6, 6, 6)
+                                .addComponent(graficarListaAdyacencia))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(337, 337, 337)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(eliminarDPI))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel12))
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(20, 20, 20)
+                                                .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel13))
+                                        .addGap(77, 77, 77)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel10)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(eliminarDPI))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel9)
+                                                    .addComponent(jLabel12))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel11)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(buscarDpiDatos))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buscarDpiDatos)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(graficarTablaHash))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addGap(211, 211, 211)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel7)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel8)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(dpiBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(48, 48, 48)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnBuscarDPI)
@@ -218,55 +290,84 @@ public class GuiAdmin extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
                                 .addComponent(btnBuscarDatos)))
-                        .addGap(109, 109, 109))))
+                        .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnBuscar)
-                        .addComponent(btnGraficar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(dpiBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8)
-                        .addComponent(btnBuscarDPI)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
-                .addGap(18, 18, 18)
-                .addComponent(cargaMasivaMensajeros)
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(eliminarDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnBuscarDPI)
+                        .addGap(88, 88, 88)
+                        .addComponent(btnEliminar)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnBuscarDatos)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnBuscar)
+                                        .addComponent(btnGraficar)
+                                        .addComponent(graficarTablaHash))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(dpiBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel8)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(jLabel13))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel14)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel9)
+                                                .addComponent(jLabel3)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cargaMasivaMensajeros)
+                                    .addComponent(graficarRutas))
+                                .addGap(14, 14, 14))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(graficarListaAdyacencia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(eliminarDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(buscarDpiDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscarDatos)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                            .addComponent(jLabel12)
+                            .addComponent(cargaMasivaLugares))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel11)
+                                            .addComponent(buscarDpiDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cargaRutas)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
         );
 
         pack();
@@ -456,9 +557,145 @@ public class GuiAdmin extends javax.swing.JDialog {
         login.setVisible(true);
     }//GEN-LAST:event_cerrasSesionActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void graficarTablaHashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarTablaHashActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        admin.tablaHashMensajeros.Graficar();
+    }//GEN-LAST:event_graficarTablaHashActionPerformed
+
+    private void cargaMasivaLugaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMasivaLugaresActionPerformed
+        // TODO add your handling code here:
+         String ruta = "";
+        JFileChooser fc = new JFileChooser();
+        int op = fc.showOpenDialog(this);
+        if (op == JFileChooser.APPROVE_OPTION) {
+            ruta = fc.getSelectedFile().toString();
+            //System.out.println("La ruta es: " + ruta);
+        }
+
+        File doc = new File(ruta);
+        BufferedReader obj = null;
+        try {
+            obj = new BufferedReader(new FileReader(doc));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String strng;
+        ruta = "";
+
+        try {
+            while ((strng = obj.readLine()) != null) {
+                ruta += strng;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JSONParser parser = new JSONParser();
+        Object obj1 = null;
+        try {
+            obj1 = parser.parse(ruta);
+        } catch (ParseException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JSONArray json = (JSONArray) obj1;
+        
+        int id;
+        String departamento;
+        String nombre;
+        String sucursal;
+        boolean existeSucursal;
+
+        for (int i = 0; i < json.size(); i++) {
+            JSONObject object = (JSONObject) json.get(i);
+            id = Integer.parseInt(object.get("id").toString());
+            departamento = object.get("departamento").toString();
+            nombre = object.get("nombre").toString();
+            sucursal = object.get("sn_sucursal").toString();
+            if (sucursal.equals("si")) {
+                existeSucursal = true;
+            } else {
+                existeSucursal = false;
+            }
+            
+            admin.listaAdyacencia.insert(id, departamento, nombre, existeSucursal);
+        }
+        
+        JOptionPane.showMessageDialog(null, "La carga de Lugares se a realizado con exito");
+    }//GEN-LAST:event_cargaMasivaLugaresActionPerformed
+
+    private void cargaRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaRutasActionPerformed
+        // TODO add your handling code here:
+        if (admin.listaAdyacencia.vacia()) {
+            String ruta = "";
+            JFileChooser fc = new JFileChooser();
+            int op = fc.showOpenDialog(this);
+            if (op == JFileChooser.APPROVE_OPTION) {
+                ruta = fc.getSelectedFile().toString();
+                //System.out.println("La ruta es: " + ruta);
+            }
+
+            File doc = new File(ruta);
+            BufferedReader obj = null;
+            try {
+                obj = new BufferedReader(new FileReader(doc));
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            String strng;
+            ruta = "";
+
+            try {
+                while ((strng = obj.readLine()) != null) {
+                    ruta += strng;
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            JSONParser parser = new JSONParser();
+            Object obj1 = null;
+            try {
+                obj1 = parser.parse(ruta);
+            } catch (ParseException ex) {
+                Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JSONArray json = (JSONArray) obj1;
+
+            int inicioR;
+            int finalR;
+            int peso;
+            Lugar lugar;
+
+            for (int i = 0; i < json.size(); i++) {
+                JSONObject object = (JSONObject) json.get(i);
+                inicioR = Integer.parseInt(object.get("inicio").toString());
+                finalR = Integer.parseInt(object.get("final").toString());
+                peso = Integer.parseInt(object.get("peso").toString());
+
+                lugar = admin.listaAdyacencia.search(inicioR);
+                if (lugar != null) {
+                    lugar.listaRutas.insert(inicioR, finalR, peso);
+                }
+            }
+
+            JOptionPane.showMessageDialog(null, "La carga de Lugares se a realizado con exito");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pueden cargar las rutas, "
+                    + "porque no se an ingresado los lugares");
+        }
+    }//GEN-LAST:event_cargaRutasActionPerformed
+
+    private void graficarListaAdyacenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarListaAdyacenciaActionPerformed
+        // TODO add your handling code here:
+        admin.listaAdyacencia.graficar();
+    }//GEN-LAST:event_graficarListaAdyacenciaActionPerformed
+
+    private void graficarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarRutasActionPerformed
+        // TODO add your handling code here:
+        admin.listaAdyacencia.graficarGrafo();
+    }//GEN-LAST:event_graficarRutasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -522,19 +759,29 @@ public class GuiAdmin extends javax.swing.JDialog {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGraficar;
     private javax.swing.JTextField buscarDpiDatos;
+    private javax.swing.JToggleButton cargaMasivaLugares;
     private javax.swing.JButton cargaMasivaMensajeros;
+    private javax.swing.JButton cargaRutas;
     private javax.swing.JButton cerrasSesion;
     private javax.swing.JTextField dpiBuscar;
     private javax.swing.JTextField eliminarDPI;
+    private javax.swing.JButton graficarListaAdyacencia;
+    private javax.swing.JButton graficarRutas;
+    private javax.swing.JButton graficarTablaHash;
     private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

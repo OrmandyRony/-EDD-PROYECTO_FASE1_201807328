@@ -1,0 +1,16 @@
+digraph TablaHash {
+	nodesep=.05;
+	rankdir=LR;
+	node [shape=record,width=.1,height=.1];
+	indices [label = "<indice0> 0 | <indice1> 1 | <indice2> 2 | <indice3> 3 | <indice4> 4 | <indice5> 5 | <indice6> 6 | <indice7> 7 | <indice8> 8 | <indice9> 9 | <indice10> 10 | <indice11> 11 | <indice12> 12 | <indice13> 13 | <indice14> 14 | <indice15> 15 | <indice16> 16 | <indice17> 17 | <indice18> 18 | <indice19> 19 | <indice20> 20 | <indice21> 21 | <indice22> 22 | <indice23> 23 | <indice24> 24 | <indice25> 25 | <indice26> 26 | <indice27> 27 | <indice28> 28 | <indice29> 29 | <indice30> 30 | <indice31> 31 | <indice32> 32 | <indice33> 33 | <indice34> 34 | <indice35> 35 | <indice36> 36 | 	",height=2.5];
+	node [width = 1.5];
+	registro11[label = "{<n> 82081751448573| Ulberto Goodsell |  | Male | 5 Northfield Hill|59265556 | <p> }"];
+	registro28[label = "{<n> 3198208768738| Devonna Dovey |  | Female | 7239 Maple Alley|59265557 | <p> }"];
+	registro33[label = "{<n> 717882466706| Devonna Dovey |  | Female | 7239 Maple Alley|59265555 | <p> }"];
+	registro36[label = "{<n> 2999062130101| AUX EDD Ortiz |  | Female | edd1s2022|59265554 | <p> }"];
+	indices:indice11->registro11:n;
+	indices:indice28->registro28:n;
+	indices:indice33->registro33:n;
+	indices:indice36->registro36:n;
+
+}

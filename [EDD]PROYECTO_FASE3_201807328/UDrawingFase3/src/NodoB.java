@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,6 +30,8 @@ public class NodoB {
         this.cliente = new Cliente(nombre, usuario, correo, telefono, contrasena,
             direccion, idMunicipio);
     }
+    
+ 
     
     long getDpi(){
         return this.dpi;

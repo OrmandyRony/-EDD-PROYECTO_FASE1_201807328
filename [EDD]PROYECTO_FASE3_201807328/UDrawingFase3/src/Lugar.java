@@ -9,16 +9,18 @@
  * @author orman
  */
 public class Lugar {
-    String id;
+    int id;
     String departamento;
     String nombre;
     Boolean existeSucursal;
+    ListaRutas listaRutas;
 
-    public Lugar(String id, String departamento, String nombre, Boolean existeSucursal) {
+    public Lugar(int id, String departamento, String nombre, Boolean existeSucursal) {
         this.id = id;
         this.departamento = departamento;
         this.nombre = nombre;
         this.existeSucursal = existeSucursal;
+        this.listaRutas = new ListaRutas();
     }
     
     

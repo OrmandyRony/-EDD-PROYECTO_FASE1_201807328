@@ -9,15 +9,15 @@
  * @author orman
  */
 public class Ruta {
-    String inicioR;
-    String finalR;
+    int inicioR;
+    int finalR;
     int peso;
 
-    public Ruta(String inicioR, String finalR, int peso) {
+    public Ruta(int inicioR, int finalR, int peso) {
         this.inicioR = inicioR;
         this.finalR = finalR;
         this.peso = peso;
     }
-    
+
     
 }

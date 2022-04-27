@@ -210,7 +210,7 @@ public class ArbolB {
     }
     
     void graficar() {
-        String cadena = "digraph arbolB {\n";
+        String cadena = "digraph arbolB{\n";
         cadena += "rankr = TB; \n";
         cadena += "node[shape = box,fillcolor=\"yellow\" color=\"black\" style=\"filled\"];\n";
         cadena += graficarNodos(raiz);
@@ -219,7 +219,7 @@ public class ArbolB {
         
         System.out.println(cadena);
         try {
-            String ruta = "grafica/ArbolB.dot";
+            String ruta = "Admin/ArbolB.dot";
             File file = new File(ruta);
             // Si el archivo no existe es creado
             if (!file.exists()) {
@@ -238,8 +238,8 @@ public class ArbolB {
 
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
 
-            String fileInputPath = "grafica/ArbolB.dot";
-            String fileOutputPath =  "grafica/ArbolB.png";
+            String fileInputPath = "Admin/ArbolB.dot";
+            String fileOutputPath =  "Admin/ArbolB.png";
 
             String tParam = "-Tpng";
             String tOParam = "-o";
@@ -254,7 +254,7 @@ public class ArbolB {
             Process proceso = Runtime.getRuntime().exec(cmd);
 
             proceso.waitFor();
-            System.out.println("Grafica generada");
+            //System.out.println("Grafica generada");
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
