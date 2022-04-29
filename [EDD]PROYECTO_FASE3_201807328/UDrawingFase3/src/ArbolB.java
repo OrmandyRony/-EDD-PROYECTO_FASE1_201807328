@@ -217,49 +217,10 @@ public class ArbolB {
         cadena += graficarEnlaces(raiz);
         cadena += "}\n";
         
-        System.out.println(cadena);
-        try {
-            String ruta = "Admin/ArbolB.dot";
-            File file = new File(ruta);
-            // Si el archivo no existe es creado
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(cadena);
-            bw.close();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+       
+        Generador generador = new Generador();
+        generador.imagen("Admin/ArbolB.txt", cadena, "Admin/Arbol");
         
-        try {
-
-            String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
-
-            String fileInputPath = "Admin/ArbolB.dot";
-            String fileOutputPath =  "Admin/ArbolB.png";
-
-            String tParam = "-Tpng";
-            String tOParam = "-o";
-
-            String[] cmd = new String[5];
-            cmd[0] = dotPath;
-            cmd[1] = tParam;
-            cmd[2] = fileInputPath;
-            cmd[3] = tOParam;
-            cmd[4] = fileOutputPath;
-
-            Process proceso = Runtime.getRuntime().exec(cmd);
-
-            proceso.waitFor();
-            //System.out.println("Grafica generada");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-
-        }
      
     }
     

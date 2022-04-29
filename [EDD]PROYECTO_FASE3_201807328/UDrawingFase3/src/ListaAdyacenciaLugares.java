@@ -94,7 +94,8 @@ public class ListaAdyacenciaLugares {
         
         listaAdyacencia += municipios + rutas + conexiones + "\n}";
         
-        System.out.println(listaAdyacencia);
+        Generador generador = new Generador();
+        generador.imagen("Admin/ListaAdyacencia.txt", listaAdyacencia, "Admin/ListaAdyacencia");
         
     }
     
@@ -122,7 +123,8 @@ public class ListaAdyacenciaLugares {
         }
         
         grafoRutas += municipios + conexiones + "}\n";
-        System.out.println(grafoRutas);
+        Generador generador = new Generador();
+        generador.imagen("Admin/GrafoRutas.txt", grafoRutas, "Admin/GrafoRutas");
     }
     
     

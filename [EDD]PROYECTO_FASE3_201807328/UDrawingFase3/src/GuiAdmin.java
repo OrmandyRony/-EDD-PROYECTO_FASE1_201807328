@@ -564,7 +564,7 @@ public class GuiAdmin extends javax.swing.JDialog {
 
     private void cargaMasivaLugaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMasivaLugaresActionPerformed
         // TODO add your handling code here:
-         String ruta = "";
+        String ruta = "";
         JFileChooser fc = new JFileChooser();
         int op = fc.showOpenDialog(this);
         if (op == JFileChooser.APPROVE_OPTION) {
@@ -593,31 +593,33 @@ public class GuiAdmin extends javax.swing.JDialog {
 
         JSONParser parser = new JSONParser();
         Object obj1 = null;
+        
         try {
             obj1 = parser.parse(ruta);
         } catch (ParseException ex) {
             Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JSONArray json = (JSONArray) obj1;
+        
+        JSONObject json = (JSONObject) obj1;
         
         int id;
         String departamento;
         String nombre;
         String sucursal;
         boolean existeSucursal;
+        
+        JSONArray lugares;
+        
+        lugares = (JSONArray) json.get("Lugares");
+        JSONObject object2;
+        for (int j = 0; j < lugares.size(); j++) {
+            object2 = (JSONObject) lugares.get(j);
+            id = Integer.parseInt(object2.get("id").toString());
+            departamento = object2.get("departamento").toString();
+            nombre = object2.get("nombre").toString();
+            sucursal = object2.get("sn_sucursal").toString();
+            existeSucursal = sucursal.equals("si");
 
-        for (int i = 0; i < json.size(); i++) {
-            JSONObject object = (JSONObject) json.get(i);
-            id = Integer.parseInt(object.get("id").toString());
-            departamento = object.get("departamento").toString();
-            nombre = object.get("nombre").toString();
-            sucursal = object.get("sn_sucursal").toString();
-            if (sucursal.equals("si")) {
-                existeSucursal = true;
-            } else {
-                existeSucursal = false;
-            }
-            
             admin.listaAdyacencia.insert(id, departamento, nombre, existeSucursal);
         }
         
@@ -625,66 +627,67 @@ public class GuiAdmin extends javax.swing.JDialog {
     }//GEN-LAST:event_cargaMasivaLugaresActionPerformed
 
     private void cargaRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaRutasActionPerformed
-        // TODO add your handling code here:
-        if (admin.listaAdyacencia.vacia()) {
-            String ruta = "";
-            JFileChooser fc = new JFileChooser();
-            int op = fc.showOpenDialog(this);
-            if (op == JFileChooser.APPROVE_OPTION) {
-                ruta = fc.getSelectedFile().toString();
-                //System.out.println("La ruta es: " + ruta);
+        String ruta = "";
+        JFileChooser fc = new JFileChooser();
+        int op = fc.showOpenDialog(this);
+        if (op == JFileChooser.APPROVE_OPTION) {
+            ruta = fc.getSelectedFile().toString();
+            //System.out.println("La ruta es: " + ruta);
+        }
+
+        File doc = new File(ruta);
+        BufferedReader obj = null;
+        try {
+            obj = new BufferedReader(new FileReader(doc));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String strng;
+        ruta = "";
+
+        try {
+            while ((strng = obj.readLine()) != null) {
+                ruta += strng;
             }
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-            File doc = new File(ruta);
-            BufferedReader obj = null;
-            try {
-                obj = new BufferedReader(new FileReader(doc));
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            String strng;
-            ruta = "";
-
-            try {
-                while ((strng = obj.readLine()) != null) {
-                    ruta += strng;
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            JSONParser parser = new JSONParser();
-            Object obj1 = null;
-            try {
-                obj1 = parser.parse(ruta);
-            } catch (ParseException ex) {
-                Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JSONArray json = (JSONArray) obj1;
-
-            int inicioR;
-            int finalR;
-            int peso;
-            Lugar lugar;
-
-            for (int i = 0; i < json.size(); i++) {
-                JSONObject object = (JSONObject) json.get(i);
-                inicioR = Integer.parseInt(object.get("inicio").toString());
-                finalR = Integer.parseInt(object.get("final").toString());
-                peso = Integer.parseInt(object.get("peso").toString());
+        JSONParser parser = new JSONParser();
+        Object obj1 = null;
+        
+        try {
+            obj1 = parser.parse(ruta);
+        } catch (ParseException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JSONObject json = (JSONObject) obj1;
+        
+        int inicioR;
+        int finalR;
+        int peso;
+        Lugar lugar;
+        JSONArray grafo;
+        
+        grafo = (JSONArray) json.get("Grafo");
+        JSONObject object2;
+        
+        for (int i = 0; i < json.size(); i++) {
+                object2 = (JSONObject) grafo.get(i);
+                inicioR = Integer.parseInt(object2.get("inicio").toString());
+                finalR = Integer.parseInt(object2.get("final").toString());
+                peso = Integer.parseInt(object2.get("peso").toString());
 
                 lugar = admin.listaAdyacencia.search(inicioR);
                 if (lugar != null) {
                     lugar.listaRutas.insert(inicioR, finalR, peso);
                 }
             }
-
-            JOptionPane.showMessageDialog(null, "La carga de Lugares se a realizado con exito");
-        } else {
-            JOptionPane.showMessageDialog(null, "No se pueden cargar las rutas, "
-                    + "porque no se an ingresado los lugares");
-        }
+        
+        JOptionPane.showMessageDialog(null, "La carga de Rutas se ha realizado con exito");
+          
     }//GEN-LAST:event_cargaRutasActionPerformed
 
     private void graficarListaAdyacenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarListaAdyacenciaActionPerformed

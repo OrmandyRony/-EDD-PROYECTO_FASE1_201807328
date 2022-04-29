@@ -18,9 +18,8 @@ public class Admin {
         generarCarpetaAdmin();
     }
     
-    
-    
-    public void generarCarpetaAdmin(){
+   
+    private void generarCarpetaAdmin(){
         File dir = new File("Admin");
         if (!dir.exists()) {
             if (dir.mkdirs()) {
