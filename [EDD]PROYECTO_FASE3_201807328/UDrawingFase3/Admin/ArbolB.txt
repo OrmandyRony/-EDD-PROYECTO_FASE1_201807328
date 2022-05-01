@@ -1,0 +1,11 @@
+digraph arbolB{
+rankr = TB; 
+node[shape = box,fillcolor="yellow" color="black" style="filled"];
+node[shape=record label= "<p0>|{7920879245361}|<p1> "]7920879245361;
+node[shape=record label= "<p0>|{4635574897635}|<p1> |{7196958094069}|<p2> "]4635574897635;
+node[shape=record label= "<p0>|{9092207681372}|<p1> |{9789611590172}|<p2> "]9092207681372;
+
+7920879245361:p0->4635574897635;
+
+7920879245361:p1->9092207681372;
+}
