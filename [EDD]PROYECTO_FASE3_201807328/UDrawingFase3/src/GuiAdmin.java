@@ -19,6 +19,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -31,8 +32,6 @@ import org.json.simple.parser.ParseException;
  */
 public class GuiAdmin extends javax.swing.JDialog {
     Admin admin;
-    private ImageIcon image;
-    private Icon icono;
 
     /**
      * Creates new form GuiAdmin
@@ -503,8 +502,8 @@ public class GuiAdmin extends javax.swing.JDialog {
         String telefono;
         String direccion;
 
-        
-        for (int i = 0; i < json.size(); i++) {
+        int sizeJson = json.size();
+        for (int i = 0; i < sizeJson ; i++) {
             JSONObject object = (JSONObject) json.get(i);
             dpi = object.get("dpi").toString();
             numeroDpi = Long.parseLong(dpi);
@@ -758,14 +757,14 @@ public class GuiAdmin extends javax.swing.JDialog {
     }
     
     private void pintarImagen(String ruta) {
-        jPanel1.removeAll();
-        this.image = new ImageIcon(ruta);
-        JLabel etiqueta = new JLabel(this.image);
+        ImageIcon image = new ImageIcon(ruta);
+        JLabel etiqueta = new JLabel(image);
         JScrollPane scrollpane = new  JScrollPane(etiqueta);
-        jPanel1.add(scrollpane);
-        scrollpane.setBounds(0,0,1070,512);
+        scrollpane.setBounds(0,0,1000,500);
         scrollpane.setViewportView(etiqueta);
+        jPanel1.add(scrollpane);
         jPanel1.repaint();
+        repaint();
         
     }
 

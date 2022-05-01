@@ -15,7 +15,7 @@ import java.io.FileWriter;
  */
 public class TablaHash {
     Mensajero claves[];
-    int numeroClavesUsadas;
+    int numeroClavesUsadas = 0;
     int size = 37;
 
     public TablaHash() {
@@ -41,18 +41,28 @@ public class TablaHash {
             int i = 1;
             while (!encontro) {
                 int valorHash2 = funcionHash2(documentoPersonalIdentificacion, i);
-                int dobleHash = (valorHash + valorHash2) % this.size;
+                int dobleHash = (valorHash2); // formula con doble dispersion (valorHash + valorHash2) % this.size
+                if (dobleHash < this.size) {
+                    if (this.claves[dobleHash] == null) {
+                        claves[dobleHash] =  nuevoMensajero;
+                        encontro = true;
+                    } 
+                } else {
+                    System.out.println("Error el hash2 es mayor");
+                    break;
+                }
                 
-                if (this.claves[dobleHash] == null) {
-                    claves[dobleHash] =  nuevoMensajero;
-                    encontro = true;
-                } 
                 i++;
             }
             
-            if (porcentajeOcupacion() > 75) {
+            
+        }
+        
+       
+        if (porcentajeOcupacion() >= 75) {
+                System.out.println("Realizar rehash");
                 this.rehashing();
-            }
+                
         }
         
     }
@@ -74,7 +84,7 @@ public class TablaHash {
     
     
     public int funcionHash2(long dPI, int i) {
-        return (int) (dPI % 7 + 1) * i;
+        return (int) (dPI % 7 + 1 * i);
     }
     
     /**
@@ -84,7 +94,11 @@ public class TablaHash {
      */
     
     public double porcentajeOcupacion() {
-        return this.numeroClavesUsadas / this.size * 100;
+        System.out.println("clave: " + this.numeroClavesUsadas);
+        System.out.println("size: " + this.size);
+        double porcentaje = (((double) this.numeroClavesUsadas /(double) this.size ) * 100);
+        System.out.println("Porcentaje: " + porcentaje);
+        return porcentaje;
     }
     
     
@@ -93,7 +107,7 @@ public class TablaHash {
         aux = this.claves;
         this.size = busquedaNumeroPrimo(); 
         this.claves = new Mensajero[this.size];
-        
+        this.numeroClavesUsadas = 0;
         for (int i = 0; i < aux.length; i++) {
             if (aux[i] != null) {
                 this.insert(aux[i].documentoPersonalIdentificacion, aux[i].nombre, aux[i].apellido, 
@@ -104,21 +118,25 @@ public class TablaHash {
     }
     
     public int busquedaNumeroPrimo() {
-        int inicio = this.size;
+        int nuevoSize = this.size;
         boolean esPrimo = false;
         
-        while (!esPrimo) {
-            inicio++;
-            int divisor = 2;
-            while (divisor < inicio && !esPrimo) {
-                if (inicio % divisor == 0 ) {
-                    esPrimo = true;
+        while (esPrimo == false) {
+            nuevoSize++;
+            int cont = 0;
+            
+            for (int i = nuevoSize; i > 0; i--) {
+                if (nuevoSize % i == 0) {
+                    cont++;
                 }
-                divisor++;
+            }
+            if (cont == 2) {
+                esPrimo = true;
             }
         }
         
-        return inicio;
+        
+        return nuevoSize;
     }
     
     public void Graficar() {
