@@ -53,14 +53,10 @@ public class TablaHash {
                 }
                 
                 i++;
-            }
-            
-            
+            }   
         }
         
-       
-        if (porcentajeOcupacion() >= 75) {
-                System.out.println("Realizar rehash");
+        if (porcentajeOcupacion() >= 75) {  
                 this.rehashing();
                 
         }
@@ -94,10 +90,7 @@ public class TablaHash {
      */
     
     public double porcentajeOcupacion() {
-        System.out.println("clave: " + this.numeroClavesUsadas);
-        System.out.println("size: " + this.size);
         double porcentaje = (((double) this.numeroClavesUsadas /(double) this.size ) * 100);
-        System.out.println("Porcentaje: " + porcentaje);
         return porcentaje;
     }
     
@@ -134,7 +127,6 @@ public class TablaHash {
                 esPrimo = true;
             }
         }
-        
         
         return nuevoSize;
     }

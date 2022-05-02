@@ -426,8 +426,8 @@ public class GuiAdmin extends javax.swing.JDialog {
         String telefono;
         String direccion;
         String idMunicipio;
-        
-        for (int i = 0; i < json.size(); i++) {
+        int jsonSize = json.size();
+        for (int i = 0; i < jsonSize; i++) {
             JSONObject object = (JSONObject) json.get(i);
             dpi = object.get("dpi").toString();
             numeroDpi = Long.parseLong(dpi);
@@ -620,7 +620,8 @@ public class GuiAdmin extends javax.swing.JDialog {
         
         lugares = (JSONArray) json.get("Lugares");
         JSONObject object2;
-        for (int j = 0; j < lugares.size(); j++) {
+        int lugaresSize = lugares.size();
+        for (int j = 0; j < lugaresSize; j++) {
             object2 = (JSONObject) lugares.get(j);
             id = Integer.parseInt(object2.get("id").toString());
             departamento = object2.get("departamento").toString();

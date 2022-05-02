@@ -2,7 +2,23 @@ digraph ListaAdyacencia {
 	nodesep=.05;
 	rankdir=LR;
 	node [shape=record,width=.1,height=.1];
-	municipios[label = "	",height=2.5];
+	municipios[label = "<municipio17>17|<municipio16>16|<municipio14>14|<municipio13>13|	",height=2.5];
 	node [width = 1.5];
+	ruta1317[label = "{<n> 13 | 5 | <p> }"];
+	ruta1617[label = "{<n> 16 | 3 | <p> }"];
+	ruta1416[label = "{<n> 14 | 1 | <p> }"];
+	ruta1716[label = "{<n> 17 | 3 | <p> }"];
+	ruta1314[label = "{<n> 13 | 3 | <p> }"];
+	ruta1614[label = "{<n> 16 | 1 | <p> }"];
+	ruta1413[label = "{<n> 14 | 3 | <p> }"];
+	ruta1713[label = "{<n> 17 | 5 | <p> }"];
+	municipios:municipio17->ruta1317:n;
+	ruta1317:p->ruta1617:n;
+	municipios:municipio16->ruta1416:n;
+	ruta1416:p->ruta1716:n;
+	municipios:municipio14->ruta1314:n;
+	ruta1314:p->ruta1614:n;
+	municipios:municipio13->ruta1413:n;
+	ruta1413:p->ruta1713:n;
 
 }

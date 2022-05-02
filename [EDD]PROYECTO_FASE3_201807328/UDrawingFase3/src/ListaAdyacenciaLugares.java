@@ -51,6 +51,12 @@ public class ListaAdyacenciaLugares {
         return head != null;
     }
     
+    public void costoUniforme() {
+        // Buscar inicio
+        
+        
+    }
+    
     public void graficar() {
         String listaAdyacencia = "digraph ListaAdyacencia {\n" +
         "	nodesep=.05;\n" +

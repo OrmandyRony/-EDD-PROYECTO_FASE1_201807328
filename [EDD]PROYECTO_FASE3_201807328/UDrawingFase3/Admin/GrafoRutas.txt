@@ -1,3 +1,15 @@
 digraph grafo {
 	rankdir="LR"
+	municipio17[label= "17"];
+	municipio16[label= "16"];
+	municipio14[label= "14"];
+	municipio13[label= "13"];
+	municipio17 -> municipio13[label="5"]
+	municipio17 -> municipio16[label="3"]
+	municipio16 -> municipio14[label="1"]
+	municipio16 -> municipio17[label="3"]
+	municipio14 -> municipio13[label="3"]
+	municipio14 -> municipio16[label="1"]
+	municipio13 -> municipio14[label="3"]
+	municipio13 -> municipio17[label="5"]
 }
