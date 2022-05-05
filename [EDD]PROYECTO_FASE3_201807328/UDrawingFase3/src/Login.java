@@ -10,6 +10,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
@@ -112,7 +113,7 @@ public class Login extends javax.swing.JFrame {
             guiAdmin.setVisible(true);
         } else {
             NodoB nodoCliente = admin.arbolBClientes.buscar(admin.arbolBClientes.raiz, Long.parseLong(textUser.getText()));
-            if (nodoCliente != null && nodoCliente.cliente.contrasena.equals(textPassword.getText())) {
+            if (nodoCliente != null && BCrypt.checkpw(textPassword.getText(), nodoCliente.cliente.contrasena)) {
                Usuario guiUsuario = new Usuario(this, true, nodoCliente.cliente, this.admin);
                dispose();
                guiUsuario.setVisible(true);

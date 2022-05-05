@@ -6,6 +6,7 @@
 
 
 import java.awt.Image;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -376,6 +377,11 @@ public class GuiAdmin extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public String encriptar(String contrasena) {
+        return  BCrypt.hashpw(contrasena, BCrypt.gensalt());
+    }
+    
+    
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         String ruta = "";
@@ -431,7 +437,7 @@ public class GuiAdmin extends javax.swing.JDialog {
             nombre = object.get("nombre_completo").toString();
             usuario = object.get("nombre_usuario").toString();
             correo = object.get("correo").toString();
-            contrasena = object.get("contrasenia").toString();
+            contrasena = encriptar(object.get("contrasenia").toString());
             telefono = object.get("telefono").toString();
             direccion = object.get("direccion").toString();
             idMunicipio = object.get("id_municipio").toString();
