@@ -12,8 +12,7 @@ public class LugarRecorrido {
     int id;
     int peso;
 
-    public LugarRecorrido(String nombre, int id, int peso) {
-        this.nombre = nombre;
+    public LugarRecorrido(int id, int peso) {
         this.id = id;
         this.peso = peso;
     }

@@ -20,8 +20,8 @@ public class ListaRutaLugares {
         
     }
     
-    public void insert (String nombre, int id, int peso) {
-        LugarRecorrido lugarNuevo = new LugarRecorrido(nombre, id, peso);
+    public void insert (int id, int peso) {
+        LugarRecorrido lugarNuevo = new LugarRecorrido(id, peso);
         Nodo nuevoNodo = new Nodo(lugarNuevo);
         
         if (head == null) {

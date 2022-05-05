@@ -12,6 +12,7 @@
  */
 public class ListaAdyacenciaLugares {
     Nodo head = null;
+    ListaRutaLugares listaRutaMensajero = new ListaRutaLugares();
     
     public class Nodo {
         Lugar lugar;
@@ -51,12 +52,34 @@ public class ListaAdyacenciaLugares {
         return head != null;
     }
     
-    public void costoUniforme() {
+    public void costoUniforme(int idInicio, int idFinal) {
+        // Test 17 al 14
         // Buscar inicio
+        Lugar lugarInicio = search(idInicio);
+        Lugar lugarFinal = search(idFinal);
         
+        transferirDatos(lugarInicio, 0);
         
+        while (listaRutaMensajero.head != null) {
+            ListaRutaLugares.Nodo nodoActual = listaRutaMensajero.pop();
+            
+            if (nodoActual.lugarRecorrido.id == lugarInicio.id) {
+                
+            }
+        }
+
     }
     
+    public void transferirDatos(Lugar lugar, int peso) {
+        listaRutaMensajero.insert(lugar.id, peso);
+        ListaRutas auxListaRutas = lugar.listaRutas;
+        
+        ListaRutas.NodoRuta nodoRuta = auxListaRutas.head;
+        
+        while (nodoRuta != null) {
+            listaRutaMensajero.insert(nodoRuta.ruta.finalR, nodoRuta.ruta.peso + peso);
+        }
+    }    
     public void graficar() {
         String listaAdyacencia = "digraph ListaAdyacencia {\n" +
         "	nodesep=.05;\n" +

@@ -6,6 +6,7 @@
 
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +14,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -90,7 +92,8 @@ public class GuiAdmin extends javax.swing.JDialog {
         graficarListaAdyacencia = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         graficarRutas = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -206,104 +209,97 @@ public class GuiAdmin extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
-        );
+        jLabel15.setText("jLabel15");
+        jScrollPane1.setViewportView(jLabel15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(cargaMasivaLugares)
-                    .addComponent(jLabel6)
-                    .addComponent(cargaRutas)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1050, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(btnBuscar)
-                            .addComponent(jLabel3)
-                            .addComponent(cargaMasivaMensajeros))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(graficarRutas)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnGraficar)))))
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(graficarListaAdyacencia))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(cargaMasivaLugares)
+                            .addComponent(jLabel6)
+                            .addComponent(cargaRutas)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel13))
-                                .addGap(77, 77, 77)
+                                    .addComponent(jLabel1)
+                                    .addComponent(btnBuscar)
+                                    .addComponent(jLabel3)
+                                    .addComponent(cargaMasivaMensajeros))
+                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(eliminarDPI))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel12))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buscarDpiDatos))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(graficarRutas)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel2)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(graficarTablaHash))
+                                        .addComponent(btnGraficar)))))
+                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(graficarListaAdyacencia))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(211, 211, 211)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
+                                                .addGap(20, 20, 20)
+                                                .addComponent(cerrasSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel13))
+                                        .addGap(77, 77, 77)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(dpiBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 32, Short.MAX_VALUE)))
-                        .addGap(48, 48, 48)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnBuscarDPI)
-                        .addComponent(btnEliminar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(btnBuscarDatos)))
-                .addGap(27, 27, 27))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                                                .addComponent(eliminarDPI))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel9)
+                                                    .addComponent(jLabel12))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel11)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(buscarDpiDatos))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(graficarTablaHash))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addGap(211, 211, 211)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel7)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel8)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(dpiBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(0, 32, Short.MAX_VALUE)))
+                                .addGap(48, 48, 48)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnBuscarDPI)
+                                .addComponent(btnEliminar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(btnBuscarDatos)))
+                        .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -451,7 +447,11 @@ public class GuiAdmin extends javax.swing.JDialog {
     private void btnGraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficarActionPerformed
         // TODO add your handling code here:
         admin.arbolBClientes.graficar();
-        this.pintarImagen("Admin\\Arbol.jpg");
+        try {
+            this.pintarImagen("Admin\\Arbol.jpg");
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
         
     }//GEN-LAST:event_btnGraficarActionPerformed
@@ -567,7 +567,11 @@ public class GuiAdmin extends javax.swing.JDialog {
     private void graficarTablaHashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarTablaHashActionPerformed
         // TODO add your handling code here:
         admin.tablaHashMensajeros.Graficar();
-        pintarImagen("Admin\\TablaHash.jpg");
+        try {
+            pintarImagen("Admin\\TablaHash.jpg");
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_graficarTablaHashActionPerformed
 
     private void cargaMasivaLugaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMasivaLugaresActionPerformed
@@ -702,14 +706,22 @@ public class GuiAdmin extends javax.swing.JDialog {
     private void graficarListaAdyacenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarListaAdyacenciaActionPerformed
         // TODO add your handling code here:
         admin.listaAdyacencia.graficar();
-        pintarImagen("Admin\\ListaAdyacencia.jpg");
+        try {
+            pintarImagen("Admin\\ListaAdyacencia.jpg");
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_graficarListaAdyacenciaActionPerformed
 
     private void graficarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarRutasActionPerformed
         // TODO add your handling code here:
         admin.listaAdyacencia.graficarGrafo();
-        pintarImagen("Admin\\GrafoRutas.jpg");
+        try {
+            pintarImagen("Admin\\GrafoRutas.jpg");
+        } catch (IOException ex) {
+            Logger.getLogger(GuiAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_graficarRutasActionPerformed
 
     /**
@@ -757,17 +769,15 @@ public class GuiAdmin extends javax.swing.JDialog {
         });
     }
     
-    private void pintarImagen(String ruta) {
-        ImageIcon image = new ImageIcon(ruta);
-        JLabel etiqueta = new JLabel(image);
-        JScrollPane scrollpane = new  JScrollPane(etiqueta);
-        scrollpane.setBounds(0,0,1000,500);
-        scrollpane.setViewportView(etiqueta);
-        jPanel1.add(scrollpane);
-        jPanel1.repaint();
-        repaint();
-        
+    public void pintarImagen(String ruta) throws IOException{
+        File file = new File(ruta);
+        BufferedImage bufferedImage = ImageIO.read(file);
+
+        ImageIcon imageIcon = new ImageIcon(bufferedImage);
+        jLabel15.setSize(imageIcon.getIconWidth(), imageIcon.getIconHeight());
+        jLabel15.setIcon(imageIcon);
     }
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -792,6 +802,7 @@ public class GuiAdmin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -800,6 +811,6 @@ public class GuiAdmin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
