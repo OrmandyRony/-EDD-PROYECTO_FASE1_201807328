@@ -1,492 +1,362 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+
 
 /**
  *
- * @author USUARIO
+ * @author orman
  */
 public class Matriz {
-    ListaEncabezado listaVertices = new ListaEncabezado();
-    ListaEncabezado listaRecorridos = new ListaEncabezado();
-    int size = 0;
-    
-   
-    public void insertarVertice(int id) {
-          Encabezado tmp = new Encabezado();
-          tmp.id = id;
-          tmp.posicion = size;
-          size++;
-          NodoEncabezado nuevo = new NodoEncabezado(tmp);
-          listaVertices.insert(nuevo);
 
+    ListaEncabezados listaVertices = new ListaEncabezados();
+    ListaEncabezados listaRecorridos = new ListaEncabezados();
+
+    public long size = 0;
+
+    public void insertarEncabezado(long identificador) {
+        if (revision(identificador)) {
+            Encabezado tmp = new Encabezado();
+            tmp.identificador = identificador;
+            tmp.posicion = size;
+            NodoEncabezado nuevo = new NodoEncabezado(tmp);
+            listaVertices.insertar(nuevo);
+            size++;
+        }
     }
 
-        // Ensamblar
-    public void rellenar() {
-        NodoEncabezado tmp = listaVertices.head;
-        
+    public boolean revision(long identificador) {
+        NodoEncabezado tmp = listaVertices.heap;
         while (tmp != null) {
-            Encabezado encabezado = (Encabezado) tmp.dato;
-            NodoEncabezado aux = null;
             
-            for (int i = 0; i <size; i++) {
-                NodoInterno nodoInternoAux = new NodoInterno(encabezado.posicion, i);
-                NodoEncabezado nuevoNodo = new NodoEncabezado(nodoInternoAux);
-                
+            Encabezado temporal = (Encabezado) tmp.dato;
+            if (temporal.identificador == identificador) {
+                return false;
+            }
+            tmp = tmp.siguiente;
+        }
+        return true;
+    }
+
+    
+    public void rellenar() {
+        NodoEncabezado tmp = listaVertices.heap;
+        while (tmp != null) {
+            Encabezado cab = (Encabezado) tmp.dato;
+            NodoEncabezado referencia = null;
+            for (int i = 0; i < size; i++) {
+                NodoInterno temporal = new NodoInterno(cab.posicion, i);
+                NodoEncabezado nuevo = new NodoEncabezado(temporal);
                 if (i == 0) {
-                    tmp.derecho = nuevoNodo;
-                    nuevoNodo.izquierdo = tmp;
-                    aux = nuevoNodo;
+                    tmp.derecho = nuevo;
+                    nuevo.izquierdo = tmp;
+                    referencia = nuevo;
+
                 } else {
-                    aux.derecho = nuevoNodo;
-                    nuevoNodo.izquierdo = aux;
-                    aux = nuevoNodo;
+                    referencia.derecho = nuevo;
+                    nuevo.izquierdo = referencia;
+                    referencia = nuevo;
+
                 }
             }
             tmp = tmp.siguiente;
         }
-        
-        pesosIniciales();
-        recorridosIniciales();
-        
+        asignarPesosIniciales();
+        asignarRecorridosIniciales();
     }
-   
-    public void insertarPesos(int id1, int id2, double peso) {
-        NodoEncabezado nodoEncabezadoAux = listaVertices.head;
-        int posicion1 = -1;
-        int posicion2 = -1;
-        
-        while (nodoEncabezadoAux != null) {
-            Encabezado encabezadoAux = (Encabezado) nodoEncabezadoAux.dato;
-            
-            if (encabezadoAux.id == id1 ) {
-                posicion1 = encabezadoAux.posicion;
-            } else if (encabezadoAux.id == id2) {
-                posicion2 = encabezadoAux.posicion;
+
+    public NodoEncabezado buscarId(long identificador) {
+        NodoEncabezado tmp = listaVertices.heap;
+        while (tmp != null) {
+            Encabezado temporal = (Encabezado) tmp.dato;
+            if (temporal.identificador == identificador) {
+                return tmp;
             }
-            
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-            
-            if (posicion1 != -1 && posicion2 != -1) {
+            tmp = tmp.siguiente;
+        }
+
+        return null;
+    }
+
+    public void asignarPesosIniciales() {
+        NodoEncabezado tmp = listaVertices.heap;
+        long contador = 0;
+        while (tmp != null) {
+            NodoEncabezado referencia = tmp.derecho;
+            for (int i = 0; i < contador; i++) {
+                if (referencia != null && referencia.derecho != null) {
+                    referencia = referencia.derecho;
+                }
+            }
+            NodoInterno temporal = (NodoInterno) referencia.dato;
+            temporal.valor = 0;
+            contador++;
+            tmp = tmp.siguiente;
+        }
+    }
+
+    public void asignarRecorridosIniciales() {
+        NodoEncabezado tmp = listaVertices.heap;
+        while (tmp != null) {
+            NodoEncabezado temporal = tmp.derecho;
+            Encabezado cab = (Encabezado) tmp.dato;
+            long fila = cab.posicion;
+            NodoEncabezado tmp2 = listaVertices.heap;
+            for (int i = 0; i < size; i++) {
+                if (temporal != null) {
+                    NodoInterno celd = (NodoInterno) temporal.dato;
+                    Encabezado cab2 = (Encabezado) tmp2.dato;
+                    if (celd.columna != fila) {
+                        celd.clave = cab2.identificador;
+                    }
+                    temporal = temporal.derecho;
+                }
+
+                if (tmp2 != null) {
+                    tmp2 = tmp2.siguiente;
+                }
+            }
+            tmp = tmp.siguiente;
+        }
+    }
+
+    public void asignarPesos(long identificador_A, long identificador_B, double peso) {
+        //primero buscar sus posiciones
+        NodoEncabezado tmp = listaVertices.heap;
+        long posicionA = -1;
+        long posicionB = -1;
+        while (tmp != null) {
+            Encabezado temporal = (Encabezado) tmp.dato;
+            if (temporal.identificador == identificador_A) {
+                posicionA = temporal.posicion;
+            } else if (temporal.identificador == identificador_B) {
+                posicionB = temporal.posicion;
+            }
+            tmp = tmp.siguiente;
+            if (posicionA != -1 && posicionB != -1) {
                 break;
             }
-            
         }
-        
-        if (posicion1 != -1 && posicion2 != -1) {
-            NodoEncabezado fila = listaVertices.head;
-            
-            for (int i = 0; i < posicion1; i++) {
+
+        if (posicionA != -1 && posicionB != -1) {
+
+            NodoEncabezado fila = listaVertices.heap;
+            for (int i = 0; i < posicionA; i++) {
                 fila = fila.siguiente;
             }
-            
             NodoEncabezado celd = fila.derecho;
-            for (int i = 0; i < posicion2; i++) {
+            for (int i = 0; i < posicionB; i++) {
                 celd = celd.derecho;
             }
-            
-            
-            NodoInterno nodoInternoAux = (NodoInterno) celd.dato;
-            nodoInternoAux.valor = peso;
-            
-            fila = listaVertices.head;
-            
-            for (int i = 0; i < posicion2; i++) {
+            NodoInterno temporal = (NodoInterno) celd.dato;
+            temporal.valor = peso;
+            temporal.costoIndi = peso;
+
+            fila = listaVertices.heap;
+            for (int i = 0; i < posicionB; i++) {
                 fila = fila.siguiente;
             }
             celd = fila.derecho;
-            for (int i = 0; i < posicion1; i++) {
+            for (int i = 0; i < posicionA; i++) {
                 celd = celd.derecho;
             }
-            
-            nodoInternoAux = (NodoInterno) celd.dato;
-            nodoInternoAux.valor = peso;
-            nodoInternoAux.costo = peso;
+            temporal = (NodoInterno) celd.dato;
+            temporal.valor = peso;
+            temporal.costoIndi = peso;
+
         }
-        
-        
-        
     }
-    
-    //asignar pesos iniciales
-    public void pesosIniciales() {
-        NodoEncabezado tmp = listaVertices.head;
-        int contador = 0;
-        
-        while (tmp != null) {
-            NodoEncabezado aux = tmp.derecho;
-            
-            for (int i = 0; i < contador; i++) {
-                if (aux != null && aux.derecho != null) {
-                    aux = aux.derecho;
-                }
+
+    public NodoEncabezado buscarPorCordenadas(long fila, long columna) {
+        NodoEncabezado tmp = listaVertices.heap;
+        for (int i = 0; i < fila; i++) {
+            if (tmp != null) {
+                tmp = tmp.siguiente;
             }
-            NodoInterno nodoInternoAux = (NodoInterno) aux.dato;
-            nodoInternoAux.valor = 0;
-            tmp = tmp.siguiente;
-            contador++;
         }
-        
-        
-    }
-    
-    
-    
-    public void recorridosIniciales() {
-        NodoEncabezado tmp = listaVertices.head;
-        
-        while (tmp != null) {
-            NodoEncabezado aux = tmp.derecho;
-            Encabezado encabezado = (Encabezado) tmp.dato;
-            int fila = encabezado.posicion;
-            NodoEncabezado aux2 = listaVertices.head;
-            
-            for (int i = 0; i < size; i++) {
-                if (aux != null) {
-                    NodoInterno nodoInterno = (NodoInterno) aux.dato;
-                    Encabezado encabezado2 = (Encabezado) aux2.dato;
-                    if (nodoInterno.columna != fila) {
-                        nodoInterno.clave = encabezado2.id;
-                    }
-                    aux = aux.derecho;
-                    
-                }
-                
-                if (aux2 != null) {
-                    aux2 = aux2.siguiente;
-                }
+        tmp = tmp.derecho;
+        for (int i = 0; i < columna; i++) {
+            if (tmp != null) {
+                tmp = tmp.derecho;
             }
-            tmp = tmp.siguiente;
-            
+        }
+        if (tmp != null) {
+            NodoInterno cel = (NodoInterno) tmp.dato;
+            return tmp;
+        } else {
+            return null;
         }
     }
-    
-    public void imprimirMatriz1() {
-        System.out.println("-------------- Primer Matriz -------------------");
-        NodoEncabezado nodoEncabezadoAux = listaVertices.head;
-        
-        while (nodoEncabezadoAux != null) {
-            Encabezado encabezado = (Encabezado) nodoEncabezadoAux.dato;
-            System.out.println("\t" + encabezado.id);
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-        }
-        
-        System.out.println("");
-        
-        nodoEncabezadoAux = listaVertices.head;
-        
-        while (nodoEncabezadoAux != null) {
-            NodoEncabezado nodoAux = nodoEncabezadoAux.derecho;
-            Encabezado encabezado = (Encabezado) nodoEncabezadoAux.dato;
-            System.out.println(encabezado.id);
-            
-            while (nodoAux != null) {
-                NodoInterno nodoInterno = (NodoInterno) nodoAux.dato;
-                if (nodoInterno.valor != Double.POSITIVE_INFINITY) {
-                    System.out.println("\t" + nodoInterno.valor);
-                } else {
-                    System.out.println("\ti");
-                }
-                nodoAux = nodoAux.derecho;
-            }
-            System.out.println("");
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-        }
-        System.out.println("\n");
-    }
-    
-    public void imprimirMatriz2() {
-        System.out.println("---------------------- Matriz 2 -----------------");
-        NodoEncabezado nodoEncabezadoAux = listaVertices.head;
-        
-        while (nodoEncabezadoAux != null) {
-            Encabezado encabezado = (Encabezado) nodoEncabezadoAux.dato;
-            System.out.println("\t" + encabezado.id);
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-        }
-        
-        System.out.println("");
-        
-        nodoEncabezadoAux = listaVertices.head;
-        
-        while (nodoEncabezadoAux != null) {
-            NodoEncabezado nodoAux = nodoEncabezadoAux.derecho;
-            Encabezado encabezado = (Encabezado) nodoEncabezadoAux.dato;
-            System.out.println(encabezado.id);
-            
-            while (nodoAux != null) {
-                NodoInterno nodoInterno = (NodoInterno) nodoAux.dato;
-                if (nodoInterno.valor != Double.POSITIVE_INFINITY) {
-                    System.out.println("\t" + nodoInterno.clave);
-                } else {
-                    System.out.println("\ti");
-                }
-                nodoAux = nodoAux.derecho;
-            }
-            System.out.println("");
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-        }
-        System.out.println("\n");
-        
-    }
-    
-    
-    public void imprimirMatriz3() {
-        System.out.println("------------------------- Matriz 3 -------------------");
-        
-        NodoEncabezado nodoEncabezadoAux = listaVertices.head;
-        
-        while (nodoEncabezadoAux != null) {
-            Encabezado encabezado = (Encabezado) nodoEncabezadoAux.dato;
-            System.out.println("\t" + encabezado.id);
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-        }
-        
-        System.out.println("");
-        
-        nodoEncabezadoAux = listaVertices.head;
-        
-        while (nodoEncabezadoAux != null) {
-            NodoEncabezado nodoAux = nodoEncabezadoAux.derecho;
-            Encabezado encabezado = (Encabezado) nodoEncabezadoAux.dato;
-            System.out.println(encabezado.id);
-            
-            while (nodoAux != null) {
-                NodoInterno nodoInterno = (NodoInterno) nodoAux.dato;
-                if (nodoInterno.valor != Double.POSITIVE_INFINITY) {
-                    System.out.println("\t" + nodoInterno.costo);
-                } else {
-                    System.out.println("\ti");
-                }
-                nodoAux = nodoAux.derecho;
-            }
-            System.out.println("");
-            nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-        }
-        System.out.println("\n");
-    }
-    
-    
-    public void algoritmoFloyd() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                NodoEncabezado nodoEncabezado1 = buscarNodoEncabezado(i, j);
-                
-                for (int k = 0; k < size; k++) {
-                    System.out.println("Intentando operar");
-                    NodoEncabezado nodoEncabezado2 = buscarNodoEncabezado(k, j);
-                    NodoInterno nodoInternoA = (NodoInterno) nodoEncabezado1.dato;
-                    NodoInterno nodoInternoB = (NodoInterno) nodoEncabezado2.dato;
-                    
-                    if (nodoInternoA.fila != nodoInternoB.fila && nodoInternoA.columna != nodoInternoB.columna) {
-                        if (nodoEncabezado1 != null && nodoEncabezado2 != null) {
-                            NodoEncabezado identificador = listaVertices.head;
-                            
-                            for (int l = 0; l < i; l++) {
+
+    public void algoritmo() {
+
+        for (int i = 0; i < size; i++) { // filas
+            for (int j = 0; j < size; j++) { // columnas
+
+                NodoEncabezado primero = buscarPorCordenadas(i, j);
+                for (int l = 0; l < size; l++) {
+                    System.out.println("\n\n===================intentado operar============================");
+                    NodoEncabezado segundo = buscarPorCordenadas(l, i);
+                    NodoInterno celA = (NodoInterno) primero.dato;
+                    NodoInterno celB = (NodoInterno) segundo.dato;
+                    if (celA.fila != celB.fila && celA.columna != celB.columna) {
+
+                        if (primero != null && segundo != null) {
+
+                            NodoEncabezado identificador = listaVertices.heap;
+                            for (int k = 0; k < i; k++) {
                                 identificador = identificador.siguiente;
                             }
-                            
                             Encabezado id = (Encabezado) identificador.dato;
-                            operatoria(nodoEncabezado1, nodoEncabezado2, id.id);
-                                   
+                            operatoria(primero, segundo, id.identificador);
                         }
                     }
+                    System.out.println("==========================================================\n\n");
                 }
+
             }
         }
     }
-    
-    public NodoEncabezado buscarNodoEncabezado(int fila, int columna) {
-        NodoEncabezado nodoEncabezadoAux = listaVertices.head;
-        
-        for (int i = 0; i < fila; i++) {
-            if (nodoEncabezadoAux != null) {
-                nodoEncabezadoAux = nodoEncabezadoAux.siguiente;
-            }
-        }
-        
-        nodoEncabezadoAux = nodoEncabezadoAux.derecho;
-        for (int i = 0; i < columna; i++) {
-            if (nodoEncabezadoAux != null) {
-                nodoEncabezadoAux = nodoEncabezadoAux.derecho;
-            }
-        }
-        
-        if (nodoEncabezadoAux != null) {
-            NodoInterno nodoInterno = (NodoInterno) nodoEncabezadoAux.dato;
-            return nodoEncabezadoAux;
-        }
-        
-        return null;
-    }
-    
-    
-    public void operatoria(NodoEncabezado nodoEncabezado1, NodoEncabezado nodoEncabezado2, int identificador) {
-        NodoInterno uno = (NodoInterno) nodoEncabezado1.dato;
-        NodoInterno dos = (NodoInterno) nodoEncabezado2.dato;
-        
+
+    public void operatoria(NodoEncabezado primero, NodoEncabezado segundo, long identificador) {
+
+        NodoInterno uno = (NodoInterno) primero.dato;
+        NodoInterno dos = (NodoInterno) segundo.dato;
         if (uno.valor != Double.POSITIVE_INFINITY && dos.valor != Double.POSITIVE_INFINITY) {
             double resultado = uno.valor + dos.valor;
-            
-            NodoEncabezado buscado = buscarNodoEncabezado(dos.fila, uno.columna);
-            
+
+            NodoEncabezado buscado = buscarPorCordenadas(dos.fila, uno.columna);
             if (buscado != null) {
-                
-                NodoInterno nodoInterno = (NodoInterno) buscado.dato;
-                
-                if (nodoInterno.valor > resultado) {
-                    imprimirMatriz2();
-                    nodoInterno.valor = resultado;
+
+                NodoInterno celd = (NodoInterno) buscado.dato;
+                if (celd.valor > resultado) {
                     
-                    buscado = buscarNodoEncabezado(nodoInterno.fila, nodoInterno.columna);
-                    NodoInterno nodoCambio = (NodoInterno) buscado.dato;
-                    nodoCambio.clave = identificador;
+                    celd.valor = resultado;
+
+                    
+                    buscado = buscarPorCordenadas(celd.fila, celd.columna);
+                    NodoInterno c_cam = (NodoInterno) buscado.dato;
+                    c_cam.clave = identificador;
                 }
-                
             }
         }
     }
-    
-    public void calcularRuta(int inicio, int finalV) {
-        
-        if (inicio != finalV) {
-            NodoEncabezado tmp = listaRecorridos.head;
-            boolean existe = false;
-            
+
+    public String obtenerRuta(long identificadorA, long identificadorB) {
+
+        if (identificadorA != identificadorB) {
+            NodoEncabezado tmp = listaRecorridos.heap;
+            boolean encontrado = false;
             while (tmp != null) {
                 Recorrido temporal = (Recorrido) tmp.dato;
-                
-                if (temporal.inicio == inicio && temporal.fin == finalV) {
-                    existe = true;
+                if (temporal.inicio == identificadorA && temporal.fin == identificadorB) {
+
+                    encontrado = true;
+                    break;
                 }
                 tmp = tmp.siguiente;
             }
-            
-            if (existe) {
-                Recorrido recorridoB = (Recorrido) tmp.dato;
-                recorridoB.listaDatos.detallesRecorrido();
+            if (encontrado) {
+                System.out.println("Este camino ya habia sido analizado y se encontro el nodo...");
+                Recorrido recorrido_buscado = (Recorrido) tmp.dato;
+                recorrido_buscado.lista_datos.detallesRecorrido();
             } else {
-                Recorrido nuevoRecorrido = new Recorrido();
-                nuevoRecorrido.inicio = inicio;
-                nuevoRecorrido.fin = finalV;
-                nuevoRecorrido.listaDatos.inicio = inicio;
-                nuevoRecorrido.listaDatos.fin = finalV;
                 
-                NodoEncabezado nodoInicio = buscarId(inicio);
-                NodoEncabezado nodoFin  = buscarId(finalV);
-                
-                if (nodoInicio != null && nodoFin != null) {
+                Recorrido nuevo_recorrido = new Recorrido();
+                nuevo_recorrido.inicio = identificadorA;
+                nuevo_recorrido.fin = identificadorB;
+                nuevo_recorrido.lista_datos.inicio = identificadorA;
+                nuevo_recorrido.lista_datos.fin = identificadorB;
+
+                NodoEncabezado inicio = buscarId(identificadorA);
+                NodoEncabezado fin = buscarId(identificadorB);
+                if (inicio != null && fin != null) {
                     
-                    NodoEncabezado aux = nodoInicio.derecho;
-                    
-                    Encabezado destino = (Encabezado) nodoFin.dato;
-                    
+                    NodoEncabezado ir = inicio.derecho;
+
+                    Encabezado destino = (Encabezado) fin.dato;
+
                     for (int i = 0; i < destino.posicion; i++) {
-                        aux = aux.derecho;
+                        ir = ir.derecho;
                     }
+
+                    NodoInterno cel = (NodoInterno) ir.dato;
+                    nuevo_recorrido.pesoTotal = cel.valor;
+                    nuevo_recorrido.lista_datos.costoTotal = (long) cel.valor;
+
                     
-                    NodoInterno nodoInterno = (NodoInterno) aux.dato;
-                    nuevoRecorrido.pesoTotal = nodoInterno.valor;
-                    nuevoRecorrido.listaDatos.costoTotal = nodoInterno.valor;
-                    
-                    NodoInterno nodoInterno1 = (NodoInterno) aux.dato;
+                    NodoInterno celd = (NodoInterno) ir.dato;
                     boolean bucle = true;
                     
-                    if (nodoInterno1.clave == destino.id) {
+                    if (celd.clave == destino.identificador) {
                         bucle = false;
                     }
+
+                    Encabezado principio = (Encabezado) inicio.dato;
+                    ir = inicio.derecho;
+                    int aux_inicio = (int) principio.posicion;
+                    int aux_final = (int) destino.posicion;
                     
-                    Encabezado principio = (Encabezado) nodoInicio.dato;
-                    aux = nodoInicio.derecho;
                     
-                    int auxInicio = (int) principio.posicion;
-                    int auxFinal = (int) destino.posicion;
                     
-                    if (auxInicio < auxFinal) {
-                        nuevoRecorrido.listaDatos.insertarRecorrido(destino.id);
+                    if (aux_inicio < aux_final) {
+                        nuevo_recorrido.lista_datos.insertarRecorrido(destino.identificador);
                     } else {
-                        nuevoRecorrido.listaDatos.insertarRecorrido(principio.id);
+                        nuevo_recorrido.lista_datos.insertarRecorrido(principio.identificador);
                     }
                     
                     while (bucle) {
-                        if (auxInicio < auxFinal) {
-                            for (int i = 0; i < destino.posicion; i++) {
-                                aux = aux.derecho;
-                            }
-                            
-                            nodoInterno1 = (NodoInterno) aux.dato;
-                        
-                            if (nodoInterno1.clave == destino.id) {
-                                nuevoRecorrido.listaDatos.insertarRecorrido(principio.id);
-                                nuevoRecorrido.listaDatos.detallesRecorrido();
-                                listaRecorridos.insert(nuevoRecorrido);
-                                break;
 
+                        if (aux_inicio < aux_final) {
+                            
+                            for (int i = 0; i < destino.posicion; i++) {
+                                ir = ir.derecho;
+                            }
+
+                            celd = (NodoInterno) ir.dato;
+
+                            if (celd.clave == destino.identificador) {
+                                nuevo_recorrido.lista_datos.insertarRecorrido((long) principio.identificador);
+                                nuevo_recorrido.lista_datos.detallesRecorrido();
+                                listaRecorridos.insertar(nuevo_recorrido);
+                                return nuevo_recorrido.lista_datos.detallesRecorrido();
                             } else {
-                                nuevoRecorrido.listaDatos.insertarRecorrido((long) nodoInterno1.clave);
-                                NodoEncabezado nuevo = buscarId( (long) nodoInterno1.clave);
+
+                                nuevo_recorrido.lista_datos.insertarRecorrido((long) celd.clave);
+                                NodoEncabezado nuevo = buscarId((long) celd.clave);
                                 destino = (Encabezado) nuevo.dato;
-                                aux = aux.derecho;
+                                ir = inicio.derecho;
                             }
                         } else {
-                            
+
                             for (int i = 0; i < destino.posicion; i++) {
-                                aux = aux.derecho;
+                                ir = ir.derecho;
                             }
-                            
-                            nodoInterno1 = (NodoInterno) aux.dato;
-                            
-                            if (nodoInterno1.clave == destino.id) {
-                                nuevoRecorrido.listaDatos.insertarRecorrido2((long) nodoInterno1.clave);
-                                nuevoRecorrido.listaDatos.detallesRecorrido();
-                                this.listaRecorridos.insert(nuevoRecorrido);
-                                break;
+
+                            celd = (NodoInterno) ir.dato;
+
+                            if (celd.clave == destino.identificador) {
+                                nuevo_recorrido.lista_datos.insertarRecorrido2((long) celd.clave);
+                                
+                                listaRecorridos.insertar(nuevo_recorrido);
+                                return nuevo_recorrido.lista_datos.detallesRecorrido();
                             } else {
-                                nuevoRecorrido.listaDatos.insertarRecorrido2((long) nodoInterno1.clave);
-                                nodoInicio = buscarId((long) nodoInterno1.clave);
-                                aux = nodoInicio.derecho;
+  
+                                nuevo_recorrido.lista_datos.insertarRecorrido2((long) celd.clave);
+                                inicio = buscarId((long) celd.clave);
+                                ir = inicio.derecho;
                             }
                         }
-                        
-                        
-                    } 
-                    
-                } else {
-                    System.out.println("No hay que hacer otro calculo");
+                    }
                 }
-                
             }
+        } else {
+           return "F";
         }
-        
-       
-        
+        return null;
+
     }
-    
-    
-     public NodoEncabezado buscarId(long id) {
-            NodoEncabezado tmp = listaVertices.head;
-            
-            while (tmp != null) {
-                Encabezado temporal = (Encabezado) tmp.dato;
-                
-                if (temporal.id == id) {
-                    return tmp;
-                }
-                
-                tmp = tmp.siguiente;
-            }
-            
-            return null;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

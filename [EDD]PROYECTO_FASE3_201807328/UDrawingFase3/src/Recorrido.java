@@ -1,15 +1,18 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+
 
 /**
  *
- * @author USUARIO
+ * @author orman
  */
 public class Recorrido {
-    double inicio = Double.POSITIVE_INFINITY;
-    double fin = Double.POSITIVE_INFINITY;
-    ListaEncabezado listaDatos = new ListaEncabezado();
-    double pesoTotal = 0;
+    public double inicio = Double.POSITIVE_INFINITY;
+    public double fin = Double.POSITIVE_INFINITY;
+    public ListaEncabezados lista_datos = new ListaEncabezados();
+    public double pesoTotal = 0;
+    
 }

@@ -13,6 +13,7 @@ public class Admin {
     ArbolB arbolBClientes = new ArbolB();
     TablaHash tablaHashMensajeros = new TablaHash();
     ListaAdyacenciaLugares listaAdyacencia = new ListaAdyacenciaLugares();
+    Matriz matriz = new Matriz();
 
     public Admin() {
         generarCarpetaAdmin();

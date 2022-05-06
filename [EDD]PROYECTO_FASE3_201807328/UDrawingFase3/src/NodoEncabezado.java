@@ -1,21 +1,27 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+
 
 /**
  *
- * @author USUARIO
+ * @author orman
  */
 public class NodoEncabezado {
-    Object dato;
+    
+    Object dato = null;
     NodoEncabezado siguiente = null;
     NodoEncabezado anterior = null;
     NodoEncabezado derecho = null;
     NodoEncabezado izquierdo = null;
-    int posicion = -1;
+    
+    public int posicion = -1;
 
-    public NodoEncabezado(Object dato) {
-        this.dato = dato;
+    public NodoEncabezado(Object data) {
+    this.dato = data;
     }
+
+    
 }

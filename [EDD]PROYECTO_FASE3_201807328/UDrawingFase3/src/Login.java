@@ -24,8 +24,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        
-        //admin.arbolBClientes.insertarNodo(19950645714L, "Rony", "Rony");
+       // floyd();
+       //admin.arbolBClientes.insertarNodo(19950645714L, "Rony", "Rony");
     }
     
     public Login(Admin admin) {

@@ -640,7 +640,10 @@ public class GuiAdmin extends javax.swing.JDialog {
             existeSucursal = sucursal.equals("si");
 
             admin.listaAdyacencia.insert(id, departamento, nombre, existeSucursal);
+            admin.matriz.insertarEncabezado(id);
         }
+        
+        admin.matriz.rellenar();
         
         JOptionPane.showMessageDialog(null, "La carga de Lugares se a realizado con exito");
     }//GEN-LAST:event_cargaMasivaLugaresActionPerformed
@@ -694,17 +697,19 @@ public class GuiAdmin extends javax.swing.JDialog {
         JSONObject object2;
         
         for (int i = 0; i < grafo.size(); i++) {
-                object2 = (JSONObject) grafo.get(i);
-                inicioR = Integer.parseInt(object2.get("inicio").toString());
-                finalR = Integer.parseInt(object2.get("final").toString());
-                peso = Integer.parseInt(object2.get("peso").toString());
+            object2 = (JSONObject) grafo.get(i);
+            inicioR = Integer.parseInt(object2.get("inicio").toString());
+            finalR = Integer.parseInt(object2.get("final").toString());
+            peso = Integer.parseInt(object2.get("peso").toString());
 
-                lugar = admin.listaAdyacencia.search(inicioR);
-                if (lugar != null) {
-                    lugar.listaRutas.insert(inicioR, finalR, peso);
-                }
+            lugar = admin.listaAdyacencia.search(inicioR);
+            if (lugar != null) {
+                lugar.listaRutas.insert(inicioR, finalR, peso);
+                admin.matriz.asignarPesos(inicioR, finalR, peso);
             }
+        }
         
+        admin.matriz.algoritmo();
         JOptionPane.showMessageDialog(null, "La carga de Rutas se ha realizado con exito");
           
     }//GEN-LAST:event_cargaRutasActionPerformed

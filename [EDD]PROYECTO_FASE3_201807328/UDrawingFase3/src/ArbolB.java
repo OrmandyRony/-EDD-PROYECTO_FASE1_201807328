@@ -234,7 +234,7 @@ public class ArbolB {
             
             while (aux != null) {
                 contador++;
-                cadena += "|{"+aux.dpi+"}|<p"+contador+"> ";
+                cadena += "|{"+aux.dpi+"  Password: "+ aux.cliente.contrasena + "}|<p"+contador+"> ";
                 aux = aux.siguiente;
             }
             
@@ -248,7 +248,7 @@ public class ArbolB {
             
             while (aux != null) {
                 contador++;
-                cadena += "|{" + aux.dpi + "}|<p" + contador + "> ";
+                cadena += "|{" + aux.dpi + "  Password: " + aux.cliente.contrasena + "}|<p" + contador + "> ";
                 aux= aux.siguiente;
             }
             

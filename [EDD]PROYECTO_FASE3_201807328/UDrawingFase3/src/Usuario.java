@@ -48,6 +48,8 @@ public class Usuario extends javax.swing.JDialog {
         initComponents();
         cargarMensajeros();
         cargaSucursales();
+        setNombre();
+        cargaSucursalesId();
     }
 
     private Usuario(JFrame jFrame, boolean b) {
@@ -70,6 +72,9 @@ public class Usuario extends javax.swing.JDialog {
         comboBoxMensajero = new javax.swing.JComboBox<>();
         comboBoxSuursal = new javax.swing.JComboBox<>();
         confirmar = new javax.swing.JButton();
+        nombre = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        comboBoxId = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -103,35 +108,48 @@ public class Usuario extends javax.swing.JDialog {
             }
         });
 
+        nombre.setText("jLabel3");
+
+        jLabel3.setText("Id:");
+
+        comboBoxId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(134, 134, 134))
             .addGroup(layout.createSequentialGroup()
-                .addGap(504, 504, 504)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nombre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(504, 504, 504)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(confirmar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(comboBoxMensajero, 0, 190, Short.MAX_VALUE)
-                                .addComponent(comboBoxSuursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(376, Short.MAX_VALUE))
+                            .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(confirmar)
+                                    .addComponent(comboBoxId, 0, 307, Short.MAX_VALUE)
+                                    .addComponent(comboBoxSuursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboBoxMensajero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(nombre))
                 .addGap(217, 217, 217)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -140,9 +158,13 @@ public class Usuario extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(comboBoxSuursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(comboBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
                 .addComponent(confirmar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 380, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                 .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -160,6 +182,11 @@ public class Usuario extends javax.swing.JDialog {
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         // TODO add your handling code here:
+        
+        String info = admin.matriz.obtenerRuta(Integer.parseInt(comboBoxId.getSelectedItem().toString()), Integer.parseInt(cliente.idMunicipio));
+        System.out.println(info);
+        
+        
     }//GEN-LAST:event_confirmarActionPerformed
 
     private void comboBoxMensajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMensajeroActionPerformed
@@ -180,6 +207,9 @@ public class Usuario extends javax.swing.JDialog {
         }
     }
     
+    public void setNombre() {
+        nombre.setText(cliente.nombre);
+    }
     
     private void cargaSucursales() {
         comboBoxSuursal.removeAllItems();
@@ -192,6 +222,23 @@ public class Usuario extends javax.swing.JDialog {
             if (nodo.lugar.existeSucursal) {
                 String sucursales = nodo.lugar.nombre + " ," + nodo.lugar.departamento;
                 comboBoxSuursal.addItem(sucursales);
+            }
+            nodo = nodo.next;
+        }
+        
+    }
+    
+    private void cargaSucursalesId() {
+        comboBoxId.removeAllItems();
+        
+        ListaAdyacenciaLugares lugares = admin.listaAdyacencia;
+        
+        ListaAdyacenciaLugares.Nodo nodo = lugares.head;
+        
+        while (nodo != null) {
+            if (nodo.lugar.existeSucursal) {
+                String sucursales = "" + nodo.lugar.id;
+                comboBoxId.addItem(sucursales);
             }
             nodo = nodo.next;
         }
@@ -254,11 +301,14 @@ public class Usuario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cerrarSesion;
+    private javax.swing.JComboBox<String> comboBoxId;
     private javax.swing.JComboBox<String> comboBoxMensajero;
     private javax.swing.JComboBox<String> comboBoxSuursal;
     private javax.swing.JButton confirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel nombre;
     // End of variables declaration//GEN-END:variables
 }

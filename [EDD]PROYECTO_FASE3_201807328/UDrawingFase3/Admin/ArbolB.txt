@@ -1,11 +1,27 @@
 digraph arbolB{
 rankr = TB; 
 node[shape = box,fillcolor="yellow" color="black" style="filled"];
-node[shape=record label= "<p0>|{7920879245361}|<p1> "]7920879245361;
-node[shape=record label= "<p0>|{4635574897635}|<p1> |{7196958094069}|<p2> "]4635574897635;
-node[shape=record label= "<p0>|{9092207681372}|<p1> |{9789611590172}|<p2> "]9092207681372;
+node[shape=record label= "<p0>|{6570962329198  Password: $2a$10$8/7/lUGB7U2Jn0UKV9cfWe6Ws9ZYUPYTT7A1g5YH8JVSbx0OdDdme}|<p1> "]6570962329198;
+node[shape=record label= "<p0>|{3809878334166  Password: $2a$10$bq2yoEX/vlJaCDJC9V/EQuEmI7RDTqstx6dJfdbiI9OLg77mE/br2}|<p1> |{5113457072472  Password: $2a$10$I4z7/APPPpPA4L6TS9WfpuugwXdEpODYPvTZdKlmIjaT7piFfQ/Mq}|<p2> "]3809878334166;
+node[shape=record label= "<p0>|{1380378026716  Password: $2a$10$cZIz/yLvbYcCJr3PLp6jVOy9aDx2cq0cTaSYDJS5pUAp.cJFG5txK}|<p1> |{2120089230234  Password: $2a$10$prJaXY/EYob5GE6D5r9VSOXyFKf0.VCXw5b0xMQjlLcEvupfgZsDa}|<p2> |{3536227443941  Password: $2a$10$NHly2ECnNw9NfnJV744wbub9rR7hWy9XvK.ydJTv0GojTuNF4t/RG}|<p3> |{3723989068915  Password: $2a$10$6qHsE5qYQG7eMlR0GxLBDuA5WInpMmm14oKjKCFKhJp5I8Nd4kRaK}|<p4> "]1380378026716;
+node[shape=record label= "<p0>|{3921700819523  Password: $2a$10$y0q3SXTlMI/wkijMLEsdxe4e6AGEExoKm.EFAZ1Q/soXvW99lpRNe}|<p1> |{4383255956309  Password: $2a$10$09yGOBKZvEmk2VXqnt84R.4BdHuIzUOiBr8NedtYcquRcrMbPnul6}|<p2> |{4906483086049  Password: $2a$10$egXQ0ZMyHR2yF9xfCMKBpuCBKytB0OFeGZWDiIrBz7TQyhPI5Y2ie}|<p3> |{5015072604349  Password: $2a$10$20JVlkG91S8gyRzbDb7osOryvcrRDuwbmlMwttYdTZZ5zlqrse2/q}|<p4> "]3921700819523;
+node[shape=record label= "<p0>|{5424073899437  Password: $2a$10$A3.luCKMTErtoTYDzMiRi.n5T.YvzEe1Db8FS9sgBwzjRiG2NgnSa}|<p1> |{5627842542205  Password: $2a$10$YeVnsXwUTHfzwFWS1lSPbu/HvqX9D.AZFPCLjM70.K/dTMzWJaPUy}|<p2> "]5424073899437;
+node[shape=record label= "<p0>|{7867873200702  Password: $2a$10$L5BZZvXx.33AG9PZNXDz2OePMQ5aSKdCRDVM3Qfsx9gw8aqEVOhZy}|<p1> |{8542677685484  Password: $2a$10$WlGVUYP4nqJB5l/5q5fNmOmbXW4ng40q6oMpyr.JlGLT0MRdfg7dW}|<p2> "]7867873200702;
+node[shape=record label= "<p0>|{6916983618016  Password: $2a$10$QyBKD/8pdb54x2j6ngIzFe2cWReGTqZGr37uwUmbp6n6b.hpiRc3u}|<p1> |{7025287897555  Password: $2a$10$GNJTFRcjXoRazp0Rh7E.3Oi4PYs5NgtyecacbjtLc0azP14L99jye}|<p2> |{7732124190173  Password: $2a$10$Cjr7v8bhM0Yq7tkc9qI0mOXZb51iJrouly/c8/cOgUmXMBLNs2veG}|<p3> "]6916983618016;
+node[shape=record label= "<p0>|{8036656992642  Password: $2a$10$uKUD9jXNCKNVKVGpxgfmXOAmQyMGZ9Z..U6tHPna5RGJ5jNlO8KJm}|<p1> |{8130420805048  Password: $2a$10$HvCjqsnYFMoqAv/2bIpsfeByML6h3tnfRRwnzKdhU/aPJuOif.Ybm}|<p2> |{8460870834709  Password: $2a$10$bzUMSEy663S3ZRhQOOjqR.5ADGksGgG.Bv6QQvcWrBrP63PGUfjQy}|<p3> |{8535959083984  Password: $2a$10$HQyxnM8PLrhhdrEunYSlCugemQBU1jPBGJmViHzamJlrhODpyCw4y}|<p4> "]8036656992642;
+node[shape=record label= "<p0>|{8621297100445  Password: $2a$10$8xqQYmx6u9jnygAuD9RyZeMXDHsgzI9ey/3REEpyC9hXrCthGKsDu}|<p1> |{9223540471996  Password: $2a$10$HtoAGaJiZ.P6qdEf7ZqhQuNhzEkHd8BaYp9JbjjMvLyZS.qUUTtv2}|<p2> "]8621297100445;
 
-7920879245361:p0->4635574897635;
+6570962329198:p0->
+3809878334166:p0->1380378026716;
 
-7920879245361:p1->9092207681372;
+3809878334166:p1->3921700819523;
+
+3809878334166:p2->5424073899437;
+
+6570962329198:p1->
+7867873200702:p0->6916983618016;
+
+7867873200702:p1->8036656992642;
+
+7867873200702:p2->8621297100445;
 }
